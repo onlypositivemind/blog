@@ -1,0 +1,36 @@
+.link {
+    position: relative;
+    display: block;
+    padding-left: 50px;
+    width: fit-content;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    top: -3px;
+    display: block;
+    fill: var(--white);
+    width: 30px;
+    height: 30px;
+}
+
+.title {
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.collapsed {
+    width: 30px;
+    
+    .title {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+@media (any-hover: hover) {
+    .title:hover {
+        opacity: 0.6;
+    }
+}

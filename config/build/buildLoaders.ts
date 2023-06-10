@@ -5,6 +5,22 @@ import { BuildOptions } from './types/config';
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     const { isDev } = options;
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [{ loader: 'file-loader' }],
+    };
+
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    };
+
+    const tsLoader = {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+    };
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
@@ -14,8 +30,11 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
                 loader: 'css-loader',
                 options: {
                     modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: isDev ? '[local]__[hash:base64:5]' : '[hash:base64:8]',
+                        auto: (resPath: string) =>
+                            Boolean(resPath.includes('.module.')),
+                        localIdentName: isDev
+                            ? '[local]__[hash:base64:5]'
+                            : '[hash:base64:8]',
                     },
                 },
             },
@@ -23,11 +42,5 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
         ],
     };
 
-    const tsLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
-
-    return [tsLoader, cssLoader];
+    return [fileLoader, svgLoader, tsLoader, cssLoader];
 };

@@ -1,17 +1,18 @@
+import { Header } from '@/widgets/Header';
+import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/AppRouter';
-import { AppLink } from '@/shared/ui/AppLink';
 import './styles/index.scss';
 
 export const App = () => {
     return (
         <div className='app'>
-            <AppLink to='/' theme='primary'>
-                Main
-            </AppLink>
-            <AppLink to='/about'>About</AppLink>
-            <main>
-                <AppRouter />
-            </main>
+            <Header />
+            <div className='content-page'>
+                <Sidebar />
+                <main>
+                    <AppRouter />
+                </main>
+            </div>
         </div>
     );
 };
