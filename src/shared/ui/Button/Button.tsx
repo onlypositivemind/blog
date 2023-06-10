@@ -2,12 +2,7 @@ import cn from 'classnames';
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import s from './Button.module.scss';
 
-type ButtonTheme =
-    | 'clear'
-    | 'outlined'
-    | 'outlined_inverted'
-    | 'primary'
-    | 'blue';
+type ButtonTheme = 'clear' | 'outlined' | 'outlined_white' | 'primary' | 'blue';
 
 type ButtonSize = 'size_p1' | 'size_h4' | 'size_h3';
 

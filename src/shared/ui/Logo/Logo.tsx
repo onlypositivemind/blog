@@ -5,7 +5,7 @@ import { getRouteMain } from '@/shared/const/router';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';
 
-type LogoTheme = 'primary' | 'inverted';
+type LogoTheme = 'primary' | 'white';
 
 interface LogoProps {
     theme?: LogoTheme;

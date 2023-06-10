@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { NavbarItemType } from '../../model/types/navbar';
 import s from './NavbarItem.module.scss';
 import cn from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 interface NavbarItemProps extends NavbarItemType {
     collapsed: boolean;
@@ -10,6 +11,7 @@ interface NavbarItemProps extends NavbarItemType {
 
 const NavbarItemComponent = (props: NavbarItemProps) => {
     const { collapsed, path, title, Icon } = props;
+    const { t } = useTranslation();
 
     return (
         <AppLink
@@ -18,7 +20,7 @@ const NavbarItemComponent = (props: NavbarItemProps) => {
             className={cn(s.link, { [s.collapsed]: collapsed })}
         >
             <Icon className={s.icon} />
-            <p className={s.title}>{title}</p>
+            <p className={s.title}>{t(title)}</p>
         </AppLink>
     );
 };

@@ -4,6 +4,8 @@ import cn from 'classnames';
 import { Navbar } from '@/widgets/Navbar';
 import { Button } from '@/shared/ui/Button';
 import BurgerIcon from '@/shared/assets/icons/burger.svg';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { LangSwitcher } from '@/features/LangSwitcher';
 
 interface SidebarProps {
     className?: string;
@@ -28,6 +30,10 @@ const SidebarComponent = (props: SidebarProps) => {
         >
             {toggleButton}
             <Navbar collapsed={collapsed} />
+            <div className={s.switchers}>
+                <ThemeSwitcher className={s.switcher} />
+                <LangSwitcher className={s.switcher} />
+            </div>
         </aside>
     );
 };
