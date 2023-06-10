@@ -1,8 +1,8 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button';
 import { Logo } from '@/shared/ui/Logo';
 import s from './Header.module.scss';
-import { useTranslation } from 'react-i18next';
 
 const HeaderComponent = () => {
     const { t } = useTranslation();

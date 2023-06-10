@@ -1,11 +1,11 @@
-import { memo, useMemo, useState } from 'react';
-import s from './Sidebar.module.scss';
 import cn from 'classnames';
+import { memo, useMemo, useState } from 'react';
+import { LangSwitcher } from '@/features/LangSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { Navbar } from '@/widgets/Navbar';
 import { Button } from '@/shared/ui/Button';
 import BurgerIcon from '@/shared/assets/icons/burger.svg';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { LangSwitcher } from '@/features/LangSwitcher';
+import s from './Sidebar.module.scss';
 
 interface SidebarProps {
     className?: string;

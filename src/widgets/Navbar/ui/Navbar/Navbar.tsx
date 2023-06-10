@@ -1,11 +1,11 @@
-import { memo } from 'react';
-import s from './Navbar.module.scss';
 import cn from 'classnames';
-import MainPageIcon from '@/shared/assets/icons/main-page.svg';
-import AboutPageIcon from '@/shared/assets/icons/about-page.svg';
+import { memo } from 'react';
 import { getRouteAbout, getRouteMain } from '@/shared/const/router';
-import { NavbarItem } from '@/widgets/Navbar/ui/NavbarItem/NavbarItem';
 import { NavbarItemType } from '../../model/types/navbar';
+import { NavbarItem } from '../NavbarItem/NavbarItem';
+import AboutPageIcon from '@/shared/assets/icons/about-page.svg';
+import MainPageIcon from '@/shared/assets/icons/main-page.svg';
+import s from './Navbar.module.scss';
 
 interface NavbarProps {
     collapsed: boolean;

@@ -1,9 +1,9 @@
-import { AppLink } from '@/shared/ui/AppLink';
+import cn from 'classnames';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { AppLink } from '@/shared/ui/AppLink';
 import { NavbarItemType } from '../../model/types/navbar';
 import s from './NavbarItem.module.scss';
-import cn from 'classnames';
-import { useTranslation } from 'react-i18next';
 
 interface NavbarItemProps extends NavbarItemType {
     collapsed: boolean;

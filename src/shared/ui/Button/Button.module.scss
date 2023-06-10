@@ -17,26 +17,26 @@
 
 .outlined {
     border: 1px solid var(--primary-color);
+    border-radius: var(--radius-s);
     color: var(--primary-color);
     background-color: transparent;
-    border-radius: var(--radius-s);
 }
 
 .outlined_white {
     border: 1px solid var(--white);
+    border-radius: var(--radius-s);
     color: var(--white);
     background-color: transparent;
-    border-radius: var(--radius-s);
 }
 
 .primary {
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-s);
     color: var(--inverted-primary-color);
     background-color: var(--inverted-bg-color);
 }
 
 .blue {
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-s);
     color: var(--white);
     background-color: var(--blue);
 }

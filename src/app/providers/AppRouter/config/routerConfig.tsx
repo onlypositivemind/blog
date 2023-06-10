@@ -1,7 +1,7 @@
-import { AppRoutesProps } from '@/shared/types/router';
-import { getRouteAbout, getRouteMain } from '@/shared/const/router';
-import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
+import { MainPage } from '@/pages/MainPage';
+import { getRouteAbout, getRouteMain } from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
 
 export const routerConfig: AppRoutesProps[] = [
     {

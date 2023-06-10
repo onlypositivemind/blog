@@ -1,10 +1,10 @@
-import { memo } from 'react';
-import s from './ThemeSwitcher.module.scss';
 import cn from 'classnames';
+import { memo } from 'react';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import SunIcon from '@/shared/assets/icons/sun.svg';
-import MoonIcon from '@/shared/assets/icons/moon.svg';
 import { Button } from '@/shared/ui/Button';
+import MoonIcon from '@/shared/assets/icons/moon.svg';
+import SunIcon from '@/shared/assets/icons/sun.svg';
+import s from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
     className?: string;

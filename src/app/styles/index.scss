@@ -5,9 +5,9 @@
 @import 'themes/dark';
 
 body {
+    font-family: 'Fira Sans', sans-serif;
     font-size: var(--font-size-p2);
     color: var(--primary-color);
-    font-family: 'Fira Sans', sans-serif;
 }
 
 .app {
@@ -22,6 +22,6 @@ body {
 
 main {
     flex-grow: 1;
-    width: 100%;
     padding: 20px;
+    width: 100%;
 }
