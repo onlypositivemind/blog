@@ -41,16 +41,24 @@
     background-color: var(--blue);
 }
 
-.size_p1 {
-    font-size: var(--font-size-p1);
-}
-
 .size_h4 {
     font-size: var(--font-size-h4);
 }
 
 .size_h3 {
     font-size: var(--font-size-h3);
+}
+
+.size_p1 {
+    font-size: var(--font-size-p1);
+}
+
+.size_p2 {
+    font-size: var(--font-size-p2);
+}
+
+.size_p3 {
+    font-size: var(--font-size-p3);
 }
 
 @media (any-hover: hover) {

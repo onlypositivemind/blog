@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { AppLink } from '@/shared/ui/AppLink';
+import { AppLink } from '@/shared/ui';
 import { NavbarItemType } from '../../model/types/navbar';
 import s from './NavbarItem.module.scss';
 
@@ -14,11 +14,7 @@ const NavbarItemComponent = (props: NavbarItemProps) => {
     const { t } = useTranslation();
 
     return (
-        <AppLink
-            to={path}
-            size='size_h3'
-            className={cn(s.link, { [s.collapsed]: collapsed })}
-        >
+        <AppLink to={path} className={cn(s.link, { [s.collapsed]: collapsed })}>
             <Icon className={s.icon} />
             <p className={s.title}>{t(title)}</p>
         </AppLink>

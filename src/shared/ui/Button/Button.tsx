@@ -4,7 +4,7 @@ import s from './Button.module.scss';
 
 type ButtonTheme = 'clear' | 'outlined' | 'outlined_white' | 'primary' | 'blue';
 
-type ButtonSize = 'size_p1' | 'size_h4' | 'size_h3';
+type ButtonSize = 'size_h4' | 'size_h3' | 'size_p1' | 'size_p2' | 'size_p3';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
@@ -18,7 +18,7 @@ const ButtonComponent = (props: ButtonProps) => {
         children,
         className,
         theme = 'clear',
-        size = 'size_p1',
+        size = 'size_p3',
         ...rest
     } = props;
 

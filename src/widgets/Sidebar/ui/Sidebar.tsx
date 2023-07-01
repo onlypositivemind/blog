@@ -3,7 +3,7 @@ import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { Navbar } from '@/widgets/Navbar';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui';
 import BurgerIcon from '@/shared/assets/icons/burger.svg';
 import s from './Sidebar.module.scss';
 

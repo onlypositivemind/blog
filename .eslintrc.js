@@ -26,6 +26,9 @@ module.exports = {
         'plugin:i18next/recommended',
     ],
     settings: {
+        react: {
+            version: 'detect',
+        },
         'import/resolver': {
             typescript: {
                 alwaysTryTypes: true,

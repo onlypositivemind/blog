@@ -2,5 +2,7 @@
     "Log in": "Log in",
     "Join": "Join",
     "Home": "Home",
-    "About": "About"
+    "About": "About",
+    "NotFoundPageTitle": "We can't find that page",
+    "NotFoundPageText": "Sorry, the page you are looking for doesn't exist"
 }

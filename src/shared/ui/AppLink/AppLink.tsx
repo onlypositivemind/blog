@@ -5,7 +5,7 @@ import s from './AppLink.module.scss';
 
 type AppLinkTheme = 'white' | 'primary';
 
-type AppLinkSize = 'size_h3';
+type AppLinkSize = 'size_h4';
 
 interface AppLinkProps extends LinkProps {
     children: ReactNode;
@@ -20,7 +20,7 @@ const AppLinkComponent = (props: AppLinkProps) => {
         to,
         className,
         theme = 'white',
-        size = 'size_h3',
+        size = 'size_h4',
         ...rest
     } = props;
 

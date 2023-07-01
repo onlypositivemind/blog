@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/shared/ui';
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import s from './ThemeSwitcher.module.scss';

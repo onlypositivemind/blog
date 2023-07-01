@@ -5,7 +5,7 @@ import { getRouteMain } from '@/shared/const/router';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';
 
-type LogoTheme = 'primary' | 'white';
+type LogoTheme = 'white';
 
 interface LogoProps {
     theme?: LogoTheme;
@@ -13,7 +13,7 @@ interface LogoProps {
 }
 
 const LogoComponent = (props: LogoProps) => {
-    const { className, theme = 'primary' } = props;
+    const { className, theme = 'white' } = props;
 
     return (
         <Link to={getRouteMain()} className={cn(s.logo, className, s[theme])}>

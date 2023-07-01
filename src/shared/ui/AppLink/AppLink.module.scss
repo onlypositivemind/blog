@@ -1,11 +1,5 @@
 .appLink {
     transition: opacity 0.2s ease-in-out;
-    
-    @media (any-hover: hover) {
-        &:hover {
-            opacity: 0.6;
-        }
-    }
 }
 
 .white {
@@ -16,6 +10,12 @@
     color: var(--primary-color);
 }
 
-.size_h3 {
-    font-size: var(--font-size-h3);
+.size_h4 {
+    font-size: var(--font-size-h4);
+}
+
+@media (any-hover: hover) {
+    .appLink:hover {
+        opacity: 0.6;
+    }
 }
