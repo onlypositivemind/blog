@@ -39,16 +39,6 @@ module.exports = {
         },
         'import/extensions': ['.ts, .tsx'],
     },
-    overrides: [
-        {
-            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
-            rules: {
-                'i18next/no-literal-string': 'off',
-                'max-len': 'off',
-                'react/jsx-props-no-spreading': 'off',
-            },
-        },
-    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
@@ -134,4 +124,14 @@ module.exports = {
             },
         ],
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+                'react/jsx-props-no-spreading': 'off',
+            },
+        },
+    ],
 };

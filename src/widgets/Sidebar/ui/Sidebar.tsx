@@ -17,7 +17,11 @@ const SidebarComponent = (props: SidebarProps) => {
 
     const toggleButton = useMemo(
         () => (
-            <Button theme='clear' onClick={() => setCollapsed((prev) => !prev)}>
+            <Button
+                theme='clear'
+                onClick={() => setCollapsed((prev) => !prev)}
+                data-testid='toggleBtn'
+            >
                 <BurgerIcon className={s.icon} />
             </Button>
         ),
@@ -27,6 +31,7 @@ const SidebarComponent = (props: SidebarProps) => {
     return (
         <aside
             className={cn(s.sidebar, className, { [s.collapsed]: collapsed })}
+            data-testid='sidebar'
         >
             {toggleButton}
             <Navbar collapsed={collapsed} />
