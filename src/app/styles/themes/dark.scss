@@ -1,4 +1,5 @@
-body[data-theme='dark'] {
+body[data-theme='dark'],
+body.dark {
     --bg-color: #202c37;
     --inverted-bg-color: #f4f4f4;
     --bg-secondary-color: #2b3945;

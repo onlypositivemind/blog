@@ -11,6 +11,14 @@
     }
 }
 
+.primary {
+    color: var(--primary-color);
+    
+    svg * {
+        fill: var(--primary-color);
+    }
+}
+
 .white {
     color: var(--white);
     

@@ -14,7 +14,11 @@ const NavbarItemComponent = (props: NavbarItemProps) => {
     const { t } = useTranslation();
 
     return (
-        <AppLink to={path} className={cn(s.link, { [s.collapsed]: collapsed })}>
+        <AppLink
+            to={path}
+            className={cn(s.link, { [s.collapsed]: collapsed })}
+            theme='white'
+        >
             <Icon className={s.icon} />
             <p className={s.title}>{t(title)}</p>
         </AppLink>

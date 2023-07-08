@@ -65,6 +65,7 @@ module.exports = {
         'jsx-quotes': ['error', 'prefer-single'],
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         'simple-import-sort/imports': [
             'error',
             {

@@ -19,7 +19,7 @@ const AppLinkComponent = (props: AppLinkProps) => {
         children,
         to,
         className,
-        theme = 'white',
+        theme = 'primary',
         size = 'size_h4',
         ...rest
     } = props;
