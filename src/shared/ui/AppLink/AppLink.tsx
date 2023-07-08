@@ -15,21 +15,10 @@ interface AppLinkProps extends LinkProps {
 }
 
 const AppLinkComponent = (props: AppLinkProps) => {
-    const {
-        children,
-        to,
-        className,
-        theme = 'primary',
-        size = 'size_h4',
-        ...rest
-    } = props;
+    const { children, to, className, theme = 'primary', size = 'size_h4', ...rest } = props;
 
     return (
-        <Link
-            to={to}
-            className={cn(s.appLink, className, s[theme], s[size])}
-            {...rest}
-        >
+        <Link to={to} className={cn(s.appLink, className, s[theme], s[size])} {...rest}>
             {children}
         </Link>
     );

@@ -7,9 +7,7 @@ export default {
     component: Spin,
 } as ComponentMeta<typeof Spin>;
 
-const Template: ComponentStory<typeof Spin> = (args) => (
-    <Spin {...args}>Spin</Spin>
-);
+const Template: ComponentStory<typeof Spin> = (args) => <Spin {...args}>Spin</Spin>;
 
 export const AllOptions = Template.bind({});
 AllOptions.decorators = [CenterElementDecorator];

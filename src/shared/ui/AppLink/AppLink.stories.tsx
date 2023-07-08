@@ -12,9 +12,7 @@ export default {
     },
 } as ComponentMeta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => (
-    <AppLink {...args}>AppLink</AppLink>
-);
+const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args}>AppLink</AppLink>;
 
 export const AllOptions = Template.bind({});
 AllOptions.decorators = [CenterElementDecorator];

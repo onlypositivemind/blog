@@ -14,19 +14,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const ButtonComponent = (props: ButtonProps) => {
-    const {
-        children,
-        className,
-        theme = 'clear',
-        size = 'size_p3',
-        ...rest
-    } = props;
+    const { children, className, theme = 'clear', size = 'size_p3', ...rest } = props;
 
     return (
-        <button
-            className={cn(s.button, className, s[theme], s[size])}
-            {...rest}
-        >
+        <button className={cn(s.button, className, s[theme], s[size])} {...rest}>
             {children}
         </button>
     );

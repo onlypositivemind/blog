@@ -11,21 +11,13 @@ export default {
     },
 } as ComponentMeta<typeof Logo>;
 
-const Template: ComponentStory<typeof Logo> = (args) => (
-    <Logo {...args}>Logo</Logo>
-);
+const Template: ComponentStory<typeof Logo> = (args) => <Logo {...args}>Logo</Logo>;
 
 export const AllOptions = Template.bind({});
 AllOptions.decorators = [CenterElementDecorator];
 
 export const SecondaryBGLight = Template.bind({});
-SecondaryBGLight.decorators = [
-    CenterElementDecorator,
-    SecondaryBgColorDecorator('light'),
-];
+SecondaryBGLight.decorators = [CenterElementDecorator, SecondaryBgColorDecorator('light')];
 
 export const SecondaryBGDark = Template.bind({});
-SecondaryBGDark.decorators = [
-    CenterElementDecorator,
-    SecondaryBgColorDecorator('dark'),
-];
+SecondaryBGDark.decorators = [CenterElementDecorator, SecondaryBgColorDecorator('dark')];
