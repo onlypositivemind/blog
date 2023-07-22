@@ -1,0 +1,32 @@
+.modalWrapper {
+    position: fixed;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    pointer-events: none;
+    inset: 0 0 0 0;
+}
+
+.overlay {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+    cursor: pointer;
+}
+
+.content {
+    border-radius: var(--radius-m);
+    padding: 20px;
+    max-width: 50%;
+    color: var(--primary-color);
+    background-color: var(--bg-color);
+    cursor: default;
+}
+
+.modalWrapper.opened {
+    z-index: var(--modal-z-index);
+    opacity: 1;
+    pointer-events: auto;
+}

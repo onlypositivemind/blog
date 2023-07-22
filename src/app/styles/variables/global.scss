@@ -19,10 +19,14 @@
     --black: #000;
     --blue: #4f7faf;
     --red: #ff4d4d;
+    --overlay-color: rgb(0 0 0 / 60%);
     
     // Radius
     --radius-xs: 5px;
     --radius-s: 8px;
     --radius-m: 12px;
     --radius-l: 15px;
+    
+    // z-index
+    --modal-z-index: 3;
 }
