@@ -3,6 +3,7 @@
     display: block;
     padding-left: 50px;
     width: fit-content;
+    transition: transform 0.1s ease-in-out;
 }
 
 .icon {
@@ -17,7 +18,6 @@
 
 .title {
     white-space: nowrap;
-    transition: opacity 0.2s ease-in-out;
 }
 
 .collapsed {
@@ -30,7 +30,8 @@
 }
 
 @media (any-hover: hover) {
-    .title:hover {
-        opacity: 0.6;
+    .link:hover {
+        opacity: 1;
+        transform: translateX(5px);
     }
 }
