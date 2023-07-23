@@ -26,11 +26,11 @@
 
 .collapsed {
     width: var(--sidebar-width-collapsed);
-    
+
     .switchers {
         transform: translate(-44%) rotate(-90deg);
     }
-    
+
     .switcher {
         transform: rotate(90deg);
     }
