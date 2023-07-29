@@ -1,0 +1,20 @@
+.navbar {
+    height: 100%;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    padding: 12px 40px;
+    height: 50px;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.navItem.active {
+    background-color: var(--dark-5);
+}

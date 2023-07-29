@@ -1,8 +1,8 @@
-import cn from 'classnames';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui';
-import s from './LangSwitcher.module.scss';
+import EnFlagIcon from '@/shared/assets/icons/flag-en.svg';
+import RuFlagIcon from '@/shared/assets/icons/flag-ru.svg';
 
 interface LangSwitcherProps {
     className?: string;
@@ -10,16 +10,17 @@ interface LangSwitcherProps {
 
 const LangSwitcherComponent = (props: LangSwitcherProps) => {
     const { className } = props;
-    const { i18n } = useTranslation();
-    const lang = i18n.language;
 
-    const toggle = () => {
-        i18n.changeLanguage(lang === 'ru' ? 'en' : 'ru');
-    };
+    const { i18n } = useTranslation();
+    const isRuLangActive = i18n.language === 'ru';
+
+    const toggle = useCallback(() => {
+        i18n.changeLanguage(isRuLangActive ? 'en' : 'ru');
+    }, [i18n, isRuLangActive]);
 
     return (
-        <Button onClick={toggle} className={cn(s.langBtn, className)} theme='clear' size='size_h3'>
-            {lang}
+        <Button onClick={toggle} className={className} theme='clear' size='size_h3'>
+            {isRuLangActive ? <RuFlagIcon /> : <EnFlagIcon />}
         </Button>
     );
 };

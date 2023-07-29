@@ -1,13 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
-import { Spin } from './Spin';
+import { Loader } from './Loader';
 
 export default {
-    title: 'shared/Spin',
-    component: Spin,
-} as ComponentMeta<typeof Spin>;
+    title: 'shared/Loader',
+    component: Loader,
+} as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Spin> = (args) => <Spin {...args} />;
+const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 
 export const AllOptions = Template.bind({});
 AllOptions.decorators = [CenterElementDecorator];

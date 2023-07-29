@@ -8,10 +8,11 @@ interface ModalProps {
     isOpen?: boolean;
     onClose?: () => void;
     className?: string;
+    width?: number | string;
 }
 
 export const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onClose } = props;
+    const { className, children, isOpen, onClose, width } = props;
 
     const handleCloseModalByClick = () => {
         onClose?.();
@@ -33,6 +34,9 @@ export const Modal = (props: ModalProps) => {
     useEffect(() => {
         if (isOpen) {
             window.addEventListener('keydown', handleCloseModalByKey);
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.removeProperty('overflow');
         }
 
         return () => {
@@ -44,7 +48,11 @@ export const Modal = (props: ModalProps) => {
         <Portal>
             <div className={cn(s.modalWrapper, className, { [s.opened]: isOpen })}>
                 <div className={s.overlay} onClick={handleCloseModalByClick}>
-                    <div className={s.content} onClick={handleClickContent}>
+                    <div
+                        className={s.content}
+                        onClick={handleClickContent}
+                        style={{ maxWidth: width || '50%' }}
+                    >
                         {children}
                     </div>
                 </div>
