@@ -1,0 +1,48 @@
+.inputWrapper,
+.input {
+    width: 100%;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.input,
+.label {
+    font-size: var(--font-size-p3);
+}
+
+.input {
+    overflow: hidden;
+    border: 1px solid var(--inverted-bg-color);
+    border-radius: var(--radius-s);
+    padding: 12px 24px 8px 16px;
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+.label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    padding: 4px;
+    color: var(--grey);
+    background-color: var(--bg-color);
+    transform: translateY(-50%);
+    transition: color 0.1s ease-in-out, transform 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.label.top {
+    transform: translate(-5px, -32px);
+}
+
+.clearing {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    padding: 2px 4px;
+    font-size: var(--font-size-p4);
+    transform: translateY(-46%);
+    cursor: pointer;
+}

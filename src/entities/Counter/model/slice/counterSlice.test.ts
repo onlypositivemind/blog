@@ -15,6 +15,6 @@ describe('Counter slice', () => {
     });
 
     test('Should work with initialState', () => {
-        expect(counterReducer(undefined, counterActions.increment())).toEqual({ value: 100 });
+        expect(counterReducer(undefined, counterActions.increment())).toEqual({ value: 994 });
     });
 });

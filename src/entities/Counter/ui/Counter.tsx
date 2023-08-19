@@ -22,7 +22,7 @@ const CounterComponent = () => {
             <p data-testid='counterText'>{`value: ${value}`}</p>
             <Button
                 theme='primary'
-                size='size_h4'
+                size='size_p3'
                 onClick={handleIncrement}
                 data-testid='incrementBtn'
             >
@@ -31,7 +31,7 @@ const CounterComponent = () => {
             {'  '}
             <Button
                 theme='primary'
-                size='size_h4'
+                size='size_p3'
                 onClick={handleDecrement}
                 data-testid='decrementBtn'
             >
