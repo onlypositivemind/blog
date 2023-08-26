@@ -1,12 +1,26 @@
+.loginWrapper {
+    width: 100%;
+    max-width: 320px;
+}
+
+.logo {
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
 .loginForm {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
-    max-width: 320px;
 }
 
 .loginBtn {
     align-self: end;
     width: 100%;
+}
+
+.loginError {
+    font-size: var(--font-size-p4);
+    text-align: center;
+    color: var(--red);
 }

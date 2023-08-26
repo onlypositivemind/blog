@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Header } from './Header';
 
 export default {
@@ -8,4 +9,14 @@ export default {
 
 const Template: ComponentStory<typeof Header> = () => <Header />;
 
-export const Story = Template.bind({});
+export const NotAuth = Template.bind({});
+NotAuth.decorators = [StoreDecorator({})];
+
+export const Auth = Template.bind({});
+Auth.decorators = [
+    StoreDecorator({
+        user: {
+            authData: { id: '0', email: 'somemail@gmail.com', username: 'Omegafine', role: 'USER' },
+        },
+    }),
+];

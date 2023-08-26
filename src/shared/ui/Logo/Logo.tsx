@@ -8,19 +8,31 @@ import s from './Logo.module.scss';
 type LogoTheme = 'primary' | 'white';
 
 interface LogoProps {
+    isLink?: boolean;
     theme?: LogoTheme;
     className?: string;
 }
 
 const LogoComponent = (props: LogoProps) => {
-    const { className, theme = 'primary' } = props;
+    const { className, theme = 'primary', isLink = true } = props;
 
-    return (
-        <Link to={getRouteMain()} className={cn(s.logo, className, s[theme])}>
+    const classes = [className, s[theme]];
+    const content = (
+        <>
             <h2>Blog</h2>
             <LogoIcon />
-        </Link>
+        </>
     );
+
+    if (isLink) {
+        return (
+            <Link to={getRouteMain()} className={cn(s.logoLink, ...classes)}>
+                {content}
+            </Link>
+        );
+    }
+
+    return <div className={cn(s.logo, ...classes)}>{content}</div>;
 };
 
 export const Logo = memo(LogoComponent);
