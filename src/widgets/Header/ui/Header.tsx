@@ -42,7 +42,9 @@ const HeaderComponent = () => {
                     </>
                 )}
             </div>
-            <LoginModal isOpen={isLoginModalOpen} onCloseModal={handleClosingLoginModal} />
+            {isLoginModalOpen && (
+                <LoginModal isOpen={isLoginModalOpen} onCloseModal={handleClosingLoginModal} />
+            )}
         </header>
     );
 };

@@ -5,9 +5,13 @@
     inset: 0 0 0 0;
 }
 
-.overlay {
+.overlay,
+.content {
     display: grid;
     place-items: center;
+}
+
+.overlay {
     padding: 15px;
     width: 100%;
     height: 100%;

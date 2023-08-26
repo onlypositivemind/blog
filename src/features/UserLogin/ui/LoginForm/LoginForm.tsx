@@ -1,6 +1,7 @@
-import { FormEvent, memo, useCallback, useState } from 'react';
+import { FormEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, Input, Logo } from '@/shared/ui';
 import {
@@ -8,9 +9,12 @@ import {
     selectLoginFormIsLoading,
 } from '../../model/selectors/loginSelectors';
 import { loginUser } from '../../model/services/loginUser';
+import { loginReducer } from '../../model/slice/loginSlice';
 import s from './LoginForm.module.scss';
 
-const LoginFormComponent = () => {
+const reducers: ReducersList = { loginForm: loginReducer };
+
+const LoginForm = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const isLoading = useSelector(selectLoginFormIsLoading);
@@ -37,32 +41,34 @@ const LoginFormComponent = () => {
     }, [dispatch, password, username]);
 
     return (
-        <div className={s.loginWrapper}>
-            <Logo className={s.logo} isLink={false} />
-            <form className={s.loginForm} onSubmit={handleSubmit}>
-                <Input
-                    value={username}
-                    onChange={handleChangeUsername}
-                    placeholder={t('Username')}
-                />
-                <Input
-                    value={password}
-                    onChange={handleChangePassword}
-                    placeholder={t('Password')}
-                    type='password'
-                />
-                {errorMessage && <span className={s.loginError}>{errorMessage}</span>}
-                <Button
-                    onClick={handleLoginClick}
-                    theme='blue'
-                    disabled={isLoading}
-                    className={s.loginBtn}
-                >
-                    {t('Sign in')}
-                </Button>
-            </form>
-        </div>
+        <DynamicModuleLoader reducers={reducers}>
+            <div className={s.loginWrapper}>
+                <Logo className={s.logo} isLink={false} />
+                <form className={s.loginForm} onSubmit={handleSubmit}>
+                    <Input
+                        value={username}
+                        onChange={handleChangeUsername}
+                        placeholder={t('Username')}
+                    />
+                    <Input
+                        value={password}
+                        onChange={handleChangePassword}
+                        placeholder={t('Password')}
+                        type='password'
+                    />
+                    {errorMessage && <span className={s.loginError}>{errorMessage}</span>}
+                    <Button
+                        onClick={handleLoginClick}
+                        theme='blue'
+                        disabled={isLoading}
+                        className={s.loginBtn}
+                    >
+                        {t('Sign in')}
+                    </Button>
+                </form>
+            </div>
+        </DynamicModuleLoader>
     );
 };
 
-export const LoginForm = memo(LoginFormComponent);
+export default LoginForm;
