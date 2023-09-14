@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosError } from 'axios';
+import axios from 'axios';
 import { userActions } from '@/entities/User';
 import { $api } from '@/shared/api/api';
 import { AuthResponse } from '@/shared/types/auth';
@@ -23,11 +23,11 @@ export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, { reject
 
             return data;
         } catch (err) {
-            if (err instanceof AxiosError) {
-                const errMessage = JSON.parse(err.request.response).message;
+            if (axios.isAxiosError(err)) {
+                const errMessage = err.response?.data.message;
                 return thunkAPI.rejectWithValue(errMessage);
             }
-            return thunkAPI.rejectWithValue('Failed user login');
+            return thunkAPI.rejectWithValue('Failed login');
         }
     },
 );
