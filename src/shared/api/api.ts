@@ -3,14 +3,16 @@ import { MAX_RESPONSE_TIME } from '@/shared/const/api';
 import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AuthResponse } from '@/shared/types/auth';
 
-const $api = axios.create({
+export const $api = axios.create({
     withCredentials: true,
     baseURL: __API__,
     timeout: MAX_RESPONSE_TIME,
 });
 
 $api.interceptors.request.use((config) => {
-    config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)}`;
+    if (config.headers) {
+        config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)}`;
+    }
     return config;
 });
 
@@ -39,5 +41,3 @@ $api.interceptors.response.use(
         throw error;
     },
 );
-
-export { $api };

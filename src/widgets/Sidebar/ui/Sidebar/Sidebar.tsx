@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { memo, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { Button } from '@/shared/ui';
@@ -10,7 +10,7 @@ interface SidebarProps {
     className?: string;
 }
 
-const SidebarComponent = (props: SidebarProps) => {
+export const Sidebar = (props: SidebarProps) => {
     const { className } = props;
     const [collapsed, setCollapsed] = useState(false);
 
@@ -42,5 +42,3 @@ const SidebarComponent = (props: SidebarProps) => {
         </aside>
     );
 };
-
-export const Sidebar = memo(SidebarComponent);

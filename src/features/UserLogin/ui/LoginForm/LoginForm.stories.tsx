@@ -1,6 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { LoginModal } from '../LoginModal/LoginModal';
 import LoginForm from './LoginForm';
 
 export default {
@@ -9,7 +10,10 @@ export default {
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = () => <LoginForm />;
+const Template: ComponentStory<typeof LoginForm> = () => (
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    <LoginModal isOpen onCloseModal={() => {}} />
+);
 
 export const Default = Template.bind({});
 Default.decorators = [StoreDecorator({ loginForm: { isLoading: false } })];

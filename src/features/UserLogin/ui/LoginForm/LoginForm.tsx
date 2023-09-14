@@ -14,13 +14,19 @@ import s from './LoginForm.module.scss';
 
 const reducers: ReducersList = { loginForm: loginReducer };
 
-const LoginForm = () => {
+interface LoginFormProps {
+    onCloseModal: () => void;
+}
+
+const LoginForm = (props: LoginFormProps) => {
+    const { onCloseModal } = props;
+
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const isLoading = useSelector(selectLoginFormIsLoading);
     const errorMessage = useSelector(selectLoginFormErrorMessage);
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('username');
+    const [password, setPassword] = useState('password');
 
     const handleSubmit = (ev: FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
@@ -34,11 +40,16 @@ const LoginForm = () => {
         setPassword(value);
     }, []);
 
-    const handleLoginClick = useCallback(() => {
-        if (username.trim() && password.trim()) {
-            dispatch(loginUser({ username, password }));
+    const handleLoginClick = useCallback(async () => {
+        if (!username.trim() && !password.trim()) {
+            return;
         }
-    }, [dispatch, password, username]);
+
+        const res = await dispatch(loginUser({ username, password }));
+        if (res.meta.requestStatus === 'fulfilled') {
+            onCloseModal();
+        }
+    }, [dispatch, onCloseModal, password, username]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>

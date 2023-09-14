@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectUserAuthData } from '@/entities/User';
@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, Logo } from '@/shared/ui';
 import s from './Header.module.scss';
 
-const HeaderComponent = () => {
+export const Header = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const authData = useSelector(selectUserAuthData);
@@ -48,5 +48,3 @@ const HeaderComponent = () => {
         </header>
     );
 };
-
-export const Header = memo(HeaderComponent);

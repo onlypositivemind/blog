@@ -1,11 +1,11 @@
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui';
 import { selectCounterValue } from '../model/selectors/counterSelectors';
 import { counterActions } from '../model/slice/counterSlice';
 
-const CounterComponent = () => {
+export const Counter = () => {
     const dispatch = useAppDispatch();
     const value = useSelector(selectCounterValue);
 
@@ -40,5 +40,3 @@ const CounterComponent = () => {
         </div>
     );
 };
-
-export const Counter = memo(CounterComponent);
