@@ -8,9 +8,7 @@ interface LangSwitcherProps {
     className?: string;
 }
 
-const LangSwitcherComponent = (props: LangSwitcherProps) => {
-    const { className } = props;
-
+const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
     const { i18n } = useTranslation();
     const isRuLangActive = i18n.language === 'ru';
 

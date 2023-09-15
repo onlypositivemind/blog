@@ -18,9 +18,7 @@ const navbarItemsList: NavbarItemType[] = [
     { path: getRouteAbout(), title: 'About', Icon: AboutPageIcon },
 ];
 
-const NavbarComponent = (props: NavbarProps) => {
-    const { className, collapsed } = props;
-
+const NavbarComponent = ({ className, collapsed }: NavbarProps) => {
     const { pathname } = useLocation();
 
     return (

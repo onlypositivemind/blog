@@ -10,8 +10,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = (props: SidebarProps) => {
-    const { className } = props;
+export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const toggleButton = useMemo(

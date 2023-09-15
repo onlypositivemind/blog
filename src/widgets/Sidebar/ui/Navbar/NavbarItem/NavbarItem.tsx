@@ -9,8 +9,7 @@ interface NavbarItemProps extends NavbarItemType {
     collapsed: boolean;
 }
 
-const NavbarItemComponent = (props: NavbarItemProps) => {
-    const { collapsed, path, title, Icon } = props;
+const NavbarItemComponent = ({ collapsed, path, title, Icon }: NavbarItemProps) => {
     const { t } = useTranslation();
 
     return (

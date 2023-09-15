@@ -5,13 +5,17 @@ import { Input } from './Input';
 export default {
     title: 'shared/Input',
     component: Input,
-    args: {
-        value: 'Omegafine',
-        placeholder: 'Username',
-    },
+    args: {},
+    decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => <Input style={{ width: 320 }} {...args} />;
 
-export const AllOptions = Template.bind({});
-AllOptions.decorators = [CenterElementDecorator];
+export const Default = Template.bind({});
+Default.args = { value: 'some text' };
+
+export const Label = Template.bind({});
+Label.args = { label: 'Label' };
+
+export const Placeholder = Template.bind({});
+Placeholder.args = { placeholder: 'Placeholder' };

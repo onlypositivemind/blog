@@ -1,22 +1,26 @@
+/* eslint-disable i18next/no-literal-string */
 import cn from 'classnames';
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import s from './Input.module.scss';
 
-type HTMLInputProps = Omit<
-    InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'placeholder'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 interface InputProps extends HTMLInputProps {
-    placeholder: string;
+    label?: string;
     value?: string;
     onChange?: (value: string) => void;
     className?: string;
 }
 
-const InputComponent = (props: InputProps) => {
-    const { value, onChange, placeholder, className, style, type = 'text', ...rest } = props;
-
+const InputComponent = ({
+    value,
+    onChange,
+    label,
+    className,
+    style,
+    type = 'text',
+    ...rest
+}: InputProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
     const [isLabelOnTop, setIsLabelOnTop] = useState(!!value);
 
@@ -47,7 +51,7 @@ const InputComponent = (props: InputProps) => {
 
     return (
         <div className={cn(s.inputWrapper, className)} style={style}>
-            <span className={cn(s.label, { [s.top]: isLabelOnTop })}>{placeholder}</span>
+            {label && <span className={cn(s.label, { [s.top]: isLabelOnTop })}>{label}</span>}
             <input
                 ref={inputRef}
                 value={value}
@@ -59,8 +63,12 @@ const InputComponent = (props: InputProps) => {
                 {...rest}
             />
             {value && (
-                // eslint-disable-next-line i18next/no-literal-string
-                <span className={s.clearing} onClick={handleClear}>
+                <span
+                    role='button'
+                    aria-label='cross-for-cleaning'
+                    onClick={handleClear}
+                    className={s.clearing}
+                >
                     &#10006;
                 </span>
             )}

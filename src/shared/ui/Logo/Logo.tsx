@@ -13,9 +13,7 @@ interface LogoProps {
     className?: string;
 }
 
-const LogoComponent = (props: LogoProps) => {
-    const { className, theme = 'primary', isLink = true } = props;
-
+const LogoComponent = ({ className, theme = 'primary', isLink = true }: LogoProps) => {
     const classes = [className, s[theme]];
     const content = (
         <>

@@ -8,9 +8,7 @@ interface ThemeSwitcherProps {
     className?: string;
 }
 
-const ThemeSwitcherComponent = (props: ThemeSwitcherProps) => {
-    const { className } = props;
-
+const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
     const [theme, toggleTheme] = useTheme();
     const ThemeIcon = theme === 'light' ? SunIcon : MoonIcon;
 

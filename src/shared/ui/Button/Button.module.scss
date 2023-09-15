@@ -1,8 +1,13 @@
 .button {
     margin: 0;
+    border: 1px solid transparent;
     padding: 8px 20px;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 0.1s ease-in-out, border 0.1s ease-in-out;
     cursor: pointer;
+
+    &:focus-visible {
+        border: 1px solid var(--primary-color);
+    }
 
     &:disabled {
         opacity: 0.2;

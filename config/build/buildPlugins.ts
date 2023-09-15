@@ -5,9 +5,11 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
-    const { paths, isDev, apiUrl } = options;
-
+export const buildPlugins = ({
+    paths,
+    isDev,
+    apiUrl,
+}: BuildOptions): webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,

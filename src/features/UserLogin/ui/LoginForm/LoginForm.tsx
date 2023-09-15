@@ -18,9 +18,7 @@ interface LoginFormProps {
     onCloseModal: () => void;
 }
 
-const LoginForm = (props: LoginFormProps) => {
-    const { onCloseModal } = props;
-
+const LoginForm = ({ onCloseModal }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const isLoading = useSelector(selectLoginFormIsLoading);
@@ -55,22 +53,37 @@ const LoginForm = (props: LoginFormProps) => {
         <DynamicModuleLoader reducers={reducers}>
             <div className={s.loginWrapper}>
                 <Logo className={s.logo} isLink={false} />
-                <form className={s.loginForm} onSubmit={handleSubmit}>
+                <form
+                    onSubmit={handleSubmit}
+                    className={s.loginForm}
+                    aria-describedby={'login-error-message'}
+                >
                     <Input
                         value={username}
                         onChange={handleChangeUsername}
-                        placeholder={t('Username')}
+                        label={t('Username')}
+                        autoComplete='username'
                     />
                     <Input
                         value={password}
                         onChange={handleChangePassword}
-                        placeholder={t('Password')}
+                        label={t('Password')}
                         type='password'
+                        autoComplete='current-password'
                     />
-                    {errorMessage && <span className={s.loginError}>{errorMessage}</span>}
+                    {errorMessage && (
+                        <span
+                            className={s.loginError}
+                            id='login-error-message'
+                            aria-live='assertive'
+                        >
+                            {errorMessage}
+                        </span>
+                    )}
                     <Button
-                        onClick={handleLoginClick}
+                        type='submit'
                         theme='blue'
+                        onClick={handleLoginClick}
                         disabled={isLoading}
                         className={s.loginBtn}
                     >
