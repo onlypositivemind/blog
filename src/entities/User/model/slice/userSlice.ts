@@ -13,10 +13,10 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setAuthData: (state, { payload }: PayloadAction<AuthResponse>) => {
-            localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, payload.tokens.accessToken);
+            localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, payload.accessToken);
             state.authData = payload.user;
         },
-        
+
         logout: (state) => {
             localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
             state.authData = undefined;

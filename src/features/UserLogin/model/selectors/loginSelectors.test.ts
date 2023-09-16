@@ -21,7 +21,7 @@ describe('Login selectors', () => {
 
         expect(selectLoginFormErrorMessage(state as StateSchema)).toBe('lorem lorem lorem');
     });
-    
+
     test('selectLoginFormIsLoading: should work with empty state', () => {
         expect(selectLoginFormErrorMessage({} as StateSchema)).toBe(undefined);
     });

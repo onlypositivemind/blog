@@ -30,7 +30,7 @@ $api.interceptors.response.use(
                     withCredentials: true,
                 });
 
-                localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, data.tokens.accessToken);
+                localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, data.accessToken);
                 return $api.request(originalRequest);
             } catch (err) {
                 // eslint-disable-next-line no-console

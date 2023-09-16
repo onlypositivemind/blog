@@ -1,9 +1,6 @@
 import { User } from '@/entities/User';
 
 export interface AuthResponse {
-    tokens: {
-        accessToken: string;
-        refreshToken: string;
-    };
+    accessToken: string;
     user: User;
 }
