@@ -1,12 +1,11 @@
 import cn from 'classnames';
-import { memo } from 'react';
 import s from './Spin.module.scss';
 
 interface LoaderProps {
     className?: string;
 }
 
-const SpinComponent = ({ className }: LoaderProps) => (
+export const Spin = ({ className }: LoaderProps) => (
     <div className={cn(s.spin, className)}>
         <div></div>
         <div></div>
@@ -16,5 +15,3 @@ const SpinComponent = ({ className }: LoaderProps) => (
         <div></div>
     </div>
 );
-
-export const Spin = memo(SpinComponent);

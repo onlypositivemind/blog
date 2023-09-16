@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC, SVGProps } from 'react';
 
 export interface NavbarItemType {
     path: string;
     title: string;
-    Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
+    Icon: FC<SVGProps<SVGSVGElement>>;
 }

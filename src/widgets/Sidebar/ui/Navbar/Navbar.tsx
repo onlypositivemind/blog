@@ -1,11 +1,11 @@
 import cn from 'classnames';
-import { memo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavbarItemType } from '@/widgets/Sidebar/model/types/navbar';
-import { getRouteAbout, getRouteMain } from '@/shared/const/router';
+import { getRouteAbout, getRouteMain, getRouteProfile } from '@/shared/const/router';
 import { NavbarItem } from './NavbarItem/NavbarItem';
 import AboutPageIcon from '@/shared/assets/icons/about-page.svg';
 import MainPageIcon from '@/shared/assets/icons/main-page.svg';
+import ProfilePageIcon from '@/shared/assets/icons/profile-page.svg';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -16,9 +16,10 @@ interface NavbarProps {
 const navbarItemsList: NavbarItemType[] = [
     { path: getRouteMain(), title: 'Home', Icon: MainPageIcon },
     { path: getRouteAbout(), title: 'About', Icon: AboutPageIcon },
+    { path: getRouteProfile(), title: 'Profile', Icon: ProfilePageIcon },
 ];
 
-const NavbarComponent = ({ className, collapsed }: NavbarProps) => {
+export const Navbar = ({ className, collapsed }: NavbarProps) => {
     const { pathname } = useLocation();
 
     return (
@@ -41,5 +42,3 @@ const NavbarComponent = ({ className, collapsed }: NavbarProps) => {
         </nav>
     );
 };
-
-export const Navbar = memo(NavbarComponent);

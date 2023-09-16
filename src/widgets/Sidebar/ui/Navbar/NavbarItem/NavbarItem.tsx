@@ -1,5 +1,4 @@
 import cn from 'classnames';
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { NavbarItemType } from '@/widgets/Sidebar/model/types/navbar';
 import { AppLink } from '@/shared/ui';
@@ -9,7 +8,7 @@ interface NavbarItemProps extends NavbarItemType {
     collapsed: boolean;
 }
 
-const NavbarItemComponent = ({ collapsed, path, title, Icon }: NavbarItemProps) => {
+export const NavbarItem = ({ collapsed, path, title, Icon }: NavbarItemProps) => {
     const { t } = useTranslation();
 
     return (
@@ -24,5 +23,3 @@ const NavbarItemComponent = ({ collapsed, path, title, Icon }: NavbarItemProps) 
         </AppLink>
     );
 };
-
-export const NavbarItem = memo(NavbarItemComponent);
