@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { FormEvent, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -51,7 +52,7 @@ const LoginForm = ({ onCloseModal }: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={s.loginWrapper}>
+            <div className={cn(s.loginWrapper, { [s.loading]: isLoading })}>
                 <Logo className={s.logo} isLink={false} />
                 <form
                     onSubmit={handleSubmit}
