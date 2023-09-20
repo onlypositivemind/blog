@@ -1,8 +1,7 @@
 {
-    "Log in": "Log in",
-    "Join": "Join",
+    "Register": "Register",
+    "or": "or",
     "Sign in": "Sign in",
-    "Sign up": "Sign up",
     "Sign out": "Sign out",
     "Home": "Home",
     "About": "About",
@@ -10,7 +9,5 @@
     "NotFoundPageTitle": "We can't find that page",
     "NotFoundPageText": "Sorry, the page you are looking for doesn't exist",
     "PageErrorTitle": "Something went wrong",
-    "Reload": "Reload",
-    "Username": "Username",
-    "Password": "Password"
+    "Reload": "Reload"
 }

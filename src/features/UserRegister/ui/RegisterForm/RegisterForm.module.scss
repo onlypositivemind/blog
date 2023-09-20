@@ -1,4 +1,4 @@
-.loginWrapper {
+.registerWrapper {
     width: 100%;
     max-width: 320px;
 
@@ -26,27 +26,24 @@
     margin-bottom: 24px;
 }
 
-.loginForm {
+.registerForm {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.loginBtn {
+.registerBtn {
     align-self: end;
     border-radius: var(--radius-xs);
     width: 100%;
 }
 
-.loginError {
-    font-size: var(--font-size-p4);
-    text-align: center;
-    color: var(--red);
-}
-
-.signUp {
+.signInBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     font-size: var(--font-size-p3);
-    text-align: right;
     color: var(--grey);
 }

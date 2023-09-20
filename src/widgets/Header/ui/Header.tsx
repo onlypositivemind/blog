@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/UserLogin';
+import { RegisterModal } from '@/features/UserRegister';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, Logo } from '@/shared/ui';
 import s from './Header.module.scss';
@@ -12,6 +13,7 @@ export const Header = () => {
     const dispatch = useAppDispatch();
     const authData = useSelector(selectUserAuthData);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
     const handleOpeningLoginModal = useCallback(() => {
         setIsLoginModalOpen(true);
@@ -19,6 +21,14 @@ export const Header = () => {
 
     const handleClosingLoginModal = useCallback(() => {
         setIsLoginModalOpen(false);
+    }, []);
+
+    const handleOpeningRegisterModal = useCallback(() => {
+        setIsRegisterModalOpen(true);
+    }, []);
+
+    const handleClosingRegisterModal = useCallback(() => {
+        setIsRegisterModalOpen(false);
     }, []);
 
     const handleClickLogout = useCallback(() => {
@@ -34,16 +44,25 @@ export const Header = () => {
                         {t('Sign out')}
                     </Button>
                 ) : (
-                    <>
-                        <Button onClick={handleOpeningLoginModal} theme='outlined_white'>
-                            {t('Log in')}
+                    <div className={s.authButtons}>
+                        <Button onClick={handleOpeningRegisterModal} theme='clear_white'>
+                            {t('Register')}
                         </Button>
-                        <Button theme='outlined_white'>{t('Join')}</Button>
-                    </>
+                        <p>{t('or')}</p>
+                        <Button onClick={handleOpeningLoginModal} theme='clear_white'>
+                            {t('Sign in')}
+                        </Button>
+                    </div>
                 )}
             </div>
             {isLoginModalOpen && (
                 <LoginModal isOpen={isLoginModalOpen} onCloseModal={handleClosingLoginModal} />
+            )}
+            {isRegisterModalOpen && (
+                <RegisterModal
+                    isOpen={isRegisterModalOpen}
+                    onCloseModal={handleClosingRegisterModal}
+                />
             )}
         </header>
     );

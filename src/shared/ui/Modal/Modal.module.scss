@@ -17,11 +17,11 @@
     height: 100%;
     background-color: var(--overlay-color);
     transition: backdrop-filter 0.1s ease-in-out;
-    cursor: pointer;
     backdrop-filter: blur(0);
 }
 
 .content {
+    position: relative;
     overflow-y: auto;
     border-radius: var(--radius-m);
     padding: 20px;
@@ -32,6 +32,15 @@
     opacity: 0;
     transition: opacity 0.1s ease-in-out;
     cursor: default;
+}
+
+.closeBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 8px;
+    color: var(--primary-color);
+    opacity: 0.4;
 }
 
 .modalWrapper.opened {

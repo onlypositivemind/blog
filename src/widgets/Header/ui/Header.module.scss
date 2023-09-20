@@ -14,3 +14,14 @@
     align-items: center;
     gap: 20px;
 }
+
+.authButtons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+
+    p {
+        font-size: 12px;
+    }
+}

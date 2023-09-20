@@ -1,10 +1,10 @@
 import cn from 'classnames';
-import { FormEvent, useCallback, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, Input, Logo } from '@/shared/ui';
+import { Button, FormInput, Logo } from '@/shared/ui';
 import {
     selectLoginFormErrorMessage,
     selectLoginFormIsLoading,
@@ -19,78 +19,77 @@ interface LoginFormProps {
     onCloseModal: () => void;
 }
 
+interface FormValues {
+    username: string;
+    password: string;
+}
+
 const LoginForm = ({ onCloseModal }: LoginFormProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('login');
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormValues>({ mode: 'onSubmit' });
+
     const dispatch = useAppDispatch();
     const isLoading = useSelector(selectLoginFormIsLoading);
     const errorMessage = useSelector(selectLoginFormErrorMessage);
-    const [username, setUsername] = useState('username');
-    const [password, setPassword] = useState('password');
 
-    const handleSubmit = (ev: FormEvent<HTMLFormElement>) => {
-        ev.preventDefault();
-    };
-
-    const handleChangeUsername = useCallback((value: string) => {
-        setUsername(value);
-    }, []);
-
-    const handleChangePassword = useCallback((value: string) => {
-        setPassword(value);
-    }, []);
-
-    const handleLoginClick = useCallback(async () => {
-        if (!username.trim() && !password.trim()) {
-            return;
-        }
+    const onSubmit = async (formValues: FormValues) => {
+        const { username, password } = formValues;
 
         const res = await dispatch(loginUser({ username, password }));
         if (res.meta.requestStatus === 'fulfilled') {
             onCloseModal();
         }
-    }, [dispatch, onCloseModal, password, username]);
+    };
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={cn(s.loginWrapper, { [s.loading]: isLoading })}>
                 <Logo className={s.logo} isLink={false} />
                 <form
-                    onSubmit={handleSubmit}
+                    onSubmit={handleSubmit(onSubmit)}
                     className={s.loginForm}
                     aria-describedby={'login-error-message'}
                 >
-                    <Input
-                        value={username}
-                        onChange={handleChangeUsername}
-                        label={t('Username')}
+                    <FormInput
+                        type='text'
+                        placeholder={t('Username')}
                         autoComplete='username'
+                        disabled={isLoading}
+                        errorMessage={errors.username?.message}
+                        ariaDescribedby='username-error-message'
+                        {...register('username', {
+                            required: t('Required'),
+                        })}
                     />
-                    <Input
-                        value={password}
-                        onChange={handleChangePassword}
-                        label={t('Password')}
+                    <FormInput
                         type='password'
+                        placeholder={t('Password')}
                         autoComplete='current-password'
+                        disabled={isLoading}
+                        errorMessage={errors.password?.message}
+                        ariaDescribedby='password-error-message'
+                        {...register('password', {
+                            required: t('Required'),
+                        })}
                     />
+                    <Button type='submit' theme='blue' disabled={isLoading} className={s.loginBtn}>
+                        {t('Sign in')}
+                    </Button>
                     {errorMessage && (
                         <span
                             className={s.loginError}
                             id='login-error-message'
                             aria-live='assertive'
                         >
-                            {errorMessage}
+                            {t(errorMessage)}
                         </span>
                     )}
-                    <Button
-                        type='submit'
-                        theme='blue'
-                        onClick={handleLoginClick}
-                        disabled={isLoading}
-                        className={s.loginBtn}
-                    >
-                        {t('Sign in')}
-                    </Button>
                 </form>
+                <p className={s.signUp}>{t('Sign Up')}</p>
             </div>
         </DynamicModuleLoader>
     );

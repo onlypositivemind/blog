@@ -1,0 +1,19 @@
+{
+    "Username": "Имя пользователя",
+    "Email": "Электронный почта",
+    "Password": "Пароль",
+    "Confirm password": "Подтверждение пароля",
+    "Sign up": "Зарегистрироваться",
+    "Have an account?": "У вас есть учетная запись?",
+    "Sign in": "Войти",
+    "Required": "Обязательно",
+    "Username min length": "Должно быть не менее 3 символов",
+    "Username max length": "Должно быть не более 20 символов",
+    "Required password": "Пожалуйста, введите пароль",
+    "Required confirm password": "Пожалуйста, введите пароль еще раз",
+    "Password min length": "Должно быть не менее 8 символов",
+    "Passwords not match": "Введенные вами пароли не совпадают.",
+    "Failed register": "Не удалось зарегистрироваться, пожалуйста, повторите попытку позже",
+    "Username cannot be used. Please choose another username": "Имя пользователя не может быть использовано. Пожалуйста, выберите другое",
+    "A user is already registered with this e-mail address": "Пользователь уже зарегистрирован с этим адресом электронной почты"
+}

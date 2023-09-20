@@ -1,0 +1,19 @@
+{
+    "Username": "Username",
+    "Email": "E-mail address",
+    "Password": "Password",
+    "Confirm password": "Confirm password",
+    "Sign up": "Sign up",
+    "Have an account?": "Have an account?",
+    "Sign in": "Sign in",
+    "Required": "Required",
+    "Username min length": "Must be at least 3 characters",
+    "Username max length": "Must be no more than 20 characters",
+    "Required password": "Please enter your password",
+    "Required confirm password": "Please enter your password again",
+    "Password min length": "Must be 8 characters or more",
+    "Passwords not match": "The passwords you entered do not match.",
+    "Failed register": "Failed to register, please try again later",
+    "Username cannot be used. Please choose another username": "Username cannot be used. Please choose another username",
+    "A user is already registered with this e-mail address": "A user is already registered with this e-mail address"
+}

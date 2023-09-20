@@ -1,6 +1,8 @@
 import cn from 'classnames';
 import { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
+import { Button } from '@/shared/ui';
 import { Portal } from '../Portal/Portal';
+import { ClosingEmoji } from '@/shared/assets/textSymbols';
 import s from './Modal.module.scss';
 
 interface ModalProps {
@@ -14,10 +16,6 @@ interface ModalProps {
 
 export const Modal = ({ className, children, isOpen, onClose, width, lazy }: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
-
-    const handleCloseModalByClick = () => {
-        onClose?.();
-    };
 
     const handleCloseModalByKey = useCallback(
         (ev: KeyboardEvent) => {
@@ -58,13 +56,16 @@ export const Modal = ({ className, children, isOpen, onClose, width, lazy }: Mod
     return (
         <Portal>
             <div className={cn(s.modalWrapper, className, { [s.opened]: isOpen })}>
-                <div className={s.overlay} onClick={handleCloseModalByClick}>
+                <div className={s.overlay} onClick={onClose}>
                     <div
                         className={s.content}
                         onClick={handleClickContent}
                         style={{ maxWidth: width || '50%' }}
                     >
                         {children}
+                        <Button onClick={onClose} className={s.closeBtn}>
+                            {ClosingEmoji}
+                        </Button>
                     </div>
                 </div>
             </div>

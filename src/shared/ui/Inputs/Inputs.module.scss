@@ -1,0 +1,44 @@
+.inputWrapper,
+.input {
+    width: 100%;
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.input {
+    overflow: hidden;
+    border: 1px solid var(--inverted-bg-color);
+    border-radius: var(--radius-s);
+    padding: 10px 24px 10px 16px;
+    font-size: var(--font-size-p3);
+    color: var(--primary-color);
+    background-color: transparent;
+    transition: border 0.1s ease-in-out;
+
+    &:focus {
+        border-color: var(--blue);
+    }
+}
+
+.formInput {
+    border-radius: var(--radius-xs);
+}
+
+.clearing {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    padding: 2px 4px;
+    font-size: var(--font-size-p3);
+    transform: translateY(-45%);
+    cursor: pointer;
+}
+
+.errorMessage {
+    display: block;
+    padding-top: 10px;
+    font-size: var(--font-size-p4);
+    color: var(--red);
+}
