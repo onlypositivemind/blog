@@ -9,10 +9,12 @@ import { AxiosInstance } from 'axios';
 import { ProfileSchema } from '@/entities/Profile';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/UserLogin';
+import { RegisterSchema } from '@/features/UserRegister';
 
 export interface StateSchema {
     user: UserSchema;
     loginForm?: LoginSchema;
+    registerForm?: RegisterSchema;
     profile?: ProfileSchema;
 }
 

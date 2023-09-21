@@ -10,9 +10,17 @@ body {
     color: var(--primary-color);
 }
 
+.app,
+.app-loader {
+    background-color: var(--bg-color);
+}
+
+.app-loader {
+    height: 100vh;
+}
+
 .app {
     min-height: 100vh;
-    background-color: var(--bg-color);
 }
 
 .content-page {

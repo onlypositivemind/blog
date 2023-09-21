@@ -13,8 +13,6 @@ import { loginUser } from '../../model/services/loginUser';
 import { loginReducer } from '../../model/slice/loginSlice';
 import s from './LoginForm.module.scss';
 
-const reducers: ReducersList = { loginForm: loginReducer };
-
 interface LoginFormProps {
     onCloseModal: () => void;
 }
@@ -23,6 +21,8 @@ interface FormValues {
     username: string;
     password: string;
 }
+
+const reducers: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = ({ onCloseModal }: LoginFormProps) => {
     const { t } = useTranslation('login');
@@ -51,8 +51,8 @@ const LoginForm = ({ onCloseModal }: LoginFormProps) => {
                 <Logo className={s.logo} isLink={false} />
                 <form
                     onSubmit={handleSubmit(onSubmit)}
+                    aria-describedby='login-error-message'
                     className={s.loginForm}
-                    aria-describedby={'login-error-message'}
                 >
                     <FormInput
                         type='text'

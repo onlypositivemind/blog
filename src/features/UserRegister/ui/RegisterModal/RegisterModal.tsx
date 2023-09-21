@@ -8,7 +8,7 @@ interface RegisterModalProps {
 }
 
 export const RegisterModal = ({ isOpen, onCloseModal }: RegisterModalProps) => (
-    <Modal isOpen={isOpen} onClose={onCloseModal} width={400} lazy>
+    <Modal isOpen={isOpen} onClose={onCloseModal} width={420} hasCloseClickOutside={false} lazy>
         <Suspense fallback={<Loader />}>
             <RegisterFormAsync onCloseModal={onCloseModal} />
         </Suspense>

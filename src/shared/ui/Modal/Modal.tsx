@@ -11,10 +11,19 @@ interface ModalProps {
     onClose?: () => void;
     width?: number | string;
     lazy?: boolean;
+    hasCloseClickOutside?: boolean;
     className?: string;
 }
 
-export const Modal = ({ className, children, isOpen, onClose, width, lazy }: ModalProps) => {
+export const Modal = ({
+    className,
+    children,
+    isOpen,
+    onClose,
+    width,
+    lazy,
+    hasCloseClickOutside = true,
+}: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
 
     const handleCloseModalByKey = useCallback(
@@ -56,7 +65,7 @@ export const Modal = ({ className, children, isOpen, onClose, width, lazy }: Mod
     return (
         <Portal>
             <div className={cn(s.modalWrapper, className, { [s.opened]: isOpen })}>
-                <div className={s.overlay} onClick={onClose}>
+                <div className={s.overlay} onClick={hasCloseClickOutside ? onClose : undefined}>
                     <div
                         className={s.content}
                         onClick={handleClickContent}
