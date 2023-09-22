@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
 import { AuthResponse } from '@/shared/types/auth';
 
-interface LoginUserProps {
+export interface LoginUserProps {
     username: string;
     password: string;
 }
@@ -28,7 +28,7 @@ export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkCon
                 return rejectWithValue(errMessage);
             }
 
-            return rejectWithValue('Failed log in');
+            return rejectWithValue('Log in failed');
         }
     },
 );

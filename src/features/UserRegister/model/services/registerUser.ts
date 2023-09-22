@@ -4,7 +4,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
 import { AuthResponse } from '@/shared/types/auth';
 
-interface RegisterUserProps {
+export interface RegisterUserProps {
     username: string;
     email: string;
     password: string;
@@ -29,7 +29,7 @@ export const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, Th
                 return rejectWithValue(errMessage);
             }
 
-            return rejectWithValue('Failed register');
+            return rejectWithValue('Register failed');
         }
     },
 );

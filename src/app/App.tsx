@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { checkUserAuth, selectUserInited } from '@/entities/User';
 import { Header } from '@/widgets/Header';
@@ -16,23 +16,21 @@ export const App = () => {
         dispatch(checkUserAuth());
     }, [dispatch]);
 
-    if (!inited) {
-        return (
-            <div className='app-loader'>
-                <PageLoader />
-            </div>
-        );
-    }
-
     return (
         <div className='app'>
-            <Header />
-            <div className='content-page'>
-                <Sidebar />
-                <main>
-                    <AppRouter />
-                </main>
-            </div>
+            {inited ? (
+                <Suspense fallback=''>
+                    <Header />
+                    <div className='content-page'>
+                        <Sidebar />
+                        <main>
+                            <AppRouter />
+                        </main>
+                    </div>
+                </Suspense>
+            ) : (
+                <PageLoader />
+            )}
         </div>
     );
 };

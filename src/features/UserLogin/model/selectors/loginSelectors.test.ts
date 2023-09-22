@@ -16,10 +16,10 @@ describe('Login selectors', () => {
 
     test('selectLoginFormErrorMessage: should return error message', () => {
         const state: DeepPartial<StateSchema> = {
-            loginForm: { errorMessage: 'lorem lorem lorem' },
+            loginForm: { errorMessage: 'Log in failed' },
         };
 
-        expect(selectLoginFormErrorMessage(state as StateSchema)).toBe('lorem lorem lorem');
+        expect(selectLoginFormErrorMessage(state as StateSchema)).toBe('Log in failed');
     });
 
     test('selectLoginFormIsLoading: should work with empty state', () => {

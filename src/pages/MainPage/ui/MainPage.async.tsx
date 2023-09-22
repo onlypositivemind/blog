@@ -4,7 +4,7 @@ export const MainPageAsync = lazy(
     () =>
         new Promise((resolve) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore TEST TODO
+            // @ts-ignore TODO TEST
             setTimeout(() => resolve(import('./MainPage')), 1500);
         }),
 );

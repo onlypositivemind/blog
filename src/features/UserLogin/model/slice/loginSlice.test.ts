@@ -2,11 +2,13 @@ import { loginUser } from '../services/loginUser';
 import { LoginSchema } from '../types/loginSchema';
 import { loginReducer } from './loginSlice';
 
+const errorMessage = 'Log in failed';
+
 describe('Login slice', () => {
     test('loginUser.pending', () => {
         const state: DeepPartial<LoginSchema> = {
             isLoading: false,
-            errorMessage: 'message',
+            errorMessage,
         };
 
         expect(loginReducer(state as LoginSchema, loginUser.pending)).toEqual({
@@ -18,7 +20,7 @@ describe('Login slice', () => {
     test('loginUser.fulfilled', () => {
         const state: DeepPartial<LoginSchema> = {
             isLoading: true,
-            errorMessage: 'message',
+            errorMessage,
         };
 
         expect(loginReducer(state as LoginSchema, loginUser.fulfilled)).toEqual({
@@ -30,8 +32,14 @@ describe('Login slice', () => {
     test('loginUser.rejected', () => {
         const state: DeepPartial<LoginSchema> = { isLoading: true };
 
-        expect(loginReducer(state as LoginSchema, loginUser.rejected)).toEqual({
+        expect(
+            loginReducer(state as LoginSchema, {
+                type: loginUser.rejected,
+                payload: errorMessage,
+            }),
+        ).toEqual({
             isLoading: false,
+            errorMessage,
         });
     });
 });
