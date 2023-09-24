@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
+import { AUTH_ENDPOINT } from '@/shared/const/api';
 import { AuthResponse } from '@/shared/types/auth';
 
 export interface RegisterUserProps {
@@ -14,7 +15,9 @@ export const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, Th
     'register/registerUser',
     async (registerData, { dispatch, extra, rejectWithValue }) => {
         try {
-            const { data } = await extra.api.post<AuthResponse>('/registration', registerData);
+            const { data } = await extra.api.post<AuthResponse>('/registration', registerData, {
+                baseURL: AUTH_ENDPOINT,
+            });
 
             if (!data) {
                 throw new Error();

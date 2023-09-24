@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { AUTH_ENDPOINT } from '@/shared/const/api';
 import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AuthResponse } from '@/shared/types/auth';
 import { userActions } from '../slice/userSlice';
@@ -8,7 +9,8 @@ export const checkUserAuth = createAsyncThunk<void, undefined>(
     'user/checkUserAuth',
     async (_, thunkApi) => {
         try {
-            const { data } = await axios.get<AuthResponse>(`${__API__}/refresh`, {
+            const { data } = await axios.get<AuthResponse>('/refresh', {
+                baseURL: AUTH_ENDPOINT,
                 withCredentials: true,
             });
 

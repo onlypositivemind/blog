@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
+import { AUTH_ENDPOINT } from '@/shared/const/api';
 import { AuthResponse } from '@/shared/types/auth';
 
 export interface LoginUserProps {
@@ -13,7 +14,9 @@ export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkCon
     'login/loginUser',
     async (loginData, { dispatch, extra, rejectWithValue }) => {
         try {
-            const { data } = await extra.api.post<AuthResponse>('/login', loginData);
+            const { data } = await extra.api.post<AuthResponse>('/login', loginData, {
+                baseURL: AUTH_ENDPOINT,
+            });
 
             if (!data) {
                 throw new Error();

@@ -1,11 +1,8 @@
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { NavbarItemType } from '@/widgets/Sidebar/model/types/navbar';
-import { getRouteAbout, getRouteMain, getRouteProfile } from '@/shared/const/router';
+import { selectNavbarItems } from '@/widgets/Sidebar/model/selectors/navbarSelectors';
 import { NavbarItem } from './NavbarItem/NavbarItem';
-import AboutPageIcon from '@/shared/assets/icons/about-page.svg';
-import MainPageIcon from '@/shared/assets/icons/main-page.svg';
-import ProfilePageIcon from '@/shared/assets/icons/profile-page.svg';
 import s from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -13,19 +10,14 @@ interface NavbarProps {
     className?: string;
 }
 
-const navbarItemsList: NavbarItemType[] = [
-    { path: getRouteMain(), title: 'Home', Icon: MainPageIcon },
-    { path: getRouteAbout(), title: 'About', Icon: AboutPageIcon },
-    { path: getRouteProfile(), title: 'Profile', Icon: ProfilePageIcon },
-];
-
 export const Navbar = ({ className, collapsed }: NavbarProps) => {
     const { pathname } = useLocation();
+    const navbarItems = useSelector(selectNavbarItems);
 
     return (
         <nav className={cn(s.navbar, className, { [s.collapsed]: collapsed })}>
             <ul className={s.list}>
-                {navbarItemsList.map((item) => (
+                {navbarItems.map((item) => (
                     <li
                         key={item.path}
                         className={cn(s.navItem, { [s.active]: item.path === pathname })}
@@ -35,6 +27,7 @@ export const Navbar = ({ className, collapsed }: NavbarProps) => {
                             path={item.path}
                             title={item.title}
                             Icon={item.Icon}
+                            authOnly={item.authOnly}
                         />
                     </li>
                 ))}

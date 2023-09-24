@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ProfileSchema } from '../types/profile';
 
 const initialState: ProfileSchema = {
-    isEdit: false,
+    isEditing: false,
     isLoading: false,
 };
 

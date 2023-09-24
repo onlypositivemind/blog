@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { MAX_RESPONSE_TIME } from '@/shared/const/api';
+import { API_ENDPOINT, MAX_RESPONSE_TIME } from '@/shared/const/api';
 import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AuthResponse } from '@/shared/types/auth';
 
 export const $api = axios.create({
     withCredentials: true,
-    baseURL: __API__,
+    baseURL: API_ENDPOINT,
     timeout: MAX_RESPONSE_TIME,
 });
 
