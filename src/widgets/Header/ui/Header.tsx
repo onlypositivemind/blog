@@ -2,8 +2,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectUserAuthData } from '@/entities/User';
-import { LoginModal } from '@/features/UserLogin';
-import { RegisterModal } from '@/features/UserRegister';
+import { AuthModal, AuthModalView } from '@/widgets/AuthModal';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, Logo } from '@/shared/ui';
 import s from './Header.module.scss';
@@ -12,23 +11,24 @@ export const Header = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const authData = useSelector(selectUserAuthData);
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-    const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [currentModal, setCurrentModal] = useState<AuthModalView>(null);
 
-    const handleOpeningLoginModal = useCallback(() => {
-        setIsLoginModalOpen(true);
+    const handleOpeningAuthModal = useCallback(
+        (currentModal: AuthModalView) => () => {
+            setCurrentModal(currentModal);
+            setIsAuthModalOpen(true);
+        },
+        [],
+    );
+
+    const handleClosingAuthModal = useCallback(() => {
+        setIsAuthModalOpen(false);
+        setCurrentModal(null);
     }, []);
 
-    const handleClosingLoginModal = useCallback(() => {
-        setIsLoginModalOpen(false);
-    }, []);
-
-    const handleOpeningRegisterModal = useCallback(() => {
-        setIsRegisterModalOpen(true);
-    }, []);
-
-    const handleClosingRegisterModal = useCallback(() => {
-        setIsRegisterModalOpen(false);
+    const handleChangeModalView = useCallback(() => {
+        setCurrentModal((prev) => (prev === 'login' ? 'register' : 'login'));
     }, []);
 
     const handleClickLogout = useCallback(() => {
@@ -45,25 +45,24 @@ export const Header = () => {
                     </Button>
                 ) : (
                     <div className={s.authButtons}>
-                        <Button onClick={handleOpeningRegisterModal} theme='clear_white'>
+                        <Button onClick={handleOpeningAuthModal('register')} theme='clear_white'>
                             {t('Register')}
                         </Button>
                         <p>{t('or')}</p>
-                        <Button onClick={handleOpeningLoginModal} theme='clear_white'>
+                        <Button onClick={handleOpeningAuthModal('login')} theme='clear_white'>
                             {t('Sign in')}
                         </Button>
                     </div>
                 )}
+                {isAuthModalOpen && (
+                    <AuthModal
+                        isOpen={isAuthModalOpen}
+                        onCloseModal={handleClosingAuthModal}
+                        currentModal={currentModal}
+                        onChangeModalView={handleChangeModalView}
+                    />
+                )}
             </div>
-            {isLoginModalOpen && (
-                <LoginModal isOpen={isLoginModalOpen} onCloseModal={handleClosingLoginModal} />
-            )}
-            {isRegisterModalOpen && (
-                <RegisterModal
-                    isOpen={isRegisterModalOpen}
-                    onCloseModal={handleClosingRegisterModal}
-                />
-            )}
         </header>
     );
 };

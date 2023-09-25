@@ -2,32 +2,32 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 export default {
-    title: 'features/LoginForm',
-    component: LoginForm,
+    title: 'features/RegisterForm',
+    component: RegisterForm,
     args: {
         onCloseModal: () => {},
         onChangeModalView: () => {},
     },
     decorators: [CenterElementDecorator],
-} as ComponentMeta<typeof LoginForm>;
+} as ComponentMeta<typeof RegisterForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof RegisterForm> = (args) => <RegisterForm {...args} />;
 
 export const Default = Template.bind({});
-Default.decorators = [StoreDecorator({ loginForm: { isLoading: false } })];
+Default.decorators = [StoreDecorator({ registerForm: { isLoading: false } })];
 
 export const Loading = Template.bind({});
-Loading.decorators = [StoreDecorator({ loginForm: { isLoading: true } })];
+Loading.decorators = [StoreDecorator({ registerForm: { isLoading: true } })];
 
 export const Error = Template.bind({});
 Error.decorators = [
     StoreDecorator({
-        loginForm: {
+        registerForm: {
             isLoading: false,
-            errorMessage: 'The username and/or password you specified are not correct.',
+            errorMessage: 'Username cannot be used. Please choose another username',
         },
     }),
 ];

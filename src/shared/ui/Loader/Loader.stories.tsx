@@ -7,7 +7,7 @@ export default {
     component: Loader,
 } as ComponentMeta<typeof Loader>;
 
-const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
+const Template: ComponentStory<typeof Loader> = () => <Loader />;
 
 export const AllOptions = Template.bind({});
 AllOptions.decorators = [CenterElementDecorator];

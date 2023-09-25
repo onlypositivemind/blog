@@ -15,6 +15,7 @@ import s from './LoginForm.module.scss';
 
 interface LoginFormProps {
     onCloseModal: () => void;
+    onChangeModalView: () => void;
 }
 
 interface FormValues {
@@ -24,7 +25,7 @@ interface FormValues {
 
 const reducers: ReducersList = { loginForm: loginReducer };
 
-const LoginForm = ({ onCloseModal }: LoginFormProps) => {
+const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
     const { t } = useTranslation('login');
     const {
         register,
@@ -47,12 +48,12 @@ const LoginForm = ({ onCloseModal }: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={cn(s.loginWrapper, { [s.loading]: isLoading })}>
-                <Logo className={s.logo} isLink={false} />
+            <div className={cn('authFormWrapper', { loading: isLoading })}>
+                <Logo className={'authFormLogo'} isLink={false} />
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     aria-describedby='login-error-message'
-                    className={s.loginForm}
+                    className={'authForm'}
                 >
                     <FormInput
                         type='text'
@@ -76,20 +77,18 @@ const LoginForm = ({ onCloseModal }: LoginFormProps) => {
                             required: t('Required'),
                         })}
                     />
-                    <Button type='submit' theme='blue' disabled={isLoading} className={s.loginBtn}>
+                    <Button type='submit' theme='blue' disabled={isLoading} className='authButton'>
                         {t('Sign in')}
                     </Button>
                     {errorMessage && (
-                        <span
-                            className={s.loginError}
-                            id='login-error-message'
-                            aria-live='assertive'
-                        >
+                        <span className='authError' id='login-error-message' aria-live='assertive'>
                             {t(errorMessage)}
                         </span>
                     )}
                 </form>
-                <p className={s.signUp}>{t('Sign Up')}</p>
+                <Button onClick={onChangeModalView} disabled={isLoading} className={s.signUp}>
+                    {t('Sign Up')}
+                </Button>
             </div>
         </DynamicModuleLoader>
     );

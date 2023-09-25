@@ -15,6 +15,7 @@ import s from './RegisterForm.module.scss';
 
 interface RegisterFormProps {
     onCloseModal: () => void;
+    onChangeModalView: () => void;
 }
 
 interface FormValues {
@@ -26,7 +27,7 @@ interface FormValues {
 
 const reducers: ReducersList = { registerForm: registerReducer };
 
-const RegisterForm = ({ onCloseModal }: RegisterFormProps) => {
+const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) => {
     const { t } = useTranslation('register');
     const {
         register,
@@ -49,12 +50,12 @@ const RegisterForm = ({ onCloseModal }: RegisterFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={cn(s.registerWrapper, { [s.loading]: isLoading })}>
-                <Logo className={s.logo} isLink={false} />
+            <div className={cn('authFormWrapper', { loading: isLoading })}>
+                <Logo className={'authFormLogo'} isLink={false} />
                 <form
                     onSubmit={handleSubmit(onSubmit)}
                     aria-describedby='register-error-message'
-                    className={s.registerForm}
+                    className={'authForm'}
                 >
                     <FormInput
                         type='text'
@@ -108,23 +109,24 @@ const RegisterForm = ({ onCloseModal }: RegisterFormProps) => {
                             },
                         })}
                     />
+                    <Button type='submit' theme='blue' className={'authButton'}>
+                        {t('Sign up')}
+                    </Button>
                     {errorMessage && (
                         <span
-                            className={s.registerError}
+                            className={'authError'}
                             id='register-error-message'
                             aria-live='assertive'
                         >
                             {t(errorMessage)}
                         </span>
                     )}
-                    <Button type='submit' theme='blue' className={s.registerBtn}>
-                        {t('Sign up')}
-                    </Button>
                 </form>
                 <div className={s.signInBlock}>
                     <p>{t('Have an account?')}</p>
-                    {/* eslint-disable-next-line i18next/no-literal-string */}
-                    <p>{t('Sign in')}</p>
+                    <Button onClick={onChangeModalView} disabled={isLoading}>
+                        {t('Sign in')}
+                    </Button>
                 </div>
             </div>
         </DynamicModuleLoader>

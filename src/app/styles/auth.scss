@@ -1,0 +1,45 @@
+.authFormWrapper {
+    width: 100%;
+    max-width: 320px;
+
+    &.loading {
+        animation: 1s infinite linear pulsation;
+    }
+}
+
+@keyframes pulsation {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.authFormLogo {
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.authButton {
+    border-radius: var(--radius-xs);
+    width: 100%;
+}
+
+.authError {
+    font-size: var(--font-size-p4);
+    text-align: center;
+    color: var(--red);
+}
