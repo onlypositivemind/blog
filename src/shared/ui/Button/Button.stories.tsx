@@ -9,9 +9,9 @@ export default {
         theme: 'primary',
         size: 'size_h4',
     },
+    decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Button</Button>;
 
-export const AllOptions = Template.bind({});
-AllOptions.decorators = [CenterElementDecorator];
+export const Story = Template.bind({});

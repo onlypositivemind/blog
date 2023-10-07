@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { I18nNamespace } from '@/shared/const/translations';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, FormInput, Logo } from '@/shared/ui';
@@ -26,7 +27,7 @@ interface FormValues {
 const reducers: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
-    const { t } = useTranslation('login');
+    const { t } = useTranslation([I18nNamespace.REGISTER, I18nNamespace.LOGIN, I18nNamespace.BASE]);
     const {
         register,
         handleSubmit,
@@ -78,16 +79,16 @@ const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
                         })}
                     />
                     <Button type='submit' theme='blue' disabled={isLoading} className='authButton'>
-                        {t('Sign in')}
+                        {t('Sign In', { ns: I18nNamespace.BASE })}
                     </Button>
                     {errorMessage && (
                         <span className='authError' id='login-error-message' aria-live='assertive'>
-                            {t(errorMessage)}
+                            {t(errorMessage, { ns: I18nNamespace.LOGIN })}
                         </span>
                     )}
                 </form>
                 <Button onClick={onChangeModalView} disabled={isLoading} className={s.signUp}>
-                    {t('Sign Up')}
+                    {t('Sign Up', { ns: I18nNamespace.BASE })}
                 </Button>
             </div>
         </DynamicModuleLoader>

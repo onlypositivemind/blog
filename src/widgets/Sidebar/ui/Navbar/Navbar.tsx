@@ -27,7 +27,6 @@ export const Navbar = ({ className, collapsed }: NavbarProps) => {
                             path={item.path}
                             title={item.title}
                             Icon={item.Icon}
-                            authOnly={item.authOnly}
                         />
                     </li>
                 ))}

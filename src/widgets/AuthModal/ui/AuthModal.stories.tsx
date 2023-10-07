@@ -29,7 +29,7 @@ export const LoginError = Template.bind({});
 LoginError.args = { currentModal: 'login' };
 LoginError.decorators = [
     StoreDecorator({
-        loginForm: { errorMessage: 'The username and/or password you specified are not correct.' },
+        loginForm: { errorMessage: 'The username and/or password you specified are not correct' },
     }),
 ];
 

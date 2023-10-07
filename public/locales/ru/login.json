@@ -1,8 +1,4 @@
 {
-    "Username": "Имя пользователя",
-    "Password": "Пароль",
-    "Sign in": "Войти",
-    "Required": "Неудалось войти в систему",
     "Log in failed": "Не удалось войти в систему, пожалуйста, повторите попытку позже",
     "The username and/or password you specified are not correct": "Указанные вами имя пользователя и/или пароль неверны"
 }

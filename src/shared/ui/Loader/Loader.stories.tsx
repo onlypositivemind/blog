@@ -5,9 +5,9 @@ import { Loader } from './Loader';
 export default {
     title: 'shared/Loader',
     component: Loader,
+    decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Loader>;
 
 const Template: ComponentStory<typeof Loader> = () => <Loader />;
 
-export const AllOptions = Template.bind({});
-AllOptions.decorators = [CenterElementDecorator];
+export const Story = Template.bind({});

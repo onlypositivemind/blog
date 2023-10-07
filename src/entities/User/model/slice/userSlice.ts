@@ -16,23 +16,21 @@ const userSlice = createSlice({
             localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, payload.accessToken);
             state.authData = payload.user;
         },
-
         logout: (state) => {
             localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
             state.authData = undefined;
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(checkUserAuth.fulfilled, (state) => {
-            state._inited = true;
-        });
-
-        builder.addCase(checkUserAuth.rejected, (state) => {
-            state._inited = true;
-            state.authData = undefined;
-        });
+        builder
+            .addCase(checkUserAuth.fulfilled, (state) => {
+                state._inited = true;
+            })
+            .addCase(checkUserAuth.rejected, (state) => {
+                state._inited = true;
+                state.authData = undefined;
+            });
     },
 });
 
-export const { actions: userActions } = userSlice;
-export const { reducer: userReducer } = userSlice;
+export const { actions: userActions, reducer: userReducer } = userSlice;

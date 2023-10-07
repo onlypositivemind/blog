@@ -12,6 +12,8 @@ export default {
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof FormInput>;
 
-const Template: ComponentStory<typeof FormInput> = (args) => <FormInput {...args} />;
+const Template: ComponentStory<typeof FormInput> = (args) => (
+    <FormInput {...args} wrapperStyle={{ maxWidth: 300 }} />
+);
 
 export const Story = Template.bind({});

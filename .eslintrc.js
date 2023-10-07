@@ -67,6 +67,7 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        eqeqeq: 'error',
         'simple-import-sort/imports': [
             'error',
             {

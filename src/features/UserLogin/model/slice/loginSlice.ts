@@ -16,12 +16,10 @@ const loginSlice = createSlice({
                 state.isLoading = true;
                 state.errorMessage = undefined;
             })
-
             .addCase(loginUser.fulfilled, (state) => {
                 state.isLoading = false;
                 state.errorMessage = undefined;
             })
-
             .addCase(loginUser.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.errorMessage = payload;

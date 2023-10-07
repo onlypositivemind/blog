@@ -27,7 +27,7 @@ Error.decorators = [
     StoreDecorator({
         loginForm: {
             isLoading: false,
-            errorMessage: 'The username and/or password you specified are not correct.',
+            errorMessage: 'The username and/or password you specified are not correct',
         },
     }),
 ];

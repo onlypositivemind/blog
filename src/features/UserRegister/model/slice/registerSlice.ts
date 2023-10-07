@@ -16,12 +16,10 @@ const registerSlice = createSlice({
                 state.isLoading = true;
                 state.errorMessage = undefined;
             })
-
             .addCase(registerUser.fulfilled, (state) => {
                 state.isLoading = false;
                 state.errorMessage = undefined;
             })
-
             .addCase(registerUser.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.errorMessage = payload;

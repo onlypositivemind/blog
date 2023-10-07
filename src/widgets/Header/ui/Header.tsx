@@ -41,7 +41,7 @@ export const Header = () => {
             <div className={s.right}>
                 {authData ? (
                     <Button onClick={handleClickLogout} theme='clear_white'>
-                        {t('Sign out')}
+                        {t('Sign Out')}
                     </Button>
                 ) : (
                     <div className={s.authButtons}>
@@ -50,7 +50,7 @@ export const Header = () => {
                         </Button>
                         <p>{t('or')}</p>
                         <Button onClick={handleOpeningAuthModal('login')} theme='clear_white'>
-                            {t('Sign in')}
+                            {t('Sign In')}
                         </Button>
                     </div>
                 )}

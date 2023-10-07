@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { registerUser } from '@/features/UserRegister/model/services/registerUser';
+import { I18nNamespace } from '@/shared/const/translations';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, FormInput, Logo } from '@/shared/ui';
@@ -28,7 +29,7 @@ interface FormValues {
 const reducers: ReducersList = { registerForm: registerReducer };
 
 const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) => {
-    const { t } = useTranslation('register');
+    const { t } = useTranslation([I18nNamespace.REGISTER, I18nNamespace.BASE]);
     const {
         register,
         handleSubmit,
@@ -109,8 +110,13 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                             },
                         })}
                     />
-                    <Button type='submit' theme='blue' className={'authButton'}>
-                        {t('Sign up')}
+                    <Button
+                        type='submit'
+                        theme='blue'
+                        disabled={isLoading}
+                        className={'authButton'}
+                    >
+                        {t('Sign Up', { ns: I18nNamespace.BASE })}
                     </Button>
                     {errorMessage && (
                         <span
@@ -125,7 +131,7 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                 <div className={s.signInBlock}>
                     <p>{t('Have an account?')}</p>
                     <Button onClick={onChangeModalView} disabled={isLoading}>
-                        {t('Sign in')}
+                        {t('Sign In', { ns: I18nNamespace.BASE })}
                     </Button>
                 </div>
             </div>

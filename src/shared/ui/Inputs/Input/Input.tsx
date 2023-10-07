@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef } from 'react';
+import { ChangeEvent, CSSProperties, InputHTMLAttributes, memo, useEffect, useRef } from 'react';
 import { ClearingEmoji } from '@/shared/assets/textSymbols';
 import s from '../Inputs.module.scss';
 
@@ -9,6 +9,7 @@ interface InputProps extends HTMLInputProps {
     value?: string;
     onChange?: (value: string) => void;
     className?: string;
+    wrapperStyle?: CSSProperties;
 }
 
 const InputComponent = ({
@@ -16,6 +17,7 @@ const InputComponent = ({
     onChange,
     className,
     disabled,
+    wrapperStyle,
     type = 'text',
     ...rest
 }: InputProps) => {
@@ -36,7 +38,7 @@ const InputComponent = ({
     }, [rest.autoFocus]);
 
     return (
-        <div className={cn(s.inputWrapper, className)}>
+        <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>
             <input
                 ref={inputRef}
                 value={value}

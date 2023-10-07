@@ -10,9 +10,9 @@ export default {
         size: 'size_h4',
         to: '/',
     },
+    decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args}>AppLink</AppLink>;
 
-export const AllOptions = Template.bind({});
-AllOptions.decorators = [CenterElementDecorator];
+export const Story = Template.bind({});

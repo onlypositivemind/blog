@@ -1,8 +1,4 @@
 {
-    "Username": "Username",
-    "Password": "Password",
-    "Sign in": "Sign in",
-    "Required": "Required",
     "Log in failed": "Failed to log in, please try again later",
     "The username and/or password you specified are not correct": "The username and/or password you specified are not correct"
 }

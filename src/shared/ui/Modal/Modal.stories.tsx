@@ -21,4 +21,4 @@ const Template: ComponentStory<typeof Modal> = (args) => (
     </Modal>
 );
 
-export const AllOptions = Template.bind({});
+export const Story = Template.bind({});

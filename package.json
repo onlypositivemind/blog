@@ -13,8 +13,8 @@
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
         "test:unit": "jest --config ./config/jest/jest.config.ts",
-        "storybook": "start-storybook -p 6006 -c ./config/storybook",
-        "storybook:build": "build-storybook -c ./config/storybook",
+        "storybook": "start-storybook -p 6006 -c config/storybook -s public",
+        "storybook:build": "build-storybook -c config/storybook -s public",
         "prepare": "husky install"
     },
     "keywords": [],
