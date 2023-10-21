@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
-import { Theme } from '@/shared/types/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const';
+import { Theme } from '@/shared/types';
 import { ThemeContext } from '../context/themeContext';
 
 export const useTheme = (): [Theme, () => void] => {

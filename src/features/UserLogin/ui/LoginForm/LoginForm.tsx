@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { I18nNamespace } from '@/shared/const/translations';
+import { I18nNamespace } from '@/shared/const';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, FormInput, Logo } from '@/shared/ui';
@@ -63,6 +63,7 @@ const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
                         disabled={isLoading}
                         errorMessage={errors.username?.message}
                         ariaDescribedby='username-error-message'
+                        defaultValue='admin' // TODO убрать, когда будет готов сервер
                         {...register('username', {
                             required: t('Required'),
                         })}
@@ -74,6 +75,7 @@ const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
                         disabled={isLoading}
                         errorMessage={errors.password?.message}
                         ariaDescribedby='password-error-message'
+                        defaultValue='asdasdasd' // TODO убрать, когда будет готов сервер
                         {...register('password', {
                             required: t('Required'),
                         })}

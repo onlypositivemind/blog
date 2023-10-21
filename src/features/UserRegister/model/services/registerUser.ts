@@ -2,8 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
-import { AUTH_ENDPOINT } from '@/shared/const/api';
-import { AuthResponse } from '@/shared/types/auth';
+import { AUTH_ENDPOINT } from '@/shared/const';
+import { AuthResponse } from '@/shared/types';
 
 export interface RegisterUserProps {
     username: string;

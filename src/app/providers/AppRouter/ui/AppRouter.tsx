@@ -1,7 +1,7 @@
 import { Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';
-import { AppRoutesProps } from '@/shared/types/router';
+import { AppRoutesProps } from '@/shared/types';
 import { routerConfig } from '../config/routerConfig';
 import { GuardedRoute } from './GuardedRoute';
 

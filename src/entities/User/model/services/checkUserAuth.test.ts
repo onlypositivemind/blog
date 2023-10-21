@@ -2,16 +2,16 @@ import { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
-import { AuthResponse } from '@/shared/types/auth';
+import { AuthResponse } from '@/shared/types';
 import { checkUserAuth } from './checkUserAuth';
 
 const checkUserAuthResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
     user: {
-        id: '0',
+        id: 1,
         username: 'admin',
         email: 'admin@gmail.com',
-        role: 'USER',
+        roles: ['SystemAdmin'],
     },
 };
 

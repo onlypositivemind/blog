@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "email": "admin@gmail.com",
+            "username": "admin",
+            "password": "asdasdasd",
+            "roles": ["SystemAdmin"]
+        },
+        {
+            "id": 2,
+            "email": "user@gmail.com",
+            "username": "user",
+            "password": "asdasdasd",
+            "roles": []
+        },
+        {
+            "id": 3,
+            "email": "moder@gmail.com",
+            "username": "moder",
+            "password": "asdasdasd",
+            "roles": ["Moderator"]
+        }
+    ]
+}

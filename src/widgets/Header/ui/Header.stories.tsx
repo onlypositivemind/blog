@@ -16,7 +16,7 @@ export const Auth = Template.bind({});
 Auth.decorators = [
     StoreDecorator({
         user: {
-            authData: { id: '0', email: 'somemail@gmail.com', username: 'Omegafine', role: 'USER' },
+            authData: { id: 0, email: 'somemail@gmail.com', username: 'Omegafine', roles: [] },
         },
     }),
 ];

@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import { Theme } from '@/shared/types/theme';
+import { Theme } from '@/shared/types';
 
 export const SecondaryBgColorDecorator = (theme: Theme) => (StoryComponent: Story) => {
     return (

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { AUTH_ENDPOINT } from '@/shared/const/api';
+import { AUTH_ENDPOINT } from '@/shared/const';
 import { userActions } from '../slice/userSlice';
 
 export const logoutUser = createAsyncThunk<void, undefined, ThunkConfig<undefined>>(

@@ -3,10 +3,10 @@ import { User } from '../types/user';
 import { selectUserAuthData, selectUserInited } from './userSelectors';
 
 const authData: User = {
-    id: '0',
+    id: 1,
     username: 'admin',
     email: 'admin@gmail.com',
-    role: 'ADMIN',
+    roles: ['SystemAdmin'],
 };
 
 describe('User selectors', () => {

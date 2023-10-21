@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { getRouteMain } from '@/shared/const/router';
+import { getRouteMain } from '@/shared/const';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';
 

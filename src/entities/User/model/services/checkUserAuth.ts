@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { AUTH_ENDPOINT } from '@/shared/const/api';
-import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { AuthResponse } from '@/shared/types/auth';
+import { AUTH_ENDPOINT, TOKEN_LOCALSTORAGE_KEY } from '@/shared/const';
+import { AuthResponse } from '@/shared/types';
 import { userActions } from '../slice/userSlice';
 
 export const checkUserAuth = createAsyncThunk<void, undefined>(

@@ -1,15 +1,15 @@
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
-import { AuthResponse } from '@/shared/types/auth';
+import { AuthResponse } from '@/shared/types';
 import { registerUser, RegisterUserProps } from './registerUser';
 
 const registerUserResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
     user: {
-        id: '0',
+        id: 1,
         username: 'admin',
         email: 'admin@gmail.com',
-        role: 'USER',
+        roles: ['SystemAdmin'],
     },
 };
 

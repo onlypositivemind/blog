@@ -1,10 +1,10 @@
-export type UserRole = 'USER' | 'ADMIN';
+export type UserRole = 'SystemAdmin' | 'Moderator';
 
 export interface User {
-    id: string;
+    id: number;
     email: string;
     username: string;
-    role: UserRole;
+    roles: UserRole[];
 }
 
 export interface UserSchema {
