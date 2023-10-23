@@ -1,6 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { selectRegisterFormErrorMessage, selectRegisterFormIsLoading } from './registerSelectors';
 
+const errorMessage = 'Register failed';
+
 describe('Register selectors', () => {
     test('selectRegisterFormIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
@@ -16,10 +18,10 @@ describe('Register selectors', () => {
 
     test('selectRegisterFormErrorMessage: should return error message', () => {
         const state: DeepPartial<StateSchema> = {
-            registerForm: { errorMessage: 'Register failed' },
+            registerForm: { errorMessage },
         };
 
-        expect(selectRegisterFormErrorMessage(state as StateSchema)).toBe('Register failed');
+        expect(selectRegisterFormErrorMessage(state as StateSchema)).toBe(errorMessage);
     });
 
     test('selectRegisterFormErrorMessage: should work with empty state', () => {

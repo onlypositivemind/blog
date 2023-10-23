@@ -1,8 +1,10 @@
 import { addDecorator } from '@storybook/react';
 import '../../src/shared/config/i18n/i18n';
-import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
-import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator';
-import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator';
+import {
+    RouterDecorator,
+    SuspenseDecorator,
+    ThemeDecorator,
+} from '../../src/shared/config/storybook';
 import '../../src/app/styles/index.scss';
 
 export const parameters = {

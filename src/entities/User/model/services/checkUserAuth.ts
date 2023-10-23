@@ -23,12 +23,13 @@ export const checkUserAuth = createAsyncThunk<void, undefined>(
                 localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
             }
 
+            let errMessage = 'checkUserAuth error';
+
             if (axios.isAxiosError(err)) {
-                const errMessage = err.response?.data.message;
-                return thunkApi.rejectWithValue(errMessage);
+                errMessage = err.response?.data.message || errMessage;
             }
 
-            return thunkApi.rejectWithValue('checkUserAuth error');
+            return thunkApi.rejectWithValue(errMessage);
         }
     },
 );

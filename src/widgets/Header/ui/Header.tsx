@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectUserAuthData } from '@/entities/User';
 import { AuthModal, AuthModalView } from '@/widgets/AuthModal';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks';
 import { Button, Logo } from '@/shared/ui';
 import s from './Header.module.scss';
 
@@ -33,7 +33,7 @@ export const Header = () => {
 
     const handleClickLogout = useCallback(() => {
         dispatch(logoutUser());
-    }, [dispatch]);
+    }, []);
 
     return (
         <header className={s.header}>

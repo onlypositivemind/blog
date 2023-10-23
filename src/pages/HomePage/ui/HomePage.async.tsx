@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 
-export const MainPageAsync = lazy(
+export const HomePageAsync = lazy(
     () =>
         new Promise((resolve) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore TODO TEST
-            setTimeout(() => resolve(import('./MainPage')), 1500);
+            setTimeout(() => resolve(import('./HomePage')), 1500);
         }),
 );

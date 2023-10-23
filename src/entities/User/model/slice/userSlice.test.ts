@@ -2,7 +2,7 @@ import { checkUserAuth } from '../services/checkUserAuth';
 import { User, UserSchema } from '../types/user';
 import { userActions, userReducer } from './userSlice';
 
-const authData: User = {
+export const authData: User = {
     id: 1,
     username: 'admin',
     email: 'admin@gmail.com',
@@ -11,10 +11,7 @@ const authData: User = {
 
 describe('User slice', () => {
     test('logout action', () => {
-        const state: DeepPartial<UserSchema> = {
-            _inited: true,
-            authData,
-        };
+        const state: DeepPartial<UserSchema> = { _inited: true, authData };
 
         expect(userReducer(state as UserSchema, userActions.logout)).toEqual({
             _inited: true,
@@ -23,9 +20,7 @@ describe('User slice', () => {
     });
 
     test('setAuthData action', () => {
-        const state: DeepPartial<UserSchema> = {
-            _inited: true,
-        };
+        const state: DeepPartial<UserSchema> = { _inited: true };
 
         expect(
             userReducer(
@@ -35,10 +30,7 @@ describe('User slice', () => {
                     user: authData,
                 }),
             ),
-        ).toEqual({
-            _inited: true,
-            authData,
-        });
+        ).toEqual({ _inited: true, authData });
     });
 
     test('checkUserAuth.fulfilled', () => {
@@ -52,10 +44,7 @@ describe('User slice', () => {
     });
 
     test('checkUserAuth.rejected', () => {
-        const state: DeepPartial<UserSchema> = {
-            _inited: false,
-            authData,
-        };
+        const state: DeepPartial<UserSchema> = { _inited: false, authData };
 
         expect(userReducer(state as UserSchema, checkUserAuth.rejected)).toEqual({
             _inited: true,

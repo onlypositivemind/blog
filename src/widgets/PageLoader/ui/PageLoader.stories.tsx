@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { FullHeightDecorator } from '@/shared/config/storybook/FullHeightDecorator';
+import { FullHeightDecorator } from '@/shared/config/storybook';
 import { PageLoader } from './PageLoader';
 
 export default {

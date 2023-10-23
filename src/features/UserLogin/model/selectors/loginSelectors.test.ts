@@ -1,6 +1,8 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { selectLoginFormErrorMessage, selectLoginFormIsLoading } from './loginSelectors';
 
+const errorMessage = 'Log in failed';
+
 describe('Login selectors', () => {
     test('selectLoginFormIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
@@ -16,10 +18,10 @@ describe('Login selectors', () => {
 
     test('selectLoginFormErrorMessage: should return error message', () => {
         const state: DeepPartial<StateSchema> = {
-            loginForm: { errorMessage: 'Log in failed' },
+            loginForm: { errorMessage },
         };
 
-        expect(selectLoginFormErrorMessage(state as StateSchema)).toBe('Log in failed');
+        expect(selectLoginFormErrorMessage(state as StateSchema)).toBe(errorMessage);
     });
 
     test('selectLoginFormIsLoading: should work with empty state', () => {

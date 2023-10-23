@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { getRouteMain } from '@/shared/const';
+import { getRouteHome } from '@/shared/const';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';
 
@@ -24,7 +24,7 @@ const LogoComponent = ({ className, theme = 'primary', isLink = true }: LogoProp
 
     if (isLink) {
         return (
-            <Link to={getRouteMain()} className={cn(s.logoLink, ...classes)}>
+            <Link to={getRouteHome()} className={cn(s.logoLink, ...classes)}>
                 {content}
             </Link>
         );

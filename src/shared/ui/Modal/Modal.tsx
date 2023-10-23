@@ -26,14 +26,11 @@ export const Modal = ({
 }: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
 
-    const handleCloseModalByKey = useCallback(
-        (ev: KeyboardEvent) => {
-            if (ev.key === 'Escape') {
-                onClose?.();
-            }
-        },
-        [onClose],
-    );
+    const handleCloseModalByKey = useCallback((ev: KeyboardEvent) => {
+        if (ev.key === 'Escape') {
+            onClose?.();
+        }
+    }, []);
 
     const handleClickContent = (ev: MouseEvent) => {
         ev.stopPropagation();
@@ -56,7 +53,7 @@ export const Modal = ({
         if (isOpen) {
             setIsMounted(true);
         }
-    }, [isOpen]);
+    }, []);
 
     if (lazy && !isMounted) {
         return null;

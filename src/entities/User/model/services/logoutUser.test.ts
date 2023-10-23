@@ -1,5 +1,5 @@
 import { userActions } from '@/entities/User';
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/tests';
 import { logoutUser } from './logoutUser';
 
 describe('logoutUser AsyncThunk', () => {

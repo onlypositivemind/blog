@@ -26,12 +26,13 @@ export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkCon
 
             return data;
         } catch (err) {
+            let errMessage = 'Log in failed';
+
             if (axios.isAxiosError(err)) {
-                const errMessage = err.response?.data.message;
-                return rejectWithValue(errMessage);
+                errMessage = err.response?.data.message || errMessage;
             }
 
-            return rejectWithValue('Log in failed');
+            return rejectWithValue(errMessage);
         }
     },
 );

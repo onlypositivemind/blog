@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
+import { CenterElementDecorator } from '@/shared/config/storybook';
 import { AppLink } from './AppLink';
 
 export default {

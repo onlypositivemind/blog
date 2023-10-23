@@ -42,7 +42,6 @@ export const DynamicModuleLoader = ({
                 });
             }
         };
-        /* eslint-disable react-hooks/exhaustive-deps */
     }, []);
 
     return <>{children}</>;

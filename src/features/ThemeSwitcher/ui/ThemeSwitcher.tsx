@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { useTheme } from '@/shared/lib/hooks';
 import { Button } from '@/shared/ui';
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';

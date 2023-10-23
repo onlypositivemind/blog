@@ -1,5 +1,5 @@
 import { userActions } from '@/entities/User';
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
+import { TestAsyncThunk } from '@/shared/lib/tests';
 import { AuthResponse } from '@/shared/types';
 import { registerUser, RegisterUserProps } from './registerUser';
 
@@ -18,6 +18,8 @@ const userRegisterData: RegisterUserProps = {
     email: 'admin@gmail.com',
     password: 'admin',
 };
+
+const errorMessage = 'Register failed';
 
 describe('registerUser AsyncThunk', () => {
     test('should be fulfilled', async () => {
@@ -42,6 +44,6 @@ describe('registerUser AsyncThunk', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toBe('Register failed');
+        expect(result.payload).toBe(errorMessage);
     });
 });

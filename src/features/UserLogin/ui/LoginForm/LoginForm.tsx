@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { I18nNamespace } from '@/shared/const';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
+import { useAppDispatch } from '@/shared/lib/hooks';
 import { Button, FormInput, Logo } from '@/shared/ui';
 import {
     selectLoginFormErrorMessage,

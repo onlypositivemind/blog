@@ -2,7 +2,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { User } from '../types/user';
 import { selectUserAuthData, selectUserInited } from './userSelectors';
 
-const authData: User = {
+export const authData: User = {
     id: 1,
     username: 'admin',
     email: 'admin@gmail.com',

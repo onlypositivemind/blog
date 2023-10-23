@@ -1,2 +1,1 @@
-export { profileActions, profileReducer } from './model/slice/profileSlice';
-export type { Profile, ProfileSchema } from './model/types/profile';
+export type { Profile } from './model/types/profile';

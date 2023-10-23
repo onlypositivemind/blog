@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
+import { CenterElementDecorator } from '@/shared/config/storybook';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {

@@ -35,7 +35,7 @@ const InputComponent = ({
         if (rest.autoFocus) {
             inputRef.current?.focus();
         }
-    }, [rest.autoFocus]);
+    }, []);
 
     return (
         <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>

@@ -13,7 +13,7 @@ export const App = () => {
 
     // useEffect(() => { // TODO Когда будет готов сервер
     //     dispatch(checkUserAuth());
-    // }, [dispatch]);
+    // }, []);
 
     return (
         <div className='app'>

@@ -1,11 +1,14 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { userActions } from '@/entities/User';
 import { AuthResponse } from '@/shared/types';
+import { userActions } from '../slice/userSlice';
 import { checkUserAuth } from './checkUserAuth';
 
-const checkUserAuthResponse: AuthResponse = {
+jest.mock('axios');
+const mockedAxios = jest.mocked(axios, true);
+
+export const authResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
     user: {
         id: 1,
@@ -14,9 +17,6 @@ const checkUserAuthResponse: AuthResponse = {
         roles: ['SystemAdmin'],
     },
 };
-
-jest.mock('axios');
-const mockedAxios = jest.mocked(axios, true);
 
 describe('checkUserAuth AsyncThunk', () => {
     let dispatch: Dispatch;
@@ -28,12 +28,12 @@ describe('checkUserAuth AsyncThunk', () => {
     });
 
     test('should be fulfilled', async () => {
-        mockedAxios.get.mockReturnValue(Promise.resolve({ data: checkUserAuthResponse }));
+        mockedAxios.get.mockReturnValue(Promise.resolve({ data: authResponse }));
         const action = checkUserAuth();
         const result = await action(dispatch, getState, undefined);
 
         expect(mockedAxios.get).toHaveBeenCalled();
-        expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(checkUserAuthResponse));
+        expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(authResponse));
         expect(dispatch).toHaveBeenCalledTimes(3);
         expect(result.meta.requestStatus).toBe('fulfilled');
     });

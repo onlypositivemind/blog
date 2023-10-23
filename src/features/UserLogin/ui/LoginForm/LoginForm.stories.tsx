@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { CenterElementDecorator } from '@/shared/config/storybook/CenterElementDecorator';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { CenterElementDecorator, StoreDecorator } from '@/shared/config/storybook';
 import LoginForm from './LoginForm';
 
 export default {
