@@ -13,6 +13,6 @@ export default {
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args}>Skeleton</Skeleton>;
+const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Story = Template.bind({});

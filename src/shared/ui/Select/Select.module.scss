@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.select {
+    outline: none;
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-xs);
+    padding: 8px;
+    font-size: var(--font-size-p3);
+    color: var(--primary-color);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background-color: var(--inverted-bg-color);
+}

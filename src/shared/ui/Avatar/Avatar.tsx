@@ -3,7 +3,7 @@ import { CSSProperties, memo } from 'react';
 import s from './Avatar.module.scss';
 
 interface AvatarProps {
-    src: string;
+    src?: string;
     alt?: string;
     size?: string | number;
     className?: string;
@@ -17,6 +17,7 @@ const AvatarComponent = ({ src, alt, className, size = 50 }: AvatarProps) => {
 
     return (
         <div className={cn(s.avatarWrapper, className)} style={styles}>
+            {/*TODO Давить дефолтный аватар, если нет аватарки юзера*/}
             <img src={src} alt={alt} />
         </div>
     );

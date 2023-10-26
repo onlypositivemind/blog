@@ -1,3 +1,4 @@
+export type { SelectOption } from './Select/Select';
 export { AppLink } from './AppLink/AppLink';
 export { Avatar } from './Avatar/Avatar';
 export { Button } from './Button/Button';
@@ -7,5 +8,6 @@ export { Loader } from './Loader/Loader';
 export { Logo } from './Logo/Logo';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
+export { Select } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Spin } from './Spin/Spin';

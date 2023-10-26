@@ -12,6 +12,6 @@ export default {
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args}>Avatar</Avatar>;
+const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const Story = Template.bind({});
