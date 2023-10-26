@@ -1,12 +1,20 @@
 import cn from 'classnames';
-import { ChangeEvent, CSSProperties, InputHTMLAttributes, memo, useEffect, useRef } from 'react';
+import {
+    ChangeEvent,
+    CSSProperties,
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useMemo,
+    useRef,
+} from 'react';
 import { ClearingEmoji } from '@/shared/assets/textSymbols';
 import s from '../Inputs.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
 
 interface InputProps extends HTMLInputProps {
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     className?: string;
     wrapperStyle?: CSSProperties;
@@ -17,11 +25,17 @@ const InputComponent = ({
     onChange,
     className,
     disabled,
+    readOnly,
     wrapperStyle,
     type = 'text',
     ...rest
 }: InputProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
+
+    const hasClearIcon = useMemo(
+        () => Boolean(value) && !disabled && !readOnly,
+        [disabled, readOnly, value],
+    );
 
     const handleChangeInput = (ev: ChangeEvent<HTMLInputElement>) => {
         onChange?.(ev.target.value);
@@ -45,10 +59,11 @@ const InputComponent = ({
                 onChange={handleChangeInput}
                 type={type}
                 className={s.input}
-                {...rest}
                 disabled={disabled}
+                readOnly={readOnly}
+                {...rest}
             />
-            {value && !disabled && (
+            {hasClearIcon && (
                 <span
                     role='button'
                     aria-label='cross-for-cleaning'

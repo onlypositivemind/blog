@@ -1,6 +1,7 @@
 .button {
     margin: 0;
     border: 1px solid transparent;
+    border-radius: var(--radius-s);
     padding: 8px 20px;
     transition: opacity 0.1s ease-in-out, border 0.1s ease-in-out;
     cursor: pointer;
@@ -28,28 +29,29 @@
 
 .outlined {
     border: 1px solid var(--primary-color);
-    border-radius: var(--radius-s);
     color: var(--primary-color);
     background-color: transparent;
 }
 
 .outlined_white {
     border: 1px solid var(--white);
-    border-radius: var(--radius-s);
     color: var(--white);
     background-color: transparent;
 }
 
 .primary {
-    border-radius: var(--radius-s);
     color: var(--inverted-primary-color);
     background-color: var(--inverted-bg-color);
 }
 
 .blue {
-    border-radius: var(--radius-s);
     color: var(--white);
     background-color: var(--blue);
+}
+
+.red {
+    color: var(--white);
+    background-color: var(--red);
 }
 
 .size_h4 {

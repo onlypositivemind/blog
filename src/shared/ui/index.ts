@@ -1,4 +1,5 @@
 export { AppLink } from './AppLink/AppLink';
+export { Avatar } from './Avatar/Avatar';
 export { Button } from './Button/Button';
 export { FormInput } from './Inputs/FormInput/FormInput';
 export { Input } from './Inputs/Input/Input';
@@ -6,4 +7,5 @@ export { Loader } from './Loader/Loader';
 export { Logo } from './Logo/Logo';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
+export { Skeleton } from './Skeleton/Skeleton';
 export { Spin } from './Spin/Spin';
