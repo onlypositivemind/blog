@@ -16,7 +16,7 @@ export const Navbar = ({ className, collapsed }: NavbarProps) => {
 
     return (
         <nav className={cn(s.navbar, className, { [s.collapsed]: collapsed })}>
-            <ul className={s.list}>
+            <ul>
                 {navbarItems.map((item) => (
                     <li
                         key={item.path}

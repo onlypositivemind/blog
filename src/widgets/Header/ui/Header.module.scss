@@ -1,7 +1,4 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 0 40px;
     width: 100%;
     height: var(--header-height);
@@ -9,16 +6,7 @@
     background-color: var(--bg-secondary-color);
 }
 
-.right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
 .authButtons {
-    display: flex;
-    align-items: center;
-    gap: 12px;
     color: var(--white);
 
     p {

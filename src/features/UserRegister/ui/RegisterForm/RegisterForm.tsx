@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { I18nNamespace } from '@/shared/const';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
 import { useAppDispatch } from '@/shared/lib/hooks';
-import { Button, FormInput, Logo } from '@/shared/ui';
+import { Button, FormInput, HStack, Logo } from '@/shared/ui';
 import {
     selectRegisterFormErrorMessage,
     selectRegisterFormIsLoading,
@@ -128,12 +128,12 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         </span>
                     )}
                 </form>
-                <div className={s.signInBlock}>
+                <HStack align='center' justify='center' gap={8} className={s.signInBlock}>
                     <p>{t('Have an account?')}</p>
                     <Button onClick={onChangeModalView} disabled={isLoading}>
                         {t('Sign In', { ns: I18nNamespace.BASE })}
                     </Button>
-                </div>
+                </HStack>
             </div>
         </DynamicModuleLoader>
     );

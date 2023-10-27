@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { logoutUser, selectUserAuthData } from '@/entities/User';
 import { AuthModal, AuthModalView } from '@/widgets/AuthModal';
 import { useAppDispatch } from '@/shared/lib/hooks';
-import { Button, Logo } from '@/shared/ui';
+import { Button, HStack, Logo } from '@/shared/ui';
 import s from './Header.module.scss';
 
 export const Header = () => {
@@ -36,33 +36,31 @@ export const Header = () => {
     }, []);
 
     return (
-        <header className={s.header}>
+        <HStack as='header' align='center' justify='between' className={s.header}>
             <Logo theme='white' />
-            <div className={s.right}>
-                {authData ? (
-                    <Button onClick={handleClickLogout} theme='clear_white'>
-                        {t('Sign Out')}
+            {authData ? (
+                <Button onClick={handleClickLogout} theme='clear_white'>
+                    {t('Sign Out')}
+                </Button>
+            ) : (
+                <HStack align='center' gap={12} className={s.authButtons}>
+                    <Button onClick={handleOpeningAuthModal('register')} theme='clear_white'>
+                        {t('Register')}
                     </Button>
-                ) : (
-                    <div className={s.authButtons}>
-                        <Button onClick={handleOpeningAuthModal('register')} theme='clear_white'>
-                            {t('Register')}
-                        </Button>
-                        <p>{t('or')}</p>
-                        <Button onClick={handleOpeningAuthModal('login')} theme='clear_white'>
-                            {t('Sign In')}
-                        </Button>
-                    </div>
-                )}
-                {isAuthModalOpen && (
-                    <AuthModal
-                        isOpen={isAuthModalOpen}
-                        onCloseModal={handleClosingAuthModal}
-                        currentModal={currentModal}
-                        onChangeModalView={handleChangeModalView}
-                    />
-                )}
-            </div>
-        </header>
+                    <p>{t('or')}</p>
+                    <Button onClick={handleOpeningAuthModal('login')} theme='clear_white'>
+                        {t('Sign In')}
+                    </Button>
+                </HStack>
+            )}
+            {isAuthModalOpen && (
+                <AuthModal
+                    isOpen={isAuthModalOpen}
+                    onCloseModal={handleClosingAuthModal}
+                    currentModal={currentModal}
+                    onChangeModalView={handleChangeModalView}
+                />
+            )}
+        </HStack>
     );
 };

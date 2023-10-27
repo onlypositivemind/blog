@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { Button } from '@/shared/ui';
+import { Button, HStack, VStack } from '@/shared/ui';
 import { Navbar } from '../Navbar/Navbar';
 import s from './Sidebar.module.scss';
 
@@ -14,15 +14,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
     return (
-        <aside
+        <VStack
+            as='aside'
             className={cn(s.sidebar, className, { [s.collapsed]: collapsed })}
             data-testid='sidebar'
         >
             <Navbar collapsed={collapsed} />
-            <div className={s.switchers}>
+            <HStack align='center' justify='center' gap={4} className={s.switchers}>
                 <ThemeSwitcher className={s.switcher} />
                 <LangSwitcher className={s.switcher} />
-            </div>
+            </HStack>
             <Button
                 theme='clear'
                 onClick={() => setCollapsed((prev) => !prev)}
@@ -31,6 +32,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 <span>{collapsed ? '»' : '«'}</span>
             </Button>
-        </aside>
+        </VStack>
     );
 };
