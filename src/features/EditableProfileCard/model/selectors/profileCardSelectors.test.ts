@@ -3,12 +3,13 @@ import { Profile } from '@/entities/Profile';
 import {
     selectProfileCardData,
     selectProfileCardErrorMessage,
+    selectProfileCardFormData,
     selectProfileCardIsLoading,
     selectProfileCardIsReadonly,
 } from './profileCardSelectors';
 
 export const profileCardData: Profile = {
-    userId: 1,
+    id: '1',
     email: 'admin@gmail.com',
     username: 'admin',
     firstname: 'Evgenii',
@@ -16,7 +17,6 @@ export const profileCardData: Profile = {
     age: 24,
     currency: 'EUR',
     country: 'Russia',
-    city: 'Moscow',
     avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
 };
 
@@ -69,5 +69,17 @@ describe('Profile card selectors', () => {
 
     test('selectProfileCardData: should work with empty state', () => {
         expect(selectProfileCardData({} as StateSchema)).toBe(undefined);
+    });
+
+    test('selectProfileCardFormData: should return profileCardFormData', () => {
+        const state: DeepPartial<StateSchema> = {
+            profileCard: { form: profileCardData },
+        };
+
+        expect(selectProfileCardFormData(state as StateSchema)).toEqual(profileCardData);
+    });
+
+    test('selectProfileCardFormData: should work with empty state', () => {
+        expect(selectProfileCardFormData({} as StateSchema)).toBe(undefined);
     });
 });

@@ -3,8 +3,8 @@ import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
 
-export const getProfileData = createAsyncThunk<Profile, number, ThunkConfig<string>>(
-    'profile/getProfileData',
+export const getProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
+    'EditableProfileCard/getProfileData',
     async (id, { extra, rejectWithValue }) => {
         try {
             const { data } = await extra.api.get<Profile>(`/profile/${id}`);

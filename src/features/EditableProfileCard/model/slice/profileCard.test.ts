@@ -1,10 +1,9 @@
 import { Profile } from '@/entities/Profile';
-import { getProfileData } from '../services/getProfileData';
 import { ProfileCardSchema } from '../types/profileCard';
 import { profileCardReducer } from './profileCard';
 
 export const profileData: Profile = {
-    userId: 1,
+    id: '1',
     email: 'admin@gmail.com',
     username: 'admin',
     firstname: 'Evgenii',
@@ -12,7 +11,6 @@ export const profileData: Profile = {
     age: 24,
     currency: 'EUR',
     country: 'Russia',
-    city: 'Moscow',
     avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
 };
 
@@ -27,11 +25,11 @@ describe('Profile slice', () => {
             errorMessage,
         };
 
-        expect(profileCardReducer(state as ProfileCardSchema, getProfileData.pending)).toEqual({
+        expect(profileCardReducer(state as ProfileCardSchema, { type: '/pending' })).toEqual({
             isLoading: true,
             isReadonly: true,
             errorMessage: undefined,
-            data: undefined,
+            data: profileData,
         });
     });
 
@@ -45,13 +43,14 @@ describe('Profile slice', () => {
 
         expect(
             profileCardReducer(state as ProfileCardSchema, {
-                type: getProfileData.fulfilled,
+                type: '/fulfilled',
                 payload: profileData,
             }),
         ).toEqual({
             isLoading: false,
             isReadonly: true,
             data: profileData,
+            form: profileData,
             errorMessage: undefined,
         });
     });
@@ -61,17 +60,20 @@ describe('Profile slice', () => {
             isLoading: true,
             isReadonly: false,
             data: profileData,
+            form: profileData,
+            errorMessage: undefined,
         };
 
         expect(
             profileCardReducer(state as ProfileCardSchema, {
-                type: getProfileData.rejected,
+                type: '/rejected',
                 payload: errorMessage,
             }),
         ).toEqual({
             isLoading: false,
             isReadonly: true,
             data: undefined,
+            form: undefined,
             errorMessage,
         });
     });

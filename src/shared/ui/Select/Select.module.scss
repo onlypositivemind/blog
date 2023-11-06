@@ -13,6 +13,11 @@
     color: var(--primary-color);
     background-color: transparent;
     cursor: pointer;
+
+    &:disabled {
+        opacity: 1;
+        cursor: not-allowed;
+    }
 }
 
 .option {

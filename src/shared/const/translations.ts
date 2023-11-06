@@ -6,5 +6,6 @@ export const I18nLanguage = {
 export const I18nNamespace = {
     BASE: 'translation',
     LOGIN: 'login',
+    PROFILE: 'profile',
     REGISTER: 'register',
 } as const;

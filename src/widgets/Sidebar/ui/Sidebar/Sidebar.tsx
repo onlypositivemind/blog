@@ -17,7 +17,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <VStack
             as='aside'
             className={cn(s.sidebar, className, { [s.collapsed]: collapsed })}
-            data-testid='sidebar'
+            dataTestId='sidebar'
         >
             <Navbar collapsed={collapsed} />
             <HStack align='center' justify='center' gap={4} className={s.switchers}>

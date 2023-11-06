@@ -8,6 +8,6 @@ import { AppRoutesProps } from '@/shared/types';
 export const routerConfig: AppRoutesProps[] = [
     { path: getRouteHome(), element: <HomePage /> },
     { path: getRouteAbout(), element: <AboutPage /> },
-    { path: getRouteProfile(':userId'), element: <ProfilePage />, authOnly: true },
+    { path: getRouteProfile(':id'), element: <ProfilePage />, authOnly: true },
     { path: '*', element: <NotFoundPage /> },
 ];

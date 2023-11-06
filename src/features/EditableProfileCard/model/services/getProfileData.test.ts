@@ -3,7 +3,7 @@ import { TestAsyncThunk } from '@/shared/lib/tests';
 import { getProfileData } from './getProfileData';
 
 export const profileData: Profile = {
-    userId: 1,
+    id: '1',
     email: 'admin@gmail.com',
     username: 'admin',
     firstname: 'Evgenii',
@@ -11,7 +11,6 @@ export const profileData: Profile = {
     age: 24,
     currency: 'EUR',
     country: 'Russia',
-    city: 'Moscow',
     avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
 };
 
@@ -22,7 +21,7 @@ describe('getProfileData AsyncThunk', () => {
         const thunk = new TestAsyncThunk(getProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: profileData }));
 
-        const result = await thunk.callThunk(1);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
@@ -34,7 +33,7 @@ describe('getProfileData AsyncThunk', () => {
         const thunk = new TestAsyncThunk(getProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 404 }));
 
-        const result = await thunk.callThunk(1);
+        const result = await thunk.callThunk('1');
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();

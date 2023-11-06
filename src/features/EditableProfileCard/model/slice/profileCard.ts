@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Profile } from '@/entities/Profile';
-import { getProfileData } from '../services/getProfileData';
 import { ProfileCardSchema } from '../types/profileCard';
 
 const initialState: ProfileCardSchema = {
@@ -11,27 +10,50 @@ const initialState: ProfileCardSchema = {
 const profileCard = createSlice({
     name: 'profileCard',
     initialState,
-    reducers: {},
+    reducers: {
+        setReadonly: (state, { payload }: PayloadAction<boolean>) => {
+            state.isReadonly = payload;
+        },
+        updateProfile: (state, { payload }: PayloadAction<Profile>) => {
+            state.form = {
+                ...state.form,
+                ...payload,
+            };
+        },
+        cancelEdit: (state) => {
+            state.isReadonly = true;
+            state.form = state.data;
+        },
+    },
     extraReducers: (builder) => {
         builder
-            .addCase(getProfileData.pending, (state) => {
-                state.isLoading = true;
-                state.isReadonly = true;
-                state.errorMessage = undefined;
-                state.data = undefined;
-            })
-            .addCase(getProfileData.fulfilled, (state, { payload }: PayloadAction<Profile>) => {
-                state.isLoading = false;
-                state.isReadonly = true;
-                state.data = payload;
-                state.errorMessage = undefined;
-            })
-            .addCase(getProfileData.rejected, (state, { payload }) => {
-                state.isLoading = false;
-                state.isReadonly = true;
-                state.errorMessage = payload;
-                state.data = undefined;
-            });
+            .addMatcher(
+                (action) => action.type.endsWith('/pending'),
+                (state) => {
+                    state.isLoading = true;
+                    state.isReadonly = true;
+                    state.errorMessage = undefined;
+                },
+            )
+            .addMatcher(
+                (action) => action.type.endsWith('/fulfilled'),
+                (state, { payload }: PayloadAction<Profile>) => {
+                    state.isLoading = false;
+                    state.data = payload;
+                    state.form = payload;
+                    state.errorMessage = undefined;
+                },
+            )
+            .addMatcher(
+                (action) => action.type.endsWith('/rejected'),
+                (state, { payload }) => {
+                    state.isLoading = false;
+                    state.isReadonly = true;
+                    state.data = undefined;
+                    state.form = undefined;
+                    state.errorMessage = payload;
+                },
+            );
     },
 });
 

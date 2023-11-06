@@ -9,12 +9,14 @@ interface SkeletonProps {
     className?: string;
 }
 
-export const Skeleton = memo(({ className, height, width, border }: SkeletonProps) => {
-    const styles: CSSProperties = {
-        width,
-        height,
-        borderRadius: border,
-    };
+export const Skeleton = memo(
+    ({ className, height = '100%', width = '100%', border = 0 }: SkeletonProps) => {
+        const styles: CSSProperties = {
+            width,
+            height,
+            borderRadius: border,
+        };
 
-    return <div className={cn(s.skeleton, className)} style={styles} />;
-});
+        return <div className={cn(s.skeleton, className)} style={styles} />;
+    },
+);

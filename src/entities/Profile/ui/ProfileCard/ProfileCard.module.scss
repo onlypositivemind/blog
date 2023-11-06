@@ -1,0 +1,15 @@
+.fieldBlock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    p {
+        min-width: 85px;
+        max-width: 85px;
+    }
+}
+
+.errorText {
+    text-align: center;
+}

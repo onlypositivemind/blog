@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { ReactNode } from 'react';
+import { TestsProps } from '@/shared/types';
 import s from './Flex.module.scss';
 
 type Flex = 'flex' | 'inline';
@@ -42,7 +43,7 @@ const gapClasses: Record<FlexGap, string> = {
     32: s.gap32,
 };
 
-interface FlexProps {
+interface FlexProps extends TestsProps {
     children: ReactNode;
     as?: keyof JSX.IntrinsicElements;
     flex?: Flex;
@@ -64,6 +65,7 @@ const Flex = ({
     max,
     gap,
     className,
+    dataTestId,
 }: FlexProps) => (
     <Element
         className={cn(
@@ -75,6 +77,7 @@ const Flex = ({
             gap && gapClasses[gap],
             { [s.max]: max },
         )}
+        data-testid={dataTestId}
     >
         {children}
     </Element>

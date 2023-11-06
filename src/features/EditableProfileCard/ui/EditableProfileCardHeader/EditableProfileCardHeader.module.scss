@@ -1,0 +1,19 @@
+.cardHeader {
+    position: relative;
+}
+
+.avatar {
+    border: 1px solid var(--blue);
+}
+
+.userIcon {
+    * {
+        stroke: var(--primary-color);
+    }
+}
+
+.buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
