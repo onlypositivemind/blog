@@ -12,6 +12,7 @@ const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
     const [theme, toggleTheme] = useTheme();
     const ThemeIcon = theme === 'light' ? SunIcon : MoonIcon;
 
+    // TODO добавить стили, чтобы были базовые единые
     return (
         <Button onClick={toggleTheme} className={className} theme='clear'>
             <ThemeIcon />

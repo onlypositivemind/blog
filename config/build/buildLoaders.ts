@@ -1,14 +1,15 @@
-import webpack from 'webpack';
+import { RuleSetRule } from 'webpack';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
 import { BuildOptions } from './types/config';
 
-export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
     const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [{ loader: 'file-loader' }],
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
     };
 
+    // TODO
     const svgLoader = {
         test: /\.svg$/,
         use: ['@svgr/webpack'],

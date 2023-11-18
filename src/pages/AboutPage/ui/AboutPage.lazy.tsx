@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-export const AboutPageAsync = lazy(
+export const AboutPageLazy = lazy(
     () =>
         new Promise((resolve) => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment

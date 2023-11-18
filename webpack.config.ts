@@ -1,5 +1,5 @@
 import path from 'path';
-import webpack from 'webpack';
+import { Configuration } from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv, BuildPaths } from './config/build/types/config';
 
@@ -7,24 +7,25 @@ export default (env: BuildEnv) => {
     const paths: BuildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
+        public: path.resolve(__dirname, 'public'),
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(__dirname, 'public', 'locales'),
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
 
-    const mode = env.mode || 'development';
-    const PORT = env.port || 3000;
-    const apiUrl = env.apiUrl || 'http://localhost:5000/api';
-
+    const mode = env.mode ?? 'development';
     const isDev = mode === 'development';
+    const isProd = mode === 'production';
 
-    const config: webpack.Configuration = buildWebpackConfig({
-        mode,
+    const config: Configuration = buildWebpackConfig({
         paths,
+        port: env.port ?? 3000,
+        apiUrl: env.apiUrl ?? 'http://localhost:5000/api',
+        hasAnalyzer: env.hasAnalyzer ?? false,
+        mode,
         isDev,
-        apiUrl,
-        port: PORT,
+        isProd,
     });
 
     return config;
