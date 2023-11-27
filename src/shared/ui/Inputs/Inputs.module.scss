@@ -26,14 +26,17 @@
     border-radius: var(--radius-xs);
 }
 
-.clearing {
+.clearBtn {
     position: absolute;
     right: 4px;
     top: 50%;
     padding: 2px 4px;
-    font-size: var(--font-size-p3);
     transform: translateY(-45%);
-    cursor: pointer;
+
+    svg {
+        width: var(--font-size-p4);
+        height: var(--font-size-p4);
+    }
 }
 
 .errorMessage {

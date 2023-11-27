@@ -13,10 +13,13 @@
     height: 50px;
     background-color: var(--dark-5);
 
-    span {
-        font-weight: 500;
-        font-size: var(--font-size-h4);
-        color: var(--white);
+    svg {
+        width: var(--font-size-p1);
+        height: var(--font-size-p1);
+
+        path {
+            fill: var(--white);
+        }
     }
 }
 

@@ -9,12 +9,12 @@ interface ThemeSwitcherProps {
 }
 
 const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
-    const [theme, toggleTheme] = useTheme();
-    const ThemeIcon = theme === 'light' ? SunIcon : MoonIcon;
+    const [theme, toggleTheme] = useTheme(); // TODO мб разделить конекст на два
+    const ThemeIcon = theme === 'light' ? MoonIcon : SunIcon;
 
     // TODO добавить стили, чтобы были базовые единые
     return (
-        <Button onClick={toggleTheme} className={className} theme='clear'>
+        <Button onClick={toggleTheme} className={className} theme='clear_white'>
             <ThemeIcon />
         </Button>
     );

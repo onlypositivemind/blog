@@ -7,9 +7,8 @@
 }
 
 .userIcon {
-    * {
-        stroke: var(--primary-color);
-    }
+    width: var(--font-size-p2);
+    height: var(--font-size-p2);
 }
 
 .buttons {

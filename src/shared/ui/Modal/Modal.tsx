@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
 import { Button } from '@/shared/ui';
 import { Portal } from '../Portal/Portal';
-import { ClosingEmoji } from '@/shared/assets/textSymbols';
+import CloseIcon from '@/shared/assets/icons/close.svg';
 import s from './Modal.module.scss';
 
 interface ModalProps {
@@ -70,7 +70,7 @@ export const Modal = ({
                     >
                         {children}
                         <Button onClick={onClose} className={s.closeBtn}>
-                            {ClosingEmoji}
+                            <CloseIcon />
                         </Button>
                     </div>
                 </div>

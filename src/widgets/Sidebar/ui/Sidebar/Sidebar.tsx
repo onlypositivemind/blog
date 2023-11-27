@@ -4,6 +4,8 @@ import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { Button, HStack, VStack } from '@/shared/ui';
 import { Navbar } from '../Navbar/Navbar';
+import LeftIcon from '@/shared/assets/icons/doubleLeft.svg';
+import RightIcon from '@/shared/assets/icons/doubleRight.svg';
 import s from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -12,6 +14,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+    const ToggleIcon = collapsed ? RightIcon : LeftIcon;
 
     return (
         <VStack
@@ -30,7 +33,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className={s.toggleBtn}
                 data-testid='toggleBtn'
             >
-                <span>{collapsed ? '»' : '«'}</span>
+                <ToggleIcon />
             </Button>
         </VStack>
     );

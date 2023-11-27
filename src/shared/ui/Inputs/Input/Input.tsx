@@ -8,7 +8,8 @@ import {
     useMemo,
     useRef,
 } from 'react';
-import { ClearingEmoji } from '@/shared/assets/textSymbols';
+import { Button } from '@/shared/ui';
+import ClearIcon from '@/shared/assets/icons/closeCircle.svg';
 import s from '../Inputs.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
@@ -64,14 +65,14 @@ const InputComponent = ({
                 {...rest}
             />
             {hasClearIcon && (
-                <span
-                    role='button'
+                <Button
+                    theme='clear'
                     aria-label='cross-for-cleaning'
                     onClick={handleClear}
-                    className={s.clearing}
+                    className={s.clearBtn}
                 >
-                    {ClearingEmoji}
-                </span>
+                    <ClearIcon />
+                </Button>
             )}
         </div>
     );

@@ -11,7 +11,7 @@ interface LangSwitcherProps {
 const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
     const { i18n } = useTranslation();
     const isRuLangActive = i18n.language === 'ru';
-    const LangIcon = isRuLangActive ? RuFlagIcon : EnFlagIcon;
+    const LangIcon = isRuLangActive ? EnFlagIcon : RuFlagIcon;
 
     const toggle = () => {
         i18n.changeLanguage(isRuLangActive ? 'en' : 'ru');

@@ -1,6 +1,7 @@
 import { RuleSetRule } from 'webpack';
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 import { BuildOptions } from './types/config';
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
@@ -9,11 +10,7 @@ export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
         type: 'asset/resource',
     };
 
-    // TODO
-    const svgLoader = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    };
+    const svgLoader = buildSvgLoader();
 
     const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
 

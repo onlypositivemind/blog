@@ -2,13 +2,13 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { getRouteAbout, getRouteHome, getRouteProfile } from '@/shared/const';
 import { NavbarItemType } from '../types/navbar';
 import { selectNavbarItems } from './navbarSelectors';
-import AboutPageIcon from '@/shared/assets/icons/about-page.svg';
-import MainPageIcon from '@/shared/assets/icons/main-page.svg';
-import ProfilePageIcon from '@/shared/assets/icons/profile-page.svg';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import HomeIcon from '@/shared/assets/icons/home.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
 
 const navbarItemsList: NavbarItemType[] = [
-    { path: getRouteHome(), title: 'Home', Icon: MainPageIcon },
-    { path: getRouteAbout(), title: 'About', Icon: AboutPageIcon },
+    { path: getRouteHome(), title: 'Home', Icon: HomeIcon },
+    { path: getRouteAbout(), title: 'About', Icon: AboutIcon },
 ];
 
 describe('Navbar selectors', () => {
@@ -29,7 +29,7 @@ describe('Navbar selectors', () => {
             navbarItemsList.concat({
                 path: getRouteProfile(String(1)),
                 title: 'Profile',
-                Icon: ProfilePageIcon,
+                Icon: ProfileIcon,
                 authOnly: true,
             }),
         );
