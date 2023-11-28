@@ -2,8 +2,12 @@ import { createContext } from 'react';
 import { Theme } from '../../types/theme';
 
 interface ThemeContextProps {
-    theme?: Theme;
-    setTheme?: (t: Theme) => void;
+    theme: Theme;
+    toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({});
+export const ThemeContext = createContext<ThemeContextProps>({
+    theme: 'light',
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    toggleTheme: () => {},
+});

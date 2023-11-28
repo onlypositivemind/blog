@@ -29,9 +29,9 @@ const SelectComponent = <T extends string>({
                     {opt.content}
                 </option>
             )),
-        [],
+        [options],
     );
-    
+
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value as T);
     };

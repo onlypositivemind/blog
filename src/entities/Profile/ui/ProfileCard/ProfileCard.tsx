@@ -57,7 +57,12 @@ export const ProfileCard = ({
         <VStack align='center' gap={16} className={cn(className, { [s.editing]: !isReadonly })}>
             <div className={s.fieldBlock}>
                 <p>{t('Email')}</p>
-                <Input value={data?.email} onChange={onChangeEmail} readOnly={isReadonly} />
+                <Input
+                    type='email'
+                    value={data?.email}
+                    onChange={onChangeEmail}
+                    readOnly={isReadonly}
+                />
             </div>
             <div className={s.fieldBlock}>
                 <p>{t('Username')}</p>
@@ -65,7 +70,12 @@ export const ProfileCard = ({
             </div>
             <div className={s.fieldBlock}>
                 <p>{t('Avatar')}</p>
-                <Input value={data?.avatar} onChange={onChangeAvatar} readOnly={isReadonly} />
+                <Input
+                    type='url'
+                    value={data?.avatar}
+                    onChange={onChangeAvatar}
+                    readOnly={isReadonly}
+                />
             </div>
             <div className={s.fieldBlock}>
                 <p>{t('Firstname')}</p>

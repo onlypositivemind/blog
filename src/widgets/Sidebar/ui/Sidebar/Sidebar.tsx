@@ -23,9 +23,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
             dataTestId='sidebar'
         >
             <Navbar collapsed={collapsed} />
-            <HStack align='center' justify='center' gap={4} className={s.switchers}>
-                <ThemeSwitcher className={s.switcher} />
-                <LangSwitcher className={s.switcher} />
+            <HStack align='center' justify='center' gap={8} className={s.switchers}>
+                <ThemeSwitcher />
+                <LangSwitcher />
             </HStack>
             <Button
                 theme='clear'

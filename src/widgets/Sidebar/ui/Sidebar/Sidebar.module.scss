@@ -28,14 +28,6 @@
     width: 100%;
 }
 
-.switcher {
-    display: grid;
-    place-items: center;
-    border-radius: var(--radius-s);
-    width: 30px;
-    height: 30px;
-}
-
 .sidebar.collapsed {
     width: var(--sidebar-width-collapsed);
 }

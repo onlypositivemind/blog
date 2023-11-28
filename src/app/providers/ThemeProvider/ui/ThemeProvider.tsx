@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const';
 import { ThemeContext } from '@/shared/lib/context/themeContext';
 import { Theme } from '@/shared/types';
@@ -12,10 +12,18 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     const [theme, setTheme] = useState<Theme>(defaultValue);
 
+    const toggleTheme = useCallback(() => {
+        setTheme((prevTheme) => {
+            const currentTheme = prevTheme === 'light' ? 'dark' : 'light';
+            localStorage.setItem(LOCAL_STORAGE_THEME_KEY, currentTheme);
+            return currentTheme;
+        });
+    }, []);
+
     const value = useMemo(
         () => ({
             theme,
-            setTheme,
+            toggleTheme,
         }),
         [theme],
     );
