@@ -10,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const FormInput = forwardRef((props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
-    const { className, errorMessage, ariaDescribedby, wrapperStyle, ...rest } = props;
+    const { className, errorMessage, ariaDescribedby, wrapperStyle, ...restProps } = props;
 
     return (
         <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>
@@ -18,7 +18,7 @@ export const FormInput = forwardRef((props: InputProps, ref: ForwardedRef<HTMLIn
                 ref={ref}
                 className={cn(s.input, s.formInput, { [s.error]: errorMessage })}
                 aria-describedby={ariaDescribedby}
-                {...rest}
+                {...restProps}
             />
             {errorMessage && (
                 <span

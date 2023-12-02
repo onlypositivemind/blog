@@ -1,10 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Profile } from '@/entities/Profile';
+import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 
-export const getProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
-    'EditableProfileCard/getProfileData',
+const GET_PROFILE_ERROR_MESSAGE = 'GetProfileServiceError';
+
+const getProfile = createAsyncThunk<Profile, string, ThunkConfig<string>>(
+    'EditableProfileCard/getProfile',
     async (id, { extra, rejectWithValue }) => {
         try {
             const { data } = await extra.api.get<Profile>(`/profile/${id}`);
@@ -15,12 +17,9 @@ export const getProfileData = createAsyncThunk<Profile, string, ThunkConfig<stri
 
             return data;
         } catch (err) {
-            let errMessage = 'Failed to get profile data';
-
-            if (axios.isAxiosError(err)) {
-                errMessage = err.response?.data.message || errMessage;
-            }
-            return rejectWithValue(errMessage);
+            return rejectWithValue(getErrorMessageAsyncThunk(err, GET_PROFILE_ERROR_MESSAGE));
         }
     },
 );
+
+export { getProfile, GET_PROFILE_ERROR_MESSAGE };

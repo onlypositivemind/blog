@@ -26,12 +26,12 @@ const ButtonComponent = ({
     disabled,
     theme = 'clear',
     size = 'size_p3',
-    ...rest
+    ...props
 }: ButtonProps) => (
     <button
         className={cn(s.button, className, s[theme], s[size], { [s.disabled]: disabled })}
         disabled={disabled}
-        {...rest}
+        {...props}
     >
         {children}
     </button>

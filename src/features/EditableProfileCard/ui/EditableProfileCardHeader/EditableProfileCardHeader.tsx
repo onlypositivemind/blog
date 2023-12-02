@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { I18nNamespace } from '@/shared/const';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { Avatar, Button, HStack, VStack } from '@/shared/ui';
-import { updateProfileData } from '../../model/services/updateProfileData';
-import { profileCardActions } from '../../model/slice/profileCard';
+import { updateProfile } from '../../model/services/updateProfile';
+import { editableProfileCardActions } from '../../model/slice/editableProfileCard';
 import UserIcon from '@/shared/assets/icons/user.svg';
 import s from './EditableProfileCardHeader.module.scss';
 
@@ -23,15 +23,15 @@ export const EditableProfileCardHeader = ({
     const dispatch = useAppDispatch();
 
     const handleClickEdit = useCallback(() => {
-        dispatch(profileCardActions.setReadonly(false));
+        dispatch(editableProfileCardActions.setReadonly(false));
     }, []);
 
     const handleClickCancel = useCallback(() => {
-        dispatch(profileCardActions.cancelEdit());
+        dispatch(editableProfileCardActions.cancelEdit());
     }, []);
 
     const handleClickSave = useCallback(() => {
-        dispatch(updateProfileData());
+        dispatch(updateProfile());
     }, []);
 
     return (

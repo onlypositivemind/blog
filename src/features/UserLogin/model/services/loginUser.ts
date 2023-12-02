@@ -1,16 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
 import { AUTH_ENDPOINT } from '@/shared/const';
+import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 import { AuthResponse } from '@/shared/types';
 
-export interface LoginUserProps {
+interface LoginUserProps {
     username: string;
     password: string;
 }
 
-export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<string>>(
+const LOGIN_USER_ERROR_MESSAGE = 'LoginUserServiceError';
+
+const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<string>>(
     'login/loginUser',
     async (loginData, { dispatch, extra, rejectWithValue }) => {
         try {
@@ -26,13 +28,10 @@ export const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkCon
 
             return data;
         } catch (err) {
-            let errMessage = 'Log in failed';
-
-            if (axios.isAxiosError(err)) {
-                errMessage = err.response?.data.message || errMessage;
-            }
-
-            return rejectWithValue(errMessage);
+            return rejectWithValue(getErrorMessageAsyncThunk(err, LOGIN_USER_ERROR_MESSAGE));
         }
     },
 );
+
+export type { LoginUserProps };
+export { loginUser, LOGIN_USER_ERROR_MESSAGE };

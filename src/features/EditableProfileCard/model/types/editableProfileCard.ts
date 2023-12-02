@@ -1,6 +1,6 @@
 import { Profile } from '@/entities/Profile';
 
-export interface ProfileCardSchema {
+export interface EditableProfileCardSchema {
     isLoading: boolean;
     isReadonly: boolean;
     data?: Profile;

@@ -29,7 +29,7 @@ const InputComponent = ({
     readOnly,
     wrapperStyle,
     type = 'text',
-    ...rest
+    ...props
 }: InputProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -47,7 +47,7 @@ const InputComponent = ({
     };
 
     useEffect(() => {
-        if (rest.autoFocus) {
+        if (props.autoFocus) {
             inputRef.current?.focus();
         }
     }, []);
@@ -62,7 +62,7 @@ const InputComponent = ({
                 className={s.input}
                 disabled={disabled}
                 readOnly={readOnly}
-                {...rest}
+                {...props}
             />
             {hasClearIcon && (
                 <Button

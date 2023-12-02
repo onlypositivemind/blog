@@ -12,7 +12,6 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     isReadonly?: boolean;
-    errorMessage?: string;
     onChangeEmail?: (val: string) => void;
     onChangeUsername?: (val: string) => void;
     onChangeAvatar?: (val: string) => void;
@@ -28,7 +27,6 @@ export const ProfileCard = ({
     data,
     isLoading,
     isReadonly,
-    errorMessage,
     onChangeEmail,
     onChangeUsername,
     onChangeAvatar,
@@ -40,10 +38,6 @@ export const ProfileCard = ({
     className,
 }: ProfileCardProps) => {
     const { t } = useTranslation(I18nNamespace.PROFILE);
-
-    if (errorMessage) {
-        return <p className={s.errorText}>{t('Failed to load profile data')}</p>;
-    }
 
     if (isLoading) {
         return (

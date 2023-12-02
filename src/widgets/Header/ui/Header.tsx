@@ -40,7 +40,7 @@ export const Header = () => {
             <Logo theme='white' />
             {authData ? (
                 <Button onClick={handleClickLogout} theme='clear_white'>
-                    {t('Sign Out')}
+                    {t('SignOut')}
                 </Button>
             ) : (
                 <HStack align='center' gap={12} className={s.authButtons}>
@@ -49,7 +49,7 @@ export const Header = () => {
                     </Button>
                     <p>{t('or')}</p>
                     <Button onClick={handleOpeningAuthModal('login')} theme='clear_white'>
-                        {t('Sign In')}
+                        {t('SignIn')}
                     </Button>
                 </HStack>
             )}

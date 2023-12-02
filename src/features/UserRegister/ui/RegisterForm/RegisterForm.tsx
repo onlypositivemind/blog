@@ -67,8 +67,8 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         ariaDescribedby='username-error-message'
                         {...register('username', {
                             required: t('Required'),
-                            minLength: { value: 3, message: t('Username min length') },
-                            maxLength: { value: 20, message: t('Username max length') },
+                            minLength: { value: 3, message: t('UsernameMinLength') },
+                            maxLength: { value: 20, message: t('UsernameMaxLength') },
                         })}
                     />
                     <FormInput
@@ -90,22 +90,22 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         errorMessage={errors.password?.message}
                         ariaDescribedby='password-error-message'
                         {...register('password', {
-                            required: t('Required password'),
-                            minLength: { value: 8, message: t('Password min length') },
+                            required: t('RequiredPassword'),
+                            minLength: { value: 8, message: t('PasswordMinLength') },
                         })}
                     />
                     <FormInput
                         type='password'
-                        placeholder={t('Confirm password')}
+                        placeholder={t('ConfirmPassword')}
                         autoComplete='new-password'
                         disabled={isLoading}
                         errorMessage={errors.confirmPassword?.message}
                         ariaDescribedby='confirm-password-error-message'
                         {...register('confirmPassword', {
-                            required: t('Required confirm password'),
+                            required: t('RequiredConfirmPassword'),
                             validate: (value, formValues) => {
                                 if (value !== formValues.password) {
-                                    return t('Passwords not match');
+                                    return t('PasswordsNotMatch');
                                 }
                             },
                         })}
@@ -116,7 +116,7 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         disabled={isLoading}
                         className={'authButton'}
                     >
-                        {t('Sign Up', { ns: I18nNamespace.BASE })}
+                        {t('SignUp', { ns: I18nNamespace.BASE })}
                     </Button>
                     {errorMessage && (
                         <span
@@ -129,9 +129,9 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                     )}
                 </form>
                 <HStack align='center' justify='center' gap={8} className={s.signInBlock}>
-                    <p>{t('Have an account?')}</p>
+                    <p>{t('HaveAccount')}</p>
                     <Button onClick={onChangeModalView} disabled={isLoading}>
-                        {t('Sign In', { ns: I18nNamespace.BASE })}
+                        {t('SignIn', { ns: I18nNamespace.BASE })}
                     </Button>
                 </HStack>
             </div>

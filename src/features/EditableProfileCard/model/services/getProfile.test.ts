@@ -1,6 +1,6 @@
 import { Profile } from '@/entities/Profile';
 import { TestAsyncThunk } from '@/shared/lib/tests';
-import { getProfileData } from './getProfileData';
+import { GET_PROFILE_ERROR_MESSAGE, getProfile } from './getProfile';
 
 export const profileData: Profile = {
     id: '1',
@@ -14,11 +14,9 @@ export const profileData: Profile = {
     avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
 };
 
-export const errorMessage = 'Failed to get profile data';
-
-describe('getProfileData AsyncThunk', () => {
+describe('getProfile AsyncThunk', () => {
     test('should be fulfilled', async () => {
-        const thunk = new TestAsyncThunk(getProfileData);
+        const thunk = new TestAsyncThunk(getProfile);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: profileData }));
 
         const result = await thunk.callThunk('1');
@@ -30,7 +28,7 @@ describe('getProfileData AsyncThunk', () => {
     });
 
     test('should be rejected', async () => {
-        const thunk = new TestAsyncThunk(getProfileData);
+        const thunk = new TestAsyncThunk(getProfile);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 404 }));
 
         const result = await thunk.callThunk('1');
@@ -38,6 +36,6 @@ describe('getProfileData AsyncThunk', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toBe(errorMessage);
+        expect(result.payload).toBe(GET_PROFILE_ERROR_MESSAGE);
     });
 });

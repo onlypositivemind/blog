@@ -1,7 +1,7 @@
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
 import { AuthResponse } from '@/shared/types';
-import { loginUser, LoginUserProps } from './loginUser';
+import { LOGIN_USER_ERROR_MESSAGE, loginUser, LoginUserProps } from './loginUser';
 
 const loginUserResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
@@ -14,8 +14,6 @@ const loginUserResponse: AuthResponse = {
 };
 
 const userLoginData: LoginUserProps = { username: 'admin', password: 'admin' };
-
-const errorMessage = 'Log in failed';
 
 describe('loginUser AsyncThunk', () => {
     test('should be fulfilled', async () => {
@@ -40,6 +38,6 @@ describe('loginUser AsyncThunk', () => {
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toBe(errorMessage);
+        expect(result.payload).toBe(LOGIN_USER_ERROR_MESSAGE);
     });
 });

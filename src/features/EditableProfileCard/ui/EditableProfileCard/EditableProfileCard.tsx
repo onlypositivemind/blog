@@ -5,23 +5,28 @@ import { useSelector } from 'react-redux';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
+import { I18nNamespace } from '@/shared/const';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { VStack } from '@/shared/ui';
 import {
-    selectProfileCardData,
-    selectProfileCardErrorMessage,
-    selectProfileCardFormData,
-    selectProfileCardIsLoading,
-    selectProfileCardIsReadonly,
-} from '../../model/selectors/profileCardSelectors';
-import { getProfileData } from '../../model/services/getProfileData';
-import { profileCardActions, profileCardReducer } from '../../model/slice/profileCard';
+    selectEditableProfileCardData,
+    selectEditableProfileCardErrorMessage,
+    selectEditableProfileCardFormData,
+    selectEditableProfileCardIsLoading,
+    selectEditableProfileCardIsReadonly,
+} from '../../model/selectors/editableProfileCardSelectors';
+import { getProfile } from '../../model/services/getProfile';
+import { UPDATE_PROFILE_ERROR_MESSAGE } from '../../model/services/updateProfile';
+import {
+    editableProfileCardActions,
+    editableProfileCardReducer,
+} from '../../model/slice/editableProfileCard';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { EditableProfileCardHeaderSkeleton } from '../EditableProfileCardHeader/EditableProfileCardHeaderSkeleton';
 import s from './EditableProfileCard.module.scss';
 
-const reducers: ReducersList = { profileCard: profileCardReducer };
+const reducers: ReducersList = { editableProfileCard: editableProfileCardReducer };
 
 interface EditableProfileCardProps {
     id?: string;
@@ -29,57 +34,62 @@ interface EditableProfileCardProps {
 }
 
 export const EditableProfileCard = ({ id, className }: EditableProfileCardProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation(I18nNamespace.PROFILE);
     const dispatch = useAppDispatch();
-    const profileData = useSelector(selectProfileCardData);
-    const profileFormData = useSelector(selectProfileCardFormData);
-    const isLoading = useSelector(selectProfileCardIsLoading);
-    const isReadonly = useSelector(selectProfileCardIsReadonly);
-    const errorMessage = useSelector(selectProfileCardErrorMessage);
+    const profileData = useSelector(selectEditableProfileCardData);
+    const profileFormData = useSelector(selectEditableProfileCardFormData);
+    const isLoading = useSelector(selectEditableProfileCardIsLoading);
+    const isReadonly = useSelector(selectEditableProfileCardIsReadonly);
+    const errorMessage = useSelector(selectEditableProfileCardErrorMessage);
 
     useEffect(() => {
-        id && dispatch(getProfileData(id));
+        id && dispatch(getProfile(id));
     }, []);
 
     const handleChangeEmail = useCallback((email: string) => {
-        dispatch(profileCardActions.updateProfile({ email }));
+        dispatch(editableProfileCardActions.updateProfile({ email }));
     }, []);
 
     const handleChangeUsername = useCallback((username: string) => {
-        dispatch(profileCardActions.updateProfile({ username }));
+        dispatch(editableProfileCardActions.updateProfile({ username }));
     }, []);
 
     const handleChangeAvatar = useCallback((avatar: string) => {
-        dispatch(profileCardActions.updateProfile({ avatar }));
+        dispatch(editableProfileCardActions.updateProfile({ avatar }));
     }, []);
 
     const handleChangeFirstname = useCallback((firstname: string) => {
-        dispatch(profileCardActions.updateProfile({ firstname }));
+        dispatch(editableProfileCardActions.updateProfile({ firstname }));
     }, []);
 
     const handleChangeLastname = useCallback((lastname: string) => {
-        dispatch(profileCardActions.updateProfile({ lastname }));
+        dispatch(editableProfileCardActions.updateProfile({ lastname }));
     }, []);
 
     const handleChangeAge = useCallback((age: string) => {
-        dispatch(profileCardActions.updateProfile({ age: +age }));
+        dispatch(editableProfileCardActions.updateProfile({ age: +age }));
     }, []);
 
     const handleChangeCountry = useCallback((country: Country) => {
-        dispatch(profileCardActions.updateProfile({ country }));
+        dispatch(editableProfileCardActions.updateProfile({ country }));
     }, []);
 
     const handleChangeCurrency = useCallback((currency: Currency) => {
-        dispatch(profileCardActions.updateProfile({ currency }));
+        dispatch(editableProfileCardActions.updateProfile({ currency }));
     }, []);
 
-    if (errorMessage) {
-        return <p className={s.errorText}>{t('Failed to load profile data')}</p>;
+    if (errorMessage && errorMessage !== UPDATE_PROFILE_ERROR_MESSAGE) {
+        return (
+            <DynamicModuleLoader reducers={reducers}>
+                <p className={s.errText}>{t(errorMessage)}</p>
+            </DynamicModuleLoader>
+        );
     }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack gap={24} className={cn(s.cardWrapper, className)}>
+                {errorMessage && <p className={s.errText}>{t(errorMessage)}</p>}
                 {isLoading ? (
                     <EditableProfileCardHeaderSkeleton />
                 ) : (

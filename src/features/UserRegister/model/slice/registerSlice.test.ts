@@ -2,7 +2,7 @@ import { registerUser } from '../services/registerUser';
 import { RegisterSchema } from '../types/registerSchema';
 import { registerReducer } from './registerSlice';
 
-const errorMessage = 'Register failed';
+const errorMessage = 'errorMessage';
 
 describe('Register slice', () => {
     test('registerUser.pending', () => {

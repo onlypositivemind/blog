@@ -8,6 +8,7 @@ export const logoutUser = createAsyncThunk<void, undefined, ThunkConfig<undefine
     async (_, { dispatch, extra }) => {
         try {
             dispatch(userActions.logout());
+            
             await extra.api.post('/logout', undefined, {
                 baseURL: AUTH_ENDPOINT,
             });

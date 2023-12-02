@@ -9,5 +9,7 @@
     "Surname": "Surname:",
     "Age": "Age:",
     "Country": "Country:",
-    "Currency": "Currency:"
+    "Currency": "Currency:",
+    "GetProfileServiceError": "Failed to load profile data, please try again later",
+    "UpdateProfileServiceError": "Failed to update profile data, please try again later"
 }

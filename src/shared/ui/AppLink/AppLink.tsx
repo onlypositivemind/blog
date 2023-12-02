@@ -20,9 +20,9 @@ const AppLinkComponent = ({
     className,
     theme = 'primary',
     size = 'size_h4',
-    ...rest
+    ...props
 }: AppLinkProps) => (
-    <Link to={to} className={cn(s.appLink, className, s[theme], s[size])} {...rest}>
+    <Link to={to} className={cn(s.appLink, className, s[theme], s[size])} {...props}>
         {children}
     </Link>
 );

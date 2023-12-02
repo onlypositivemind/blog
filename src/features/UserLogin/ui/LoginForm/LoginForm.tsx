@@ -27,7 +27,7 @@ interface FormValues {
 const reducers: ReducersList = { loginForm: loginReducer };
 
 const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
-    const { t } = useTranslation([I18nNamespace.REGISTER, I18nNamespace.LOGIN, I18nNamespace.BASE]);
+    const { t } = useTranslation([I18nNamespace.LOGIN, I18nNamespace.BASE]);
     const {
         register,
         handleSubmit,
@@ -81,16 +81,16 @@ const LoginForm = ({ onCloseModal, onChangeModalView }: LoginFormProps) => {
                         })}
                     />
                     <Button type='submit' theme='blue' disabled={isLoading} className='authButton'>
-                        {t('Sign In', { ns: I18nNamespace.BASE })}
+                        {t('SignIn', { ns: I18nNamespace.BASE })}
                     </Button>
                     {errorMessage && (
                         <span className='authError' id='login-error-message' aria-live='assertive'>
-                            {t(errorMessage, { ns: I18nNamespace.LOGIN })}
+                            {t(errorMessage)}
                         </span>
                     )}
                 </form>
                 <Button onClick={onChangeModalView} disabled={isLoading} className={s.signUp}>
-                    {t('Sign Up', { ns: I18nNamespace.BASE })}
+                    {t('SignUp', { ns: I18nNamespace.BASE })}
                 </Button>
             </div>
         </DynamicModuleLoader>

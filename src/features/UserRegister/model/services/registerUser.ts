@@ -1,17 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
 import { AUTH_ENDPOINT } from '@/shared/const';
+import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 import { AuthResponse } from '@/shared/types';
 
-export interface RegisterUserProps {
+interface RegisterUserProps {
     username: string;
     email: string;
     password: string;
 }
 
-export const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConfig<string>>(
+const REGISTER_USER_ERROR_MESSAGE = 'RegisterUserServiceError';
+
+const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConfig<string>>(
     'register/registerUser',
     async (registerData, { dispatch, extra, rejectWithValue }) => {
         try {
@@ -27,13 +29,10 @@ export const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, Th
 
             return data;
         } catch (err) {
-            let errMessage = 'Register failed';
-
-            if (axios.isAxiosError(err)) {
-                errMessage = err.response?.data.message || errMessage;
-            }
-
-            return rejectWithValue(errMessage);
+            return rejectWithValue(getErrorMessageAsyncThunk(err, REGISTER_USER_ERROR_MESSAGE));
         }
     },
 );
+
+export type { RegisterUserProps };
+export { registerUser, REGISTER_USER_ERROR_MESSAGE };

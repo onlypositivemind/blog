@@ -2,7 +2,7 @@ import { loginUser } from '../services/loginUser';
 import { LoginSchema } from '../types/loginSchema';
 import { loginReducer } from './loginSlice';
 
-const errorMessage = 'Log in failed';
+const errorMessage = 'errorMessage';
 
 describe('Login slice', () => {
     test('loginUser.pending', () => {

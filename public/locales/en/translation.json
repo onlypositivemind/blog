@@ -1,9 +1,9 @@
 {
-    "Register": "Register",
-    "Sign Up": "Sign Up",
     "or": "or",
-    "Sign In": "Sign In",
-    "Sign Out": "Sign Out",
+    "Register": "Register",
+    "SignUp": "Sign Up",
+    "SignIn": "Sign In",
+    "SignOut": "Sign Out",
     "Home": "Home",
     "About": "About",
     "Profile": "Profile",
