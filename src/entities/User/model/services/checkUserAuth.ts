@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { AUTH_ENDPOINT, TOKEN_LOCALSTORAGE_KEY } from '@/shared/const';
+import { AUTH_ENDPOINT, LocalStorage } from '@/shared/const';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 import { AuthResponse } from '@/shared/types';
 import { userActions } from '../slice/userSlice';
@@ -22,8 +22,8 @@ const checkUserAuth = createAsyncThunk<void, undefined>(
 
             dispatch(userActions.setAuthData(data));
         } catch (err) {
-            if (localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)) {
-                localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
+            if (localStorage.getItem(LocalStorage.ACCESS_TOKEN)) {
+                localStorage.removeItem(LocalStorage.ACCESS_TOKEN);
             }
 
             return rejectWithValue(getErrorMessageAsyncThunk(err, CHECK_USER_AUTH_ERROR_MESSAGE));

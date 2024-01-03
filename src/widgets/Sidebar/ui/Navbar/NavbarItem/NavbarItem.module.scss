@@ -8,8 +8,9 @@
 
 .icon {
     display: block;
-    width: var(--font-size-h4);
     height: var(--font-size-h4);
+    min-width: var(--font-size-h4);
+    max-width: var(--font-size-h4);
 }
 
 .title {

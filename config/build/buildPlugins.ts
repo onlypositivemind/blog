@@ -13,7 +13,7 @@ export const buildPlugins = ({
     apiUrl,
     isDev,
     isProd,
-    hasAnalyzer,
+    hasBundleAnalyzer,
 }: BuildOptions): Configuration['plugins'] => {
     const plugins: Configuration['plugins'] = [
         new HtmlWebpackPlugin({
@@ -26,7 +26,7 @@ export const buildPlugins = ({
         }),
     ];
 
-    if (hasAnalyzer) {
+    if (hasBundleAnalyzer) {
         plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: true }));
     }
 

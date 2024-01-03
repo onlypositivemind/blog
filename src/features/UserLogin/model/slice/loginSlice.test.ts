@@ -4,7 +4,7 @@ import { loginReducer } from './loginSlice';
 
 const errorMessage = 'errorMessage';
 
-describe('Login slice', () => {
+describe('loginSlice', () => {
     test('loginUser.pending', () => {
         const state: DeepPartial<LoginSchema> = {
             isLoading: false,

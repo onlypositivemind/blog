@@ -9,7 +9,7 @@ const initialState: EditableProfileCardSchema = {
     isReadonly: true,
 };
 
-const editableProfileCard = createSlice({
+const editableProfileCardSlice = createSlice({
     name: 'editableProfileCard',
     initialState,
     reducers: {
@@ -40,7 +40,6 @@ const editableProfileCard = createSlice({
                 state.form = undefined;
                 state.errorMessage = payload;
             })
-
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.isReadonly = false;
@@ -67,4 +66,4 @@ const editableProfileCard = createSlice({
 });
 
 export const { actions: editableProfileCardActions, reducer: editableProfileCardReducer } =
-    editableProfileCard;
+    editableProfileCardSlice;

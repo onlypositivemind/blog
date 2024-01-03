@@ -4,7 +4,7 @@ import { registerReducer } from './registerSlice';
 
 const errorMessage = 'errorMessage';
 
-describe('Register slice', () => {
+describe('registerSlice', () => {
     test('registerUser.pending', () => {
         const state: DeepPartial<RegisterSchema> = {
             isLoading: false,

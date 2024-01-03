@@ -4,7 +4,7 @@ import { I18nNamespace } from '@/shared/const';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { Avatar, Button, HStack, VStack } from '@/shared/ui';
 import { updateProfile } from '../../model/services/updateProfile';
-import { editableProfileCardActions } from '../../model/slice/editableProfileCard';
+import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
 import UserIcon from '@/shared/assets/icons/user.svg';
 import s from './EditableProfileCardHeader.module.scss';
 

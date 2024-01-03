@@ -1,2 +1,5 @@
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
-export const TOKEN_LOCALSTORAGE_KEY = 'token';
+export const LocalStorage = {
+    ACCESS_TOKEN: 'accessToken',
+    IS_SIDEBAR_COLLAPSED: 'isSidebarCollapsed',
+    THEME: 'theme',
+} as const;

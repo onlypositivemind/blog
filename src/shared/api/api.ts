@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_ENDPOINT, MAX_RESPONSE_TIME, TOKEN_LOCALSTORAGE_KEY } from '@/shared/const';
+import { API_ENDPOINT, LocalStorage, MAX_RESPONSE_TIME } from '@/shared/const';
 import { AuthResponse } from '@/shared/types';
 
 export const $api = axios.create({
@@ -10,7 +10,7 @@ export const $api = axios.create({
 
 $api.interceptors.request.use((config) => {
     if (config.headers) {
-        config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN_LOCALSTORAGE_KEY)}`;
+        config.headers.Authorization = `Bearer ${localStorage.getItem(LocalStorage.ACCESS_TOKEN)}`;
     }
     return config;
 });
@@ -29,7 +29,7 @@ $api.interceptors.response.use(
                     withCredentials: true,
                 });
 
-                localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, data.accessToken);
+                localStorage.setItem(LocalStorage.ACCESS_TOKEN, data.accessToken);
                 return $api.request(originalRequest);
             } catch (err) {
                 // eslint-disable-next-line no-console

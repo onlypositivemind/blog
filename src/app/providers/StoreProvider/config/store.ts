@@ -22,8 +22,7 @@ export const createReduxStore = (
         middleware: (gDM) => gDM({ thunk: { extraArgument: { api: $api } } }),
     });
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-ignore TODO
     store.reducerManager = reducerManager;
 
     return store;

@@ -9,8 +9,8 @@ export const authData: User = {
     roles: ['SystemAdmin'],
 };
 
-describe('User slice', () => {
-    test('logout action', () => {
+describe('userSlice', () => {
+    test('userActions.logout', () => {
         const state: DeepPartial<UserSchema> = { _inited: true, authData };
 
         expect(userReducer(state as UserSchema, userActions.logout)).toEqual({
@@ -19,7 +19,7 @@ describe('User slice', () => {
         });
     });
 
-    test('setAuthData action', () => {
+    test('userActions.setAuthData', () => {
         const state: DeepPartial<UserSchema> = { _inited: true };
 
         expect(

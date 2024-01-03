@@ -9,10 +9,12 @@ export const equals = (a: any, b: any) => {
     }
 
     const fistParamIsArray = Array.isArray(a);
-    const secondParamIsArray = Array.isArray(a);
+    const secondParamIsArray = Array.isArray(b);
 
     if (fistParamIsArray && secondParamIsArray) {
-        if (a.length !== b.length) return false;
+        if (a.length !== b.length) {
+            return false;
+        }
     }
 
     if ((fistParamIsArray && !secondParamIsArray) || (secondParamIsArray && !fistParamIsArray)) {
@@ -20,7 +22,9 @@ export const equals = (a: any, b: any) => {
     }
 
     if (!fistParamIsArray && !secondParamIsArray) {
-        if (Object.keys(a).length !== Object.keys(b).length) return false;
+        if (Object.keys(a).length !== Object.keys(b).length) {
+            return false;
+        }
     }
 
     for (const key in a) {

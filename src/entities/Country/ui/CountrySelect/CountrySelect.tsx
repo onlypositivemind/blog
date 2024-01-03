@@ -19,8 +19,8 @@ interface CountrySelectProps {
 
 const CountrySelectComponent = ({ value, onChange, disabled, className }: CountrySelectProps) => {
     const handleChange = useCallback(
-        (value: string) => {
-            onChange?.(value as Country);
+        (value: Country) => {
+            onChange?.(value);
         },
         [onChange],
     );

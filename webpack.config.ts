@@ -20,9 +20,9 @@ export default (env: BuildEnv) => {
 
     const config: Configuration = buildWebpackConfig({
         paths,
-        port: env.port ?? 3000,
+        port: +env.port ?? 3000,
         apiUrl: env.apiUrl ?? 'http://localhost:5000/api',
-        hasAnalyzer: env.hasAnalyzer ?? false,
+        hasBundleAnalyzer: env.hasBundleAnalyzer === 'true',
         mode,
         isDev,
         isProd,

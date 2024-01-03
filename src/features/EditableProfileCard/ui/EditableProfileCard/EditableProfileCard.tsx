@@ -21,7 +21,7 @@ import { UPDATE_PROFILE_ERROR_MESSAGE } from '../../model/services/updateProfile
 import {
     editableProfileCardActions,
     editableProfileCardReducer,
-} from '../../model/slice/editableProfileCard';
+} from '../../model/slice/editableProfileCardSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { EditableProfileCardHeaderSkeleton } from '../EditableProfileCardHeader/EditableProfileCardHeaderSkeleton';
 import s from './EditableProfileCard.module.scss';

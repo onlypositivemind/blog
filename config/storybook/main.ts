@@ -23,6 +23,7 @@ export default {
     webpackFinal: async (config: webpack.Configuration) => {
         const paths: BuildPaths = {
             build: '',
+            public: '',
             html: '',
             entry: '',
             src: path.resolve(__dirname, '..', '..', 'src'),
@@ -38,8 +39,7 @@ export default {
         };
 
         config.module!.rules = config.module!.rules!.map(
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
+            // @ts-ignore TODO
             (rule: webpack.RuleSetRule) => {
                 if (/svg/.test(rule.test as string)) {
                     return { ...rule, exclude: /\.svg$/i };

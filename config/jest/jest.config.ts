@@ -19,4 +19,5 @@ export default {
         '\\.svg': path.resolve(__dirname, 'JestEmptyComponent.tsx'),
         '^@/(.*)$': '<rootDir>/src/$1',
     },
+    transformIgnorePatterns: ['node_modules/(?!axios)'],
 };

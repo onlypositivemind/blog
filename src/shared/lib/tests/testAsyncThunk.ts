@@ -8,9 +8,10 @@ type ActionCreator<Return, Arg, RejectedValue> = (
     arg: Arg,
 ) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
 
+jest.spyOn($api, 'get');
 jest.spyOn($api, 'post');
 jest.spyOn($api, 'put');
-jest.spyOn($api, 'get');
+jest.spyOn($api, 'patch');
 jest.spyOn($api, 'delete');
 const mockedAxios = jest.mocked($api, true);
 

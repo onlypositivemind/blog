@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TOKEN_LOCALSTORAGE_KEY } from '@/shared/const';
+import { LocalStorage } from '@/shared/const';
 import { AuthResponse } from '@/shared/types';
 import { checkUserAuth } from '../services/checkUserAuth';
 import { UserSchema } from '../types/user';
@@ -13,17 +13,16 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setAuthData: (state, { payload }: PayloadAction<AuthResponse>) => {
-            localStorage.setItem(TOKEN_LOCALSTORAGE_KEY, payload.accessToken);
+            localStorage.setItem(LocalStorage.ACCESS_TOKEN, payload.accessToken);
 
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore TODO убрать , когда будет готов сервер
+            // @ts-ignore TODO убрать, когда будет готов сервер
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { password, ...authData } = payload.user;
 
             state.authData = authData;
         },
         logout: (state) => {
-            localStorage.removeItem(TOKEN_LOCALSTORAGE_KEY);
+            localStorage.removeItem(LocalStorage.ACCESS_TOKEN);
             state.authData = undefined;
         },
     },

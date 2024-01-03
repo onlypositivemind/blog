@@ -17,8 +17,8 @@ interface CurrencySelectProps {
 
 const CurrencySelectComponent = ({ value, onChange, disabled, className }: CurrencySelectProps) => {
     const handleChange = useCallback(
-        (value: string) => {
-            onChange?.(value as Currency);
+        (value: Currency) => {
+            onChange?.(value);
         },
         [onChange],
     );

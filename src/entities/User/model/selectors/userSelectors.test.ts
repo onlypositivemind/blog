@@ -9,7 +9,7 @@ const authData: User = {
     roles: ['SystemAdmin'],
 };
 
-describe('User selectors', () => {
+describe('userSelectors', () => {
     test('selectUserInited: should return true', () => {
         const state: DeepPartial<StateSchema> = {
             user: { _inited: true },

@@ -29,7 +29,7 @@ interface FormValues {
 const reducers: ReducersList = { registerForm: registerReducer };
 
 const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) => {
-    const { t } = useTranslation([I18nNamespace.REGISTER, I18nNamespace.BASE]);
+    const { t } = useTranslation([I18nNamespace.REGISTER, I18nNamespace.COMMON]);
     const {
         register,
         handleSubmit,
@@ -116,7 +116,7 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         disabled={isLoading}
                         className={'authButton'}
                     >
-                        {t('SignUp', { ns: I18nNamespace.BASE })}
+                        {t('SignUp', { ns: I18nNamespace.COMMON })}
                     </Button>
                     {errorMessage && (
                         <span
@@ -131,7 +131,7 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                 <HStack align='center' justify='center' gap={8} className={s.signInBlock}>
                     <p>{t('HaveAccount')}</p>
                     <Button onClick={onChangeModalView} disabled={isLoading}>
-                        {t('SignIn', { ns: I18nNamespace.BASE })}
+                        {t('SignIn', { ns: I18nNamespace.COMMON })}
                     </Button>
                 </HStack>
             </div>

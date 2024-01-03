@@ -21,7 +21,13 @@ declare module '*.json';
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type OptionalRecord<K extends keyof any, T> = { [P in K]?: T };
+type Optional<T> = T | undefined;
+type Nullable<T> = T | null;
+type Nullish<T> = Optional<T> | Nullable<T>;
+
+type ValueOf<T> = T[keyof T];
+type KeyOf<T> = keyof T;
+
+type OptionalRecord<K extends string | number | symbol, T> = { [P in K]?: T };
 
 type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;

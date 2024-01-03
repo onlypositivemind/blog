@@ -11,7 +11,7 @@ const navbarItemsList: NavbarItemType[] = [
     { path: getRouteAbout(), title: 'About', Icon: AboutIcon },
 ];
 
-describe('Navbar selectors', () => {
+describe('navbarSelectors', () => {
     test('selectNavbarItems: should return shared items', () => {
         const state: DeepPartial<StateSchema> = {
             user: { authData: undefined },

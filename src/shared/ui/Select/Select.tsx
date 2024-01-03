@@ -46,4 +46,6 @@ const SelectComponent = <T extends string>({
 };
 
 export type { SelectOption };
-export const Select = memo(SelectComponent);
+export const Select = memo(SelectComponent) as <T extends string>(
+    props: SelectProps<T>,
+) => JSX.Element;

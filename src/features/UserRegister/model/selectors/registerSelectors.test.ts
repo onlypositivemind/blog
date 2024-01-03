@@ -3,7 +3,7 @@ import { selectRegisterFormErrorMessage, selectRegisterFormIsLoading } from './r
 
 const errorMessage = 'Register failed';
 
-describe('Register selectors', () => {
+describe('registerSelectors', () => {
     test('selectRegisterFormIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
             registerForm: { isLoading: true },

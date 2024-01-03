@@ -3,7 +3,7 @@ import { selectLoginFormErrorMessage, selectLoginFormIsLoading } from './loginSe
 
 const errorMessage = 'Log in failed';
 
-describe('Login selectors', () => {
+describe('loginSelectors', () => {
     test('selectLoginFormIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: { isLoading: true },

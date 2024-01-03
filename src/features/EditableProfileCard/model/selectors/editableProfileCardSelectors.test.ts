@@ -22,7 +22,7 @@ export const profileCardData: Profile = {
 
 export const errorMessage = 'Failed to get profile data';
 
-describe('Profile card selectors', () => {
+describe('editableProfileCardSelectors', () => {
     test('selectEditableProfileCardIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
             editableProfileCard: { isLoading: true },

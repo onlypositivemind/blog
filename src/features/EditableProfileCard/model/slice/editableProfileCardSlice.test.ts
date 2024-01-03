@@ -2,7 +2,7 @@ import { Profile } from '@/entities/Profile';
 import { getProfile } from '../services/getProfile';
 import { updateProfile } from '../services/updateProfile';
 import { EditableProfileCardSchema } from '../types/editableProfileCard';
-import { editableProfileCardReducer } from './editableProfileCard';
+import { editableProfileCardReducer } from './editableProfileCardSlice';
 
 const profileData: Profile = {
     id: '1',
@@ -18,7 +18,7 @@ const profileData: Profile = {
 
 const errorMessage = 'errorMessage';
 
-describe('editableProfileCard slice', () => {
+describe('editableProfileCardSlice', () => {
     test('any action .pending)', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
