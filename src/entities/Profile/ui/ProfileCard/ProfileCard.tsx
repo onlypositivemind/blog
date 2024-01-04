@@ -26,7 +26,7 @@ interface ProfileCardProps {
 export const ProfileCard = ({
     data,
     isLoading,
-    isReadonly,
+    isReadonly = true,
     onChangeEmail,
     onChangeUsername,
     onChangeAvatar,

@@ -39,7 +39,7 @@ describe('checkUserAuth AsyncThunk', () => {
     });
 
     test('should be rejected', async () => {
-        mockedAxios.get.mockReturnValue(Promise.resolve({ status: 400 }));
+        mockedAxios.get.mockReturnValue(Promise.reject());
         const action = checkUserAuth();
         const result = await action(dispatch, getState, undefined);
 

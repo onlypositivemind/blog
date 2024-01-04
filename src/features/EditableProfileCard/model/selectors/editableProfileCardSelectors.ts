@@ -10,3 +10,5 @@ export const selectEditableProfileCardData = (state: StateSchema) =>
     state.editableProfileCard?.data;
 export const selectEditableProfileCardFormData = (state: StateSchema) =>
     state.editableProfileCard?.form;
+export const selectEditableProfileCardValidationErrors = (state: StateSchema) =>
+    state.editableProfileCard?.validationErrors;

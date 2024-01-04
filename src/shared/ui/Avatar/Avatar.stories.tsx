@@ -1,12 +1,13 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook';
 import { Avatar } from './Avatar';
+import mockAvatar from '@/shared/assets/tests/mockAvatar.jpg';
 
 export default {
     title: 'shared/Avatar',
     component: Avatar,
     args: {
-        src: 'https://avatars.githubusercontent.com/u/91557152?v=4',
+        src: mockAvatar,
         size: 100,
     },
     decorators: [CenterElementDecorator],

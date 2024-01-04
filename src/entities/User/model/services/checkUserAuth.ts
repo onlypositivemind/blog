@@ -16,10 +16,6 @@ const checkUserAuth = createAsyncThunk<void, undefined>(
                 withCredentials: true,
             });
 
-            if (!data) {
-                throw new Error();
-            }
-
             dispatch(userActions.setAuthData(data));
         } catch (err) {
             if (localStorage.getItem(LocalStorage.ACCESS_TOKEN)) {

@@ -7,9 +7,9 @@ export default {
     component: Select,
     args: {
         options: [
-            { value: '1', content: 'Значение один' },
-            { value: '2', content: 'Значение два' },
-            { value: '3', content: 'Значение три' },
+            { value: '1', content: 'Value 1' },
+            { value: '2', content: 'Value 2' },
+            { value: '3', content: 'Value 3' },
         ],
     },
     decorators: [CenterElementDecorator],

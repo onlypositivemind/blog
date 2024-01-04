@@ -23,4 +23,5 @@ export interface BuildOptions extends Omit<BuildEnv, 'port' | 'hasBundleAnalyzer
     isDev: boolean;
     isProd: boolean;
     hasBundleAnalyzer: boolean;
+    project: 'app' | 'jest' | 'storybook';
 }

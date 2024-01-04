@@ -20,6 +20,7 @@ declare module '*.json';
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
+declare const __PROJECT__: 'app' | 'jest' | 'storybook';
 
 type Optional<T> = T | undefined;
 type Nullable<T> = T | null;

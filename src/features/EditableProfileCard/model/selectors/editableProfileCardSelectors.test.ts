@@ -1,24 +1,14 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { Profile } from '@/entities/Profile';
+import { mockProfileData } from '@/shared/lib/tests';
+import { validateProfileError } from '../const/validateProfile';
 import {
     selectEditableProfileCardData,
     selectEditableProfileCardErrorMessage,
     selectEditableProfileCardFormData,
     selectEditableProfileCardIsLoading,
     selectEditableProfileCardIsReadonly,
+    selectEditableProfileCardValidationErrors,
 } from './editableProfileCardSelectors';
-
-export const profileCardData: Profile = {
-    id: '1',
-    email: 'admin@gmail.com',
-    username: 'admin',
-    firstname: 'Evgenii',
-    lastname: 'TSovich',
-    age: 24,
-    currency: 'EUR',
-    country: 'Russia',
-    avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
-};
 
 export const errorMessage = 'Failed to get profile data';
 
@@ -59,12 +49,12 @@ describe('editableProfileCardSelectors', () => {
         expect(selectEditableProfileCardIsReadonly({} as StateSchema)).toBe(undefined);
     });
 
-    test('selectEditableProfileCardData: should return profileCardData', () => {
+    test('selectEditableProfileCardData: should return mockProfileData', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfileCard: { data: profileCardData },
+            editableProfileCard: { data: mockProfileData },
         };
 
-        expect(selectEditableProfileCardData(state as StateSchema)).toEqual(profileCardData);
+        expect(selectEditableProfileCardData(state as StateSchema)).toEqual(mockProfileData);
     });
 
     test('selectEditableProfileCardData: should work with empty state', () => {
@@ -73,13 +63,29 @@ describe('editableProfileCardSelectors', () => {
 
     test('selectEditableProfileCardFormData: should return profileCardFormData', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfileCard: { form: profileCardData },
+            editableProfileCard: { form: mockProfileData },
         };
 
-        expect(selectEditableProfileCardFormData(state as StateSchema)).toEqual(profileCardData);
+        expect(selectEditableProfileCardFormData(state as StateSchema)).toEqual(mockProfileData);
     });
 
     test('selectEditableProfileCardFormData: should work with empty state', () => {
         expect(selectEditableProfileCardFormData({} as StateSchema)).toBe(undefined);
+    });
+
+    test('selectEditableProfileCardValidationErrors: should return validationErrors', () => {
+        const validationErrors = [validateProfileError.EMAIL, validateProfileError.USERNAME];
+
+        const state: DeepPartial<StateSchema> = {
+            editableProfileCard: { validationErrors },
+        };
+
+        expect(selectEditableProfileCardValidationErrors(state as StateSchema)).toEqual(
+            validationErrors,
+        );
+    });
+
+    test('selectEditableProfileCardValidationErrors: should work with empty state', () => {
+        expect(selectEditableProfileCardValidationErrors({} as StateSchema)).toBe(undefined);
     });
 });

@@ -6,10 +6,12 @@ import {
     selectEditableProfileCardData,
     selectEditableProfileCardFormData,
 } from '../selectors/editableProfileCardSelectors';
+import { validateProfile } from '../services/validateProfile';
+import { ValidateProfileErrors } from '../types/validateProfile';
 
 const UPDATE_PROFILE_ERROR_MESSAGE = 'UpdateProfileServiceError';
 
-const updateProfile = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+const updateProfile = createAsyncThunk<Profile, void, ThunkConfig<string | ValidateProfileErrors>>(
     'editableProfileCard/updateProfile',
     async (_, { extra, rejectWithValue, getState }) => {
         const profileData = selectEditableProfileCardData(getState());
@@ -19,15 +21,16 @@ const updateProfile = createAsyncThunk<Profile, void, ThunkConfig<string>>(
             return profileData!;
         }
 
+        const validationErrors = validateProfile(profileFormData!);
+        if (validationErrors.length > 0) {
+            return rejectWithValue(validationErrors);
+        }
+
         try {
             const { data } = await extra.api.put<Profile>(
                 `/profile/${profileFormData?.id}`,
                 profileFormData,
             );
-
-            if (!data) {
-                throw new Error();
-            }
 
             return data;
         } catch (err) {

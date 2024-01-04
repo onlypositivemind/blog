@@ -19,11 +19,7 @@ const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<str
             const { data } = await extra.api.post<AuthResponse>('/login', loginData, {
                 baseURL: AUTH_ENDPOINT,
             });
-
-            if (!data) {
-                throw new Error();
-            }
-
+          
             dispatch(userActions.setAuthData(data));
 
             return data;

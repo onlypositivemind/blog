@@ -35,7 +35,7 @@ describe('registerUser AsyncThunk', () => {
 
     test('should be rejected', async () => {
         const thunk = new TestAsyncThunk(registerUser);
-        thunk.api.post.mockReturnValue(Promise.resolve({ status: 400 }));
+        thunk.api.post.mockReturnValue(Promise.reject());
 
         const result = await thunk.callThunk(userRegisterData);
 

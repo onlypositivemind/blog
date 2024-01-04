@@ -14,6 +14,7 @@ export const buildPlugins = ({
     isDev,
     isProd,
     hasBundleAnalyzer,
+    project,
 }: BuildOptions): Configuration['plugins'] => {
     const plugins: Configuration['plugins'] = [
         new HtmlWebpackPlugin({
@@ -23,6 +24,7 @@ export const buildPlugins = ({
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 

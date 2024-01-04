@@ -1,4 +1,5 @@
 import { Profile } from '@/entities/Profile';
+import { ValidateProfileErrors } from '../types/validateProfile';
 
 export interface EditableProfileCardSchema {
     isLoading: boolean;
@@ -6,4 +7,5 @@ export interface EditableProfileCardSchema {
     data?: Profile;
     form?: Profile;
     errorMessage?: string;
+    validationErrors?: ValidateProfileErrors;
 }

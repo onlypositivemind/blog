@@ -25,10 +25,8 @@ const editableProfileCardSlice = createSlice({
         cancelEdit: (state) => {
             state.isReadonly = true;
             state.form = state.data;
-
-            if (state.errorMessage) {
-                state.errorMessage = undefined;
-            }
+            state.errorMessage = undefined;
+            state.validationErrors = undefined;
         },
     },
     extraReducers: (builder) => {
@@ -43,7 +41,13 @@ const editableProfileCardSlice = createSlice({
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.isReadonly = false;
-                state.errorMessage = payload;
+
+                if (typeof payload === 'string') {
+                    state.errorMessage = payload;
+                }
+                if (Array.isArray(payload)) {
+                    state.validationErrors = payload;
+                }
             })
             .addMatcher(
                 (action) => action.type.endsWith?.('/pending'),
@@ -51,6 +55,7 @@ const editableProfileCardSlice = createSlice({
                     state.isLoading = true;
                     state.isReadonly = true;
                     state.errorMessage = undefined;
+                    state.validationErrors = undefined;
                 },
             )
             .addMatcher(
@@ -60,6 +65,7 @@ const editableProfileCardSlice = createSlice({
                     state.data = payload;
                     state.form = payload;
                     state.errorMessage = undefined;
+                    state.validationErrors = undefined;
                 },
             );
     },

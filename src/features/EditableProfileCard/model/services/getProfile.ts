@@ -10,11 +10,7 @@ const getProfile = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     async (id, { extra, rejectWithValue }) => {
         try {
             const { data } = await extra.api.get<Profile>(`/profile/${id}`);
-
-            if (!data) {
-                throw new Error();
-            }
-
+        
             return data;
         } catch (err) {
             return rejectWithValue(getErrorMessageAsyncThunk(err, GET_PROFILE_ERROR_MESSAGE));

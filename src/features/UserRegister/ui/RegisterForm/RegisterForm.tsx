@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { I18nNamespace } from '@/shared/const';
+import { I18nNamespace, UserValidation } from '@/shared/const';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { Button, FormInput, HStack, Logo } from '@/shared/ui';
@@ -67,8 +67,18 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         ariaDescribedby='username-error-message'
                         {...register('username', {
                             required: t('Required'),
-                            minLength: { value: 3, message: t('UsernameMinLength') },
-                            maxLength: { value: 20, message: t('UsernameMaxLength') },
+                            minLength: {
+                                value: UserValidation.USERNAME_MIN_LENGTH,
+                                message: t('UsernameMinLength', {
+                                    value: UserValidation.USERNAME_MIN_LENGTH,
+                                }),
+                            },
+                            maxLength: {
+                                value: UserValidation.USERNAME_MAX_LENGTH,
+                                message: t('UsernameMaxLength', {
+                                    value: UserValidation.USERNAME_MAX_LENGTH,
+                                }),
+                            },
                         })}
                     />
                     <FormInput
@@ -80,6 +90,10 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         ariaDescribedby='email-error-message'
                         {...register('email', {
                             required: t('Required'),
+                            pattern: {
+                                value: UserValidation.EMAIL_REGEXP,
+                                message: t('InvalidEmail'),
+                            },
                         })}
                     />
                     <FormInput
@@ -91,7 +105,12 @@ const RegisterForm = ({ onCloseModal, onChangeModalView }: RegisterFormProps) =>
                         ariaDescribedby='password-error-message'
                         {...register('password', {
                             required: t('RequiredPassword'),
-                            minLength: { value: 8, message: t('PasswordMinLength') },
+                            minLength: {
+                                value: UserValidation.PASSWORD_MIN_LENGTH,
+                                message: t('PasswordMinLength', {
+                                    value: UserValidation.PASSWORD_MIN_LENGTH,
+                                }),
+                            },
                         })}
                     />
                     <FormInput

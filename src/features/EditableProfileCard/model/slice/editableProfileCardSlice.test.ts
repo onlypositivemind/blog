@@ -1,20 +1,9 @@
-import { Profile } from '@/entities/Profile';
+import { validateProfileError } from '@/features/EditableProfileCard/model/const/validateProfile';
+import { mockProfileData } from '@/shared/lib/tests';
 import { getProfile } from '../services/getProfile';
 import { updateProfile } from '../services/updateProfile';
 import { EditableProfileCardSchema } from '../types/editableProfileCard';
 import { editableProfileCardReducer } from './editableProfileCardSlice';
-
-const profileData: Profile = {
-    id: '1',
-    email: 'admin@gmail.com',
-    username: 'admin',
-    firstname: 'Evgenii',
-    lastname: 'TSovich',
-    age: 24,
-    currency: 'EUR',
-    country: 'Russia',
-    avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
-};
 
 const errorMessage = 'errorMessage';
 
@@ -23,8 +12,9 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
             isReadonly: false,
-            data: profileData,
+            data: mockProfileData,
             errorMessage,
+            validationErrors: [],
         };
 
         expect(
@@ -33,7 +23,8 @@ describe('editableProfileCardSlice', () => {
             isLoading: true,
             isReadonly: true,
             errorMessage: undefined,
-            data: profileData,
+            validationErrors: undefined,
+            data: mockProfileData,
         });
     });
 
@@ -42,20 +33,22 @@ describe('editableProfileCardSlice', () => {
             isLoading: true,
             isReadonly: true,
             data: undefined,
+            validationErrors: [],
             errorMessage,
         };
 
         expect(
             editableProfileCardReducer(state as EditableProfileCardSchema, {
                 type: '/fulfilled',
-                payload: profileData,
+                payload: mockProfileData,
             }),
         ).toEqual({
             isLoading: false,
             isReadonly: true,
-            data: profileData,
-            form: profileData,
+            data: mockProfileData,
+            form: mockProfileData,
             errorMessage: undefined,
+            validationErrors: undefined,
         });
     });
 
@@ -63,8 +56,8 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: false,
-            data: profileData,
-            form: profileData,
+            data: mockProfileData,
+            form: mockProfileData,
             errorMessage: undefined,
         };
 
@@ -82,12 +75,12 @@ describe('editableProfileCardSlice', () => {
         });
     });
 
-    test('updateProfile.rejected', () => {
+    test('updateProfile.rejected with errorMessage', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: false,
-            data: profileData,
-            form: profileData,
+            data: mockProfileData,
+            form: mockProfileData,
             errorMessage: undefined,
         };
 
@@ -101,6 +94,32 @@ describe('editableProfileCardSlice', () => {
             isLoading: false,
             isReadonly: false,
             errorMessage,
+        });
+    });
+
+    test('updateProfile.rejected with validationErrors', () => {
+        const state: DeepPartial<EditableProfileCardSchema> = {
+            isLoading: true,
+            isReadonly: false,
+            data: mockProfileData,
+            form: mockProfileData,
+            errorMessage: undefined,
+            validationErrors: undefined,
+        };
+
+        const validationErrors = [validateProfileError.EMAIL, validateProfileError.USERNAME];
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: updateProfile.rejected,
+                payload: validationErrors,
+            }),
+        ).toEqual({
+            ...state,
+            isLoading: false,
+            isReadonly: false,
+            errorMessage: undefined,
+            validationErrors,
         });
     });
 });

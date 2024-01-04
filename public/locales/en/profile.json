@@ -5,11 +5,17 @@
     "Email": "E-mail:",
     "Username": "Username:",
     "Avatar": "Avatar link:",
-    "Firstname": "Firstname:",
+    "Firstname": "First name:",
     "Surname": "Surname:",
     "Age": "Age:",
     "Country": "Country:",
     "Currency": "Currency:",
+    "INCORRECT_EMAIL": "Invalid email address",
+    "INCORRECT_USERNAME": "Username must contain from 3 to 20 characters",
+    "INCORRECT_AVATAR_LINK": "Invalid avatar link",
+    "INCORRECT_FIRSTNAME": "Invalid first name",
+    "INCORRECT_LASTNAME": "Invalid surname",
+    "INCORRECT_AGE": "Invalid age",
     "GetProfileServiceError": "Failed to load profile data, please try again later",
     "UpdateProfileServiceError": "Failed to update profile data, please try again later"
 }

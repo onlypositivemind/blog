@@ -21,10 +21,6 @@ const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConf
                 baseURL: AUTH_ENDPOINT,
             });
 
-            if (!data) {
-                throw new Error();
-            }
-
             dispatch(userActions.setAuthData(data));
 
             return data;

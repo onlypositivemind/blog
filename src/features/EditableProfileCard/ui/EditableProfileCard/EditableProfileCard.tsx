@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Country } from '@/entities/Country';
@@ -7,7 +7,7 @@ import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
 import { I18nNamespace } from '@/shared/const';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
-import { useAppDispatch } from '@/shared/lib/hooks';
+import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
 import { VStack } from '@/shared/ui';
 import {
     selectEditableProfileCardData,
@@ -15,6 +15,7 @@ import {
     selectEditableProfileCardFormData,
     selectEditableProfileCardIsLoading,
     selectEditableProfileCardIsReadonly,
+    selectEditableProfileCardValidationErrors,
 } from '../../model/selectors/editableProfileCardSelectors';
 import { getProfile } from '../../model/services/getProfile';
 import { UPDATE_PROFILE_ERROR_MESSAGE } from '../../model/services/updateProfile';
@@ -41,10 +42,7 @@ export const EditableProfileCard = ({ id, className }: EditableProfileCardProps)
     const isLoading = useSelector(selectEditableProfileCardIsLoading);
     const isReadonly = useSelector(selectEditableProfileCardIsReadonly);
     const errorMessage = useSelector(selectEditableProfileCardErrorMessage);
-
-    useEffect(() => {
-        id && dispatch(getProfile(id));
-    }, []);
+    const validationErrors = useSelector(selectEditableProfileCardValidationErrors);
 
     const handleChangeEmail = useCallback((email: string) => {
         dispatch(editableProfileCardActions.updateProfile({ email }));
@@ -78,6 +76,10 @@ export const EditableProfileCard = ({ id, className }: EditableProfileCardProps)
         dispatch(editableProfileCardActions.updateProfile({ currency }));
     }, []);
 
+    useAppEffect(() => {
+        id && dispatch(getProfile(id));
+    }, []);
+
     if (errorMessage && errorMessage !== UPDATE_PROFILE_ERROR_MESSAGE) {
         return (
             <DynamicModuleLoader reducers={reducers}>
@@ -98,6 +100,15 @@ export const EditableProfileCard = ({ id, className }: EditableProfileCardProps)
                         avatar={profileData?.avatar}
                         isReadonly={isReadonly}
                     />
+                )}
+                {validationErrors && (
+                    <ul className={s.validationErrors}>
+                        {validationErrors.map((err) => (
+                            <li key={err} className={s.errText}>
+                                {t(err)}
+                            </li>
+                        ))}
+                    </ul>
                 )}
                 <ProfileCard
                     data={profileFormData}
