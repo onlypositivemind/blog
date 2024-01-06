@@ -1,3 +1,13 @@
+@keyframes load {
+    from {
+        left: -150px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
 .skeleton {
     position: relative;
     overflow: hidden;
@@ -18,12 +28,22 @@
     }
 }
 
-@keyframes load {
-    from {
-        left: -150px;
-    }
+.radius_circle {
+    border-radius: 50%;
+}
 
-    to {
-        left: 100%;
-    }
+.radius_xs {
+    border-radius: var(--radius-xs);
+}
+
+.radius_s {
+    border-radius: var(--radius-s);
+}
+
+.radius_m {
+    border-radius: var(--radius-m);
+}
+
+.radius_l {
+    border-radius: var(--radius-l);
 }

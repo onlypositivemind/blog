@@ -45,7 +45,7 @@ export const EditableProfileCardHeader = ({
             </VStack>
             <div className={s.buttons}>
                 {isReadonly ? (
-                    <Button theme='primary' size='size_p3' onClick={handleClickEdit}>
+                    <Button theme='primary' size='p3' onClick={handleClickEdit}>
                         {t('Edit')}
                     </Button>
                 ) : (

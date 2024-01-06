@@ -1,6 +1,6 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { mockProfileData } from '@/shared/lib/tests';
-import { validateProfileError } from '../const/validateProfile';
+import { ProfileValidationError } from '../const/profileValidation';
 import {
     selectEditableProfileCardData,
     selectEditableProfileCardErrorMessage,
@@ -74,7 +74,7 @@ describe('editableProfileCardSelectors', () => {
     });
 
     test('selectEditableProfileCardValidationErrors: should return validationErrors', () => {
-        const validationErrors = [validateProfileError.EMAIL, validateProfileError.USERNAME];
+        const validationErrors = [ProfileValidationError.EMAIL, ProfileValidationError.USERNAME];
 
         const state: DeepPartial<StateSchema> = {
             editableProfileCard: { validationErrors },

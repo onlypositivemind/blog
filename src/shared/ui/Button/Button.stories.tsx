@@ -7,7 +7,7 @@ export default {
     component: Button,
     args: {
         theme: 'primary',
-        size: 'size_h4',
+        size: 'h4',
     },
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Button>;

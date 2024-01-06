@@ -1,3 +1,3 @@
-import { validateProfileError } from '../const/validateProfile';
+import { ProfileValidationError } from '../const/profileValidation';
 
-export type ValidateProfileErrors = ValueOf<typeof validateProfileError>[];
+export type ValidateProfileErrors = ValueOf<typeof ProfileValidationError>[];

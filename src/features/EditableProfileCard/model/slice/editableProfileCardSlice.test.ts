@@ -1,4 +1,4 @@
-import { validateProfileError } from '@/features/EditableProfileCard/model/const/validateProfile';
+import { ProfileValidationError } from '@/features/EditableProfileCard/model/const/profileValidation';
 import { mockProfileData } from '@/shared/lib/tests';
 import { getProfile } from '../services/getProfile';
 import { updateProfile } from '../services/updateProfile';
@@ -107,7 +107,7 @@ describe('editableProfileCardSlice', () => {
             validationErrors: undefined,
         };
 
-        const validationErrors = [validateProfileError.EMAIL, validateProfileError.USERNAME];
+        const validationErrors = [ProfileValidationError.EMAIL, ProfileValidationError.USERNAME];
 
         expect(
             editableProfileCardReducer(state as EditableProfileCardSchema, {

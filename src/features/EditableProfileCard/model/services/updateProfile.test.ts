@@ -1,4 +1,4 @@
-import { validateProfileError } from '@/features/EditableProfileCard/model/const/validateProfile';
+import { ProfileValidationError } from '@/features/EditableProfileCard/model/const/profileValidation';
 import { mockInvalidProfileData, mockProfileData, TestAsyncThunk } from '@/shared/lib/tests';
 import { UPDATE_PROFILE_ERROR_MESSAGE, updateProfile } from './updateProfile';
 
@@ -56,12 +56,12 @@ describe('updateProfile AsyncThunk', () => {
         expect(thunk.api.put).not.toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');
         expect(result.payload).toEqual([
-            validateProfileError.EMAIL,
-            validateProfileError.USERNAME,
-            validateProfileError.AVATAR_LINK,
-            validateProfileError.FIRSTNAME,
-            validateProfileError.LASTNAME,
-            validateProfileError.AGE,
+            ProfileValidationError.EMAIL,
+            ProfileValidationError.USERNAME,
+            ProfileValidationError.AVATAR_LINK,
+            ProfileValidationError.FIRSTNAME,
+            ProfileValidationError.LASTNAME,
+            ProfileValidationError.AGE,
         ]);
     });
 });

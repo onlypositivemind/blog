@@ -1,4 +1,4 @@
-export const validateProfileError = {
+export const ProfileValidationError = {
     AGE: 'INCORRECT_AGE',
     AVATAR_LINK: 'INCORRECT_AVATAR_LINK',
     EMAIL: 'INCORRECT_EMAIL',

@@ -8,7 +8,7 @@ export default {
     args: {
         width: 100,
         height: 50,
-        border: 10,
+        borderRadius: 'xs',
     },
     decorators: [CenterElementDecorator],
 } as ComponentMeta<typeof Skeleton>;
