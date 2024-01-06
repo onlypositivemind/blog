@@ -16,7 +16,7 @@ const AvatarComponent = ({ src, alt, className, size = 50 }: AvatarProps) => {
     };
 
     return (
-        <div className={cn(s.avatarWrapper, className)} style={styles}>
+        <div className={cn(className, s.avatarWrapper)} style={styles}>
             {/*TODO Давить дефолтный аватар, если нет аватарки юзера*/}
             <img src={src} alt={alt} />
         </div>

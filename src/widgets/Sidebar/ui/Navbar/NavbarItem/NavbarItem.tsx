@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { NavbarItemType } from '@/widgets/Sidebar/model/types/navbar';
-import { AppLink } from '@/shared/ui';
+import { AppIcon, AppLink } from '@/shared/ui';
 import s from './NavbarItem.module.scss';
 
 interface NavbarItemProps extends NavbarItemType {
@@ -16,9 +16,9 @@ export const NavbarItem = ({ collapsed, path, title, Icon }: NavbarItemProps) =>
             to={path}
             className={cn(s.link, { [s.collapsed]: collapsed })}
             theme='white'
-            size='p2'
+            size='m'
         >
-            <Icon className={s.icon} />
+            <AppIcon Icon={Icon} size='xl' color='white' className={s.icon} />
             <p className={s.title}>{t(title)}</p>
         </AppLink>
     );

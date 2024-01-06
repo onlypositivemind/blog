@@ -11,7 +11,7 @@ type ButtonTheme =
     | 'blue'
     | 'red';
 
-type ButtonSize = 'h4' | 'h3' | 'p1' | 'p2' | 'p3';
+type ButtonSize = 's' | 'm' | 'l' | 'xl' | '2xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
@@ -25,11 +25,11 @@ const ButtonComponent = ({
     className,
     disabled,
     theme = 'clear',
-    size = 'p3',
+    size = 's',
     ...props
 }: ButtonProps) => (
     <button
-        className={cn(s.button, s[theme], s[`size_${size}`], className, { [s.disabled]: disabled })}
+        className={cn(className, s.button, s[theme], s[`size_${size}`], { [s.disabled]: disabled })}
         disabled={disabled}
         {...props}
     >

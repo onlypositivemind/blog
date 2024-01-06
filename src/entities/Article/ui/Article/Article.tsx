@@ -22,10 +22,9 @@ const ArticleComponent = ({ id, className }: ArticleProps) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const article = useSelector(selectArticleData);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const isLoading = useSelector(selectArticleIsLoading); // TODO
+    const isLoading = useSelector(selectArticleIsLoading);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errorMessage = useSelector(selectArticleErrorMessage);
-    // TODO сделать один компонент об ошибке и текст при ошибке сервера общий для всех запросов
 
     useAppEffect(() => {
         dispatch(getArticle(id));

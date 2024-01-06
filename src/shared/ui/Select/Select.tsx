@@ -37,7 +37,7 @@ const SelectComponent = <T extends string>({
     };
 
     return (
-        <div className={cn(s.wrapper, className)}>
+        <div className={cn(className, s.wrapper)}>
             <select value={value} onChange={handleChange} disabled={disabled} className={s.select}>
                 {optionsList}
             </select>

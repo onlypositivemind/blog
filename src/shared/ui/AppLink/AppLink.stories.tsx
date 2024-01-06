@@ -7,7 +7,7 @@ export default {
     component: AppLink,
     args: {
         theme: 'primary',
-        size: 'h4',
+        size: 'xl',
         to: '/',
     },
     decorators: [CenterElementDecorator],

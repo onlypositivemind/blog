@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTheme } from '@/shared/lib/hooks';
-import { Button } from '@/shared/ui';
+import { AppIcon, Button } from '@/shared/ui';
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
 import s from './ThemeSwitcher.module.scss';
@@ -16,7 +16,7 @@ const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
 
     return (
         <Button onClick={toggleTheme} className={cn(s.toggleBtn, className)} theme='clear_white'>
-            <ThemeIcon />
+            <AppIcon Icon={ThemeIcon} size='xl' color='white' />
         </Button>
     );
 };

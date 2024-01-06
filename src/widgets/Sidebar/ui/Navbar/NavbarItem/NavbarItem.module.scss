@@ -7,14 +7,7 @@
 }
 
 .icon {
-    display: block;
-    height: var(--font-size-h4);
-    min-width: var(--font-size-h4);
-    max-width: var(--font-size-h4);
-
-    * {
-        fill: var(--white);
-    }
+    flex-shrink: 0;
 }
 
 .title {

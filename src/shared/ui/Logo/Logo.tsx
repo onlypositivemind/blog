@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { getRouteHome } from '@/shared/const';
+import { AppIcon } from '@/shared/ui';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';
 
@@ -14,11 +15,11 @@ interface LogoProps {
 }
 
 const LogoComponent = ({ className, theme = 'primary', isLink = true }: LogoProps) => {
-    const classes = [s[theme], className];
+    const classes = [className, s[theme]];
     const content = (
         <>
             <h2>Blog</h2>
-            <LogoIcon />
+            <AppIcon Icon={LogoIcon} size='2xl' />
         </>
     );
 

@@ -1,0 +1,58 @@
+.appIcon * {
+    fill: currentcolor;
+}
+
+.primary * {
+    fill: var(--inverted-bg-color);
+}
+
+.white * {
+    fill: var(--white);
+}
+
+.blue * {
+    fill: var(--blue);
+}
+
+.green * {
+    fill: var(--green);
+}
+
+.red * {
+    fill: var(--red);
+}
+
+.size_xs {
+    width: var(--font-size-xs);
+    height: var(--font-size-xs);
+}
+
+.size_s {
+    width: var(--font-size-s);
+    height: var(--font-size-s);
+}
+
+.size_m {
+    width: var(--font-size-m);
+    height: var(--font-size-m);
+}
+
+.size_l {
+    width: var(--font-size-l);
+    height: var(--font-size-l);
+}
+
+.size_xl {
+    width: var(--font-size-xl);
+    height: var(--font-size-xl);
+}
+
+.size_2xl {
+    width: var(--font-size-2xl);
+    height: var(--font-size-2xl);
+}
+
+.size_3xl {
+    width: var(--font-size-3xl);
+    height: var(--font-size-3xl);
+}

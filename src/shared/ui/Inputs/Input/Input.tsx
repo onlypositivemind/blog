@@ -17,8 +17,8 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 interface InputProps extends HTMLInputProps {
     value?: string | number;
     onChange?: (value: string) => void;
-    className?: string;
     wrapperStyle?: CSSProperties;
+    className?: string;
 }
 
 const InputComponent = ({
@@ -53,7 +53,7 @@ const InputComponent = ({
     }, []);
 
     return (
-        <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>
+        <div className={cn(className, s.inputWrapper)} style={wrapperStyle}>
             <input
                 ref={inputRef}
                 value={value}

@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { LocalStorage } from '@/shared/const';
-import { Button, HStack, VStack } from '@/shared/ui';
+import { AppIcon, Button, HStack, VStack } from '@/shared/ui';
 import { Navbar } from '../Navbar/Navbar';
 import LeftIcon from '@/shared/assets/icons/doubleLeft.svg';
 import RightIcon from '@/shared/assets/icons/doubleRight.svg';
@@ -45,7 +45,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className={s.toggleBtn}
                 data-testid='toggleBtn'
             >
-                <ToggleIcon />
+                <AppIcon Icon={ToggleIcon} size='l' color='white' />
             </Button>
         </VStack>
     );

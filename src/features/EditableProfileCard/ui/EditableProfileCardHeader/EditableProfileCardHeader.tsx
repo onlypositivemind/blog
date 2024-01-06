@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { I18nNamespace } from '@/shared/const';
 import { useAppDispatch } from '@/shared/lib/hooks';
-import { Avatar, Button, HStack, VStack } from '@/shared/ui';
+import { AppIcon, Avatar, Button, HStack, VStack } from '@/shared/ui';
 import { updateProfile } from '../../model/services/updateProfile';
 import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
 import UserIcon from '@/shared/assets/icons/user.svg';
@@ -39,13 +39,13 @@ export const EditableProfileCardHeader = ({
             <VStack align='center' gap={8}>
                 <Avatar src={avatar} size={100} className={s.avatar} />
                 <HStack align='center' gap={4}>
-                    <UserIcon className={s.userIcon} />
+                    <AppIcon Icon={UserIcon} size='m' />
                     <p>{username}</p>
                 </HStack>
             </VStack>
             <div className={s.buttons}>
                 {isReadonly ? (
-                    <Button theme='primary' size='p3' onClick={handleClickEdit}>
+                    <Button theme='primary' onClick={handleClickEdit}>
                         {t('Edit')}
                     </Button>
                 ) : (

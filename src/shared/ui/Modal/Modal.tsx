@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { MouseEvent, ReactNode, useCallback, useEffect, useState } from 'react';
-import { Button } from '@/shared/ui';
+import { AppIcon, Button } from '@/shared/ui';
 import { Portal } from '../Portal/Portal';
 import CloseIcon from '@/shared/assets/icons/close.svg';
 import s from './Modal.module.scss';
@@ -61,7 +61,7 @@ export const Modal = ({
 
     return (
         <Portal>
-            <div className={cn(s.modalWrapper, className, { [s.opened]: isOpen })}>
+            <div className={cn(className, s.modalWrapper, { [s.opened]: isOpen })}>
                 <div className={s.overlay} onClick={hasCloseClickOutside ? onClose : undefined}>
                     <div
                         className={s.content}
@@ -70,7 +70,7 @@ export const Modal = ({
                     >
                         {children}
                         <Button onClick={onClose} className={s.closeBtn}>
-                            <CloseIcon />
+                            <AppIcon Icon={CloseIcon} size='xs' />
                         </Button>
                     </div>
                 </div>

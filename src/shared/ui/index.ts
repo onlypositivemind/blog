@@ -1,4 +1,5 @@
 export type { SelectOption } from './Select/Select';
+export { AppIcon } from '@/shared/ui/AppIcon/AppIcon';
 export { AppLink } from './AppLink/AppLink';
 export { Avatar } from './Avatar/Avatar';
 export { Button } from './Button/Button';

@@ -1,13 +1,19 @@
 :root {
     // Font
-    --font-size-h1: 58px;
-    --font-size-h2: 36px;
-    --font-size-h3: 24px;
-    --font-size-h4: 20px;
-    --font-size-p1: 18px;
-    --font-size-p2: 16px;
-    --font-size-p3: 14px;
-    --font-size-p4: 12px;
+    --font-size-4xl: 58px;
+    --font-size-3xl: 36px;
+    --font-size-2xl: 24px;
+    --font-size-xl: 20px;
+    --font-size-l: 18px;
+    --font-size-m: 16px;
+    --font-size-s: 14px;
+    --font-size-xs: 12px;
+
+    // Radius
+    --radius-l: 16px;
+    --radius-m: 12px;
+    --radius-s: 8px;
+    --radius-xs: 4px;
 
     // Sizes
     --header-height: 70px;
@@ -19,16 +25,11 @@
     --black: #000;
     --blue: #4f7faf;
     --red: #ff4d4d;
+    --green: #32c732;
     --grey: #808080;
     --overlay-color: rgb(0 0 0 / 60%);
     --dark-5: rgb(0 0 0 / 5%);
     --dark-15: rgb(0 0 0 / 15%);
-
-    // Radius
-    --radius-xs: 4px;
-    --radius-s: 8px;
-    --radius-m: 12px;
-    --radius-l: 16px;
 
     // z-index
     --modal-z-index: 3;

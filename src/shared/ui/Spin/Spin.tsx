@@ -6,7 +6,7 @@ interface LoaderProps {
 }
 
 export const Spin = ({ className }: LoaderProps) => (
-    <div className={cn(s.spin, className)}>
+    <div className={cn(className, s.spin)}>
         <div></div>
         <div></div>
         <div></div>
