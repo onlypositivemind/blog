@@ -6,6 +6,7 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+import { ArticleSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
 import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import { LoginSchema } from '@/features/UserLogin';
@@ -13,9 +14,10 @@ import { RegisterSchema } from '@/features/UserRegister';
 
 export interface StateSchema {
     user: UserSchema;
+    article?: ArticleSchema;
+    editableProfileCard?: EditableProfileCardSchema;
     loginForm?: LoginSchema;
     registerForm?: RegisterSchema;
-    editableProfileCard?: EditableProfileCardSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

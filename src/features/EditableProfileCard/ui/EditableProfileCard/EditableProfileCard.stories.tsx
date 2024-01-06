@@ -1,13 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Profile } from '@/entities/Profile';
 import { CenterElementDecorator, StoreDecorator } from '@/shared/config/storybook';
-import { mockProfileData } from '@/shared/lib/tests/mock/profile'; // TODO не работает импорт из '@/shared/lib/tests'
+import { sbProfileData } from '@/shared/lib/tests/storybook';
 import { ProfileValidationError } from '../../model/const/profileValidation';
 import { GET_PROFILE_ERROR_MESSAGE } from '../../model/services/getProfile';
 import { EditableProfileCard } from './EditableProfileCard';
-import mockAvatar from '@/shared/assets/tests/mockAvatar.jpg';
-
-const profile: Profile = { ...mockProfileData, avatar: mockAvatar };
 
 export default {
     title: 'features/EditableProfileCard',
@@ -23,7 +19,7 @@ const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
 export const Default = Template.bind({});
 Default.decorators = [
     StoreDecorator({
-        editableProfileCard: { data: profile, form: profile, isReadonly: true },
+        editableProfileCard: { data: sbProfileData, form: sbProfileData, isReadonly: true },
     }),
 ];
 
@@ -45,8 +41,8 @@ export const ValidationErrors = Template.bind({});
 ValidationErrors.decorators = [
     StoreDecorator({
         editableProfileCard: {
-            data: profile,
-            form: profile,
+            data: sbProfileData,
+            form: sbProfileData,
             isReadonly: false,
             validationErrors: [ProfileValidationError.EMAIL, ProfileValidationError.USERNAME],
         },

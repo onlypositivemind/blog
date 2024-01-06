@@ -1,4 +1,4 @@
-import { mockInvalidProfileData, mockProfileData } from '@/shared/lib/tests';
+import { mockInvalidProfileData, mockProfileData } from '@/shared/lib/tests/mock';
 import { ProfileValidationError } from '../const/profileValidation';
 import { validateProfile } from './validateProfile';
 

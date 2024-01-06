@@ -1,5 +1,5 @@
-import { ProfileValidationError } from '@/features/EditableProfileCard/model/const/profileValidation';
-import { mockProfileData } from '@/shared/lib/tests';
+import { mockProfileData } from '@/shared/lib/tests/mock';
+import { ProfileValidationError } from '../const/profileValidation';
 import { getProfile } from '../services/getProfile';
 import { updateProfile } from '../services/updateProfile';
 import { EditableProfileCardSchema } from '../types/editableProfileCard';

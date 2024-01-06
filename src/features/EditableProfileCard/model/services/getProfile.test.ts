@@ -1,4 +1,5 @@
-import { mockProfileData, TestAsyncThunk } from '@/shared/lib/tests';
+import { TestAsyncThunk } from '@/shared/lib/tests';
+import { mockProfileData } from '@/shared/lib/tests/mock';
 import { GET_PROFILE_ERROR_MESSAGE, getProfile } from './getProfile';
 
 describe('getProfile AsyncThunk', () => {

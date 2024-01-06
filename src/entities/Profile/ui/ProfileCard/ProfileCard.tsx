@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
@@ -23,7 +24,7 @@ interface ProfileCardProps {
     className?: string;
 }
 
-export const ProfileCard = ({
+const ProfileCardComponent = ({
     data,
     isLoading,
     isReadonly = true,
@@ -107,3 +108,5 @@ export const ProfileCard = ({
         </VStack>
     );
 };
+
+export const ProfileCard = memo(ProfileCardComponent);

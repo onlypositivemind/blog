@@ -16,7 +16,7 @@ export const NavbarItem = ({ collapsed, path, title, Icon }: NavbarItemProps) =>
             to={path}
             className={cn(s.link, { [s.collapsed]: collapsed })}
             theme='white'
-            size='size_p2'
+            size='p2'
         >
             <Icon className={s.icon} />
             <p className={s.title}>{t(title)}</p>

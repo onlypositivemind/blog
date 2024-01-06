@@ -1,5 +1,6 @@
-import { ProfileValidationError } from '@/features/EditableProfileCard/model/const/profileValidation';
-import { mockInvalidProfileData, mockProfileData, TestAsyncThunk } from '@/shared/lib/tests';
+import { TestAsyncThunk } from '@/shared/lib/tests';
+import { mockInvalidProfileData, mockProfileData } from '@/shared/lib/tests/mock';
+import { ProfileValidationError } from '../const/profileValidation';
 import { UPDATE_PROFILE_ERROR_MESSAGE, updateProfile } from './updateProfile';
 
 describe('updateProfile AsyncThunk', () => {

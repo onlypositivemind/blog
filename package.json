@@ -30,7 +30,7 @@
     "lint-staged": {
         "**/*.{ts,tsx}": [
             "prettier",
-            "eslint"
+            "eslint --max-warnings 0"
         ],
         "**/*.scss": "npx stylelint"
     },

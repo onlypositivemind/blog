@@ -1,5 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { mockProfileData } from '@/shared/lib/tests';
+import { mockProfileData } from '@/shared/lib/tests/mock';
 import { ProfileValidationError } from '../const/profileValidation';
 import {
     selectEditableProfileCardData,
