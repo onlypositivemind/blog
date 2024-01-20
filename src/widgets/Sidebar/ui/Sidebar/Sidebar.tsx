@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { useCallback, useState } from 'react';
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
-import { LocalStorage } from '@/shared/const';
+import { LocalStorage } from '@/shared/consts';
 import { AppIcon, Button, HStack, VStack } from '@/shared/ui';
 import { Navbar } from '../Navbar/Navbar';
 import LeftIcon from '@/shared/assets/icons/doubleLeft.svg';

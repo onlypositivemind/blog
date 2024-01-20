@@ -1,5 +1,5 @@
-export * from '@/entities/User/model/selectors/userSelectors';
-export type { User, UserSchema, UserRole } from './model/types/user';
-export { checkUserAuth } from './model/services/checkUserAuth';
-export { logoutUser } from './model/services/logoutUser';
-export { userReducer, userActions } from './model/slice/userSlice';
+export * from '@/entities/User/model/selectos';
+export type { User, UserSchema, UserRole } from './model/types';
+export { checkUserAuth } from './api/checkUserAuth';
+export { logoutUser } from './api/logoutUser';
+export { userReducer, userActions } from './model/slice';

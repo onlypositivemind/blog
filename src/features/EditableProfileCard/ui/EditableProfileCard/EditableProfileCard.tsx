@@ -2,13 +2,14 @@ import cn from 'classnames';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { I18nNamespace } from '@/shared/const';
+import { I18nNamespace } from '@/shared/consts';
 import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
 import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
+import { Country, Currency } from '@/shared/types';
 import { VStack } from '@/shared/ui';
+import { getProfile } from '../../api/getProfile';
+import { UPDATE_PROFILE_ERROR_MESSAGE } from '../../api/updateProfile';
 import {
     selectEditableProfileCardData,
     selectEditableProfileCardErrorMessage,
@@ -16,13 +17,8 @@ import {
     selectEditableProfileCardIsLoading,
     selectEditableProfileCardIsReadonly,
     selectEditableProfileCardValidationErrors,
-} from '../../model/selectors/editableProfileCardSelectors';
-import { getProfile } from '../../model/services/getProfile';
-import { UPDATE_PROFILE_ERROR_MESSAGE } from '../../model/services/updateProfile';
-import {
-    editableProfileCardActions,
-    editableProfileCardReducer,
-} from '../../model/slice/editableProfileCardSlice';
+} from '../../model/selectors';
+import { editableProfileCardActions, editableProfileCardReducer } from '../../model/slice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { EditableProfileCardHeaderSkeleton } from '../EditableProfileCardHeader/EditableProfileCardHeaderSkeleton';
 import s from './EditableProfileCard.module.scss';

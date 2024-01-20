@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { getRouteHome } from '@/shared/const';
+import { getRouteHome } from '@/shared/consts';
 import { AppIcon } from '@/shared/ui';
 import LogoIcon from '@/shared/assets/icons/logo.svg';
 import s from './Logo.module.scss';

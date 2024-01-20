@@ -50,7 +50,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'off',
         '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
         semi: ['error', 'always'],
-        indent: ['error', 4],
+        indent: ['error', 4, { SwitchCase: 1 }],
         'max-len': [
             'error',
             {

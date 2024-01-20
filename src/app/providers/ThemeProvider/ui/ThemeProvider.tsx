@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
-import { LocalStorage } from '@/shared/const';
+import { LocalStorage } from '@/shared/consts';
 import { ThemeContext } from '@/shared/lib/context/themeContext';
 import { Theme } from '@/shared/types';
 

@@ -10,7 +10,7 @@ import {
     getRouteArticles,
     getRouteHome,
     getRouteProfile,
-} from '@/shared/const';
+} from '@/shared/consts';
 import { AppRoutesProps } from '@/shared/types';
 
 export const routerConfig: AppRoutesProps[] = [

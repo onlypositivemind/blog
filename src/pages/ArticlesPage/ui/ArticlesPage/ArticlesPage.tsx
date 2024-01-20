@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getRouteArticle } from '@/shared/const';
+import { getRouteArticle } from '@/shared/consts';
 
 // eslint-disable-next-line i18next/no-literal-string
 const ArticlesPage = () => <Link to={getRouteArticle('1')}>Article 1</Link>;

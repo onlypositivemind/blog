@@ -1,6 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import { Article } from '@/entities/Article';
-import { getRouteArticles } from '@/shared/const';
+import { getRouteArticles } from '@/shared/consts';
 
 const ArticlePage = () => {
     const { id } = useParams<{ id: string }>();

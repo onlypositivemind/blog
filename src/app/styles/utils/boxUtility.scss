@@ -1,0 +1,112 @@
+@mixin ml($size) {
+    margin-left: $size * 4px;
+}
+
+@mixin mr($size) {
+    margin-right: $size * 4px;
+}
+
+@mixin mt($size) {
+    margin-top: $size * 4px;
+}
+
+@mixin mb($size) {
+    margin-bottom: $size * 4px;
+}
+
+@mixin mx($size) {
+    @include mr($size);
+    @include ml($size);
+}
+
+@mixin my($size) {
+    @include mt($size);
+    @include mb($size);
+}
+
+@mixin ma($size) {
+    @include mx($size);
+    @include my($size);
+}
+
+@mixin pl($size) {
+    padding-left: $size * 4px;
+}
+
+@mixin pr($size) {
+    padding-right: $size * 4px;
+}
+
+@mixin pt($size) {
+    padding-top: $size * 4px;
+}
+
+@mixin pb($size) {
+    padding-bottom: $size * 4px;
+}
+
+@mixin px($size) {
+    @include pr($size);
+    @include pl($size);
+}
+
+@mixin py($size) {
+    @include pt($size);
+    @include pb($size);
+}
+
+@mixin pa($size) {
+    @include px($size);
+    @include py($size);
+}
+
+@for $i from 0 through 16 {
+    .ml-#{$i} {
+        @include ml($i);
+    }
+    .mr-#{$i} {
+        @include mr($i);
+    }
+    .mt-#{$i} {
+        @include mt($i);
+    }
+    .mb-#{$i} {
+        @include mb($i);
+    }
+    .mx-#{$i} {
+        @include mx($i);
+    }
+    .my-#{$i} {
+        @include my($i);
+    }
+    .ma-#{$i} {
+        @include ma($i);
+    }
+
+    .pl-#{$i} {
+        @include pl($i);
+    }
+    .pr-#{$i} {
+        @include pr($i);
+    }
+    .pt-#{$i} {
+        @include pt($i);
+    }
+    .pb-#{$i} {
+        @include pb($i);
+    }
+    .px-#{$i} {
+        @include px($i);
+    }
+    .py-#{$i} {
+        @include py($i);
+    }
+    .pa-#{$i} {
+        @include pa($i);
+    }
+}
+
+.mx-a {
+    margin-right: auto;
+    margin-left: auto;
+}

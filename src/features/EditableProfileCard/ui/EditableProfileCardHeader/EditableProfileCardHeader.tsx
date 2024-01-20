@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { I18nNamespace } from '@/shared/const';
+import { I18nNamespace } from '@/shared/consts';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { AppIcon, Avatar, Button, HStack, VStack } from '@/shared/ui';
-import { updateProfile } from '../../model/services/updateProfile';
-import { editableProfileCardActions } from '../../model/slice/editableProfileCardSlice';
+import { updateProfile } from '../../api/updateProfile';
+import { editableProfileCardActions } from '../../model/slice';
 import UserIcon from '@/shared/assets/icons/user.svg';
 import s from './EditableProfileCardHeader.module.scss';
 

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { selectNavbarItems } from '@/widgets/Sidebar/model/selectors/navbarSelectors';
+import { selectNavbarItems } from '@/widgets/Sidebar/model/selectors';
 import { NavbarItem } from './NavbarItem/NavbarItem';
 import s from './Navbar.module.scss';
 
