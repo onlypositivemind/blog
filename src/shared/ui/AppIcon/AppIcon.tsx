@@ -6,7 +6,7 @@ export type AppIconColor = 'primary' | 'white' | 'blue' | 'green' | 'red';
 
 export type AppIconSize = 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl';
 
-interface AppIcon extends SVGProps<SVGSVGElement> {
+interface AppIconProps extends SVGProps<SVGSVGElement> {
     Icon: FC<SVGProps<SVGSVGElement>>;
     color?: AppIconColor;
     size?: AppIconSize;
@@ -19,7 +19,8 @@ const AppIconComponent = ({
     size = 's',
     className,
     ...restProps
-}: AppIcon) => (
+}: AppIconProps) => (
+    // TODO добавить span role='img'
     <Icon className={cn(className, s.appIcon, s[color], s[`size_${size}`])} {...restProps} />
 );
 

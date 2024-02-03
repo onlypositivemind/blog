@@ -13,6 +13,7 @@ import { ArticleBlock } from '../../model/types/articleBlock';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
+import { ArticleSkeleton } from './ArticleSkeleton';
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import s from './Article.module.scss';
@@ -27,10 +28,10 @@ interface ArticleProps {
 const renderBlock = (block: ArticleBlock) => {
     switch (block.type) {
         case 'CODE':
-            return <ArticleCodeBlock key={block.id} />;
+            return <ArticleCodeBlock key={block.id} block={block} />;
 
         case 'IMAGE':
-            return <ArticleImageBlock key={block.id} />;
+            return <ArticleImageBlock key={block.id} block={block} />;
 
         case 'TEXT':
             return <ArticleTextBlock key={block.id} block={block} />;
@@ -40,7 +41,6 @@ const renderBlock = (block: ArticleBlock) => {
 export const Article = ({ id, className }: ArticleProps) => {
     const dispatch = useAppDispatch();
     const article = useSelector(selectArticleData);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const isLoading = useSelector(selectArticleIsLoading);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errorMessage = useSelector(selectArticleErrorMessage);
@@ -48,6 +48,14 @@ export const Article = ({ id, className }: ArticleProps) => {
     useAppEffect(() => {
         dispatch(getArticle(id));
     }, [id]);
+
+    if (isLoading) {
+        return (
+            <DynamicModuleLoader reducers={reducers}>
+                <ArticleSkeleton />
+            </DynamicModuleLoader>
+        );
+    }
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -60,18 +68,18 @@ export const Article = ({ id, className }: ArticleProps) => {
                             <span>{article?.subtitle}</span>
                         </HStack>
                         <HStack align='center' gap={12}>
-                            <HStack gap={4}>
+                            <HStack align='center' gap={4}>
                                 <AppIcon Icon={CalendarIcon} />
                                 <span>{article?.createdAt}</span>
                             </HStack>
-                            <HStack gap={4}>
+                            <HStack align='center' gap={4}>
                                 <AppIcon Icon={EyeIcon} />
                                 <span>{article?.views}</span>
                             </HStack>
                         </HStack>
                     </VStack>
                 </HStack>
-                {article?.blocks.map(renderBlock)}
+                <VStack gap={32}>{article?.blocks.map(renderBlock)}</VStack>
             </VStack>
         </DynamicModuleLoader>
     );

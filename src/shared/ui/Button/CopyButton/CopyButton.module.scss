@@ -1,0 +1,15 @@
+.copied {
+    .copyIcon {
+        animation: vanish 0.2s ease-in-out;
+    }
+}
+
+@keyframes vanish {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

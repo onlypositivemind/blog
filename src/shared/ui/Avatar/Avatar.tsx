@@ -1,5 +1,7 @@
 import cn from 'classnames';
 import { CSSProperties, memo } from 'react';
+import { AppImage } from '../AppImage/AppImage';
+import { Skeleton } from '../Skeleton/Skeleton';
 import s from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -17,8 +19,11 @@ const AvatarComponent = ({ src, alt, className, size = 50 }: AvatarProps) => {
 
     return (
         <div className={cn(className, s.avatarWrapper)} style={styles}>
-            {/*TODO Давить дефолтный аватар, если нет аватарки юзера*/}
-            <img src={src} alt={alt} />
+            <AppImage
+                src={src}
+                alt={alt}
+                fallback={<Skeleton width={size} height={size} borderRadius='circle' />}
+            />
         </div>
     );
 };

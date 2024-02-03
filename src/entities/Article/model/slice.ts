@@ -15,6 +15,7 @@ const articleSlice = createSlice({
         builder
             .addCase(getArticle.pending, (state) => {
                 state.isLoading = true;
+                state.data = undefined;
                 state.errorMessage = undefined;
             })
             .addCase(getArticle.fulfilled, (state, { payload }: PayloadAction<Article>) => {

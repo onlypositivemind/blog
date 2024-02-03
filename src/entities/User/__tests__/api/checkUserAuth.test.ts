@@ -1,6 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { mockUserAuthData } from '@/shared/lib/tests/mock';
 import { AuthResponse } from '@/shared/types';
 import { checkUserAuth } from '../../api/checkUserAuth';
 import { userActions } from '../../model/slice';
@@ -10,12 +11,7 @@ const mockedAxios = jest.mocked(axios, true);
 
 export const authResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
-    user: {
-        id: 1,
-        username: 'admin',
-        email: 'admin@gmail.com',
-        roles: ['SystemAdmin'],
-    },
+    user: mockUserAuthData,
 };
 
 describe('checkUserAuth AsyncThunk', () => {
