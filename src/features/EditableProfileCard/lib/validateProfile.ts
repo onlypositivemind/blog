@@ -1,5 +1,5 @@
-import { Profile } from '@/entities/Profile';
-import { ValidateProfileErrors } from '@/features/EditableProfileCard/model/types';
+import type { Profile } from '@/entities/Profile';
+import type { ValidateProfileErrors } from '@/features/EditableProfileCard/model/types';
 import { UserValidation } from '@/shared/consts';
 import { ProfileValidationError } from '../model/consts';
 

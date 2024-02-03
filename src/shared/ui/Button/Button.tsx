@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { memo } from 'react';
 import s from './Button.module.scss';
 
 type ButtonTheme =

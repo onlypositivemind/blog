@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { mockProfileData } from '@/shared/lib/tests/mock';
 import { ProfileValidationError } from '../../model/consts';
 import {

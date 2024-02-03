@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import { ReactNode } from 'react';
-import { TestsProps } from '@/shared/types';
+import type { ReactNode } from 'react';
+import type { TestsProps } from '@/shared/types';
 import s from './Flex.module.scss';
 
 type Flex = 'flex' | 'inline';

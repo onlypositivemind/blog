@@ -11,7 +11,7 @@ import {
     getRouteHome,
     getRouteProfile,
 } from '@/shared/consts';
-import { AppRoutesProps } from '@/shared/types';
+import type { AppRoutesProps } from '@/shared/types';
 
 export const routerConfig: AppRoutesProps[] = [
     { path: getRouteHome(), element: <HomePage /> },

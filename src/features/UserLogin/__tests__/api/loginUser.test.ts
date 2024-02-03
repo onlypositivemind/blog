@@ -1,7 +1,8 @@
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
-import { AuthResponse } from '@/shared/types';
-import { LOGIN_USER_ERROR_MESSAGE, loginUser, LoginUserProps } from '../../api/loginUser';
+import type { AuthResponse } from '@/shared/types';
+import type { LoginUserProps } from '../../api/loginUser';
+import { LOGIN_USER_ERROR_MESSAGE, loginUser } from '../../api/loginUser';
 
 const loginUserResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',

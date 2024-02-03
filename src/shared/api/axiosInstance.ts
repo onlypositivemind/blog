@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_ENDPOINT, LocalStorage, MAX_RESPONSE_TIME } from '@/shared/consts';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
 
 export const $api = axios.create({
     withCredentials: true,

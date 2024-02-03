@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { AxiosInstance } from 'axios';
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { AsyncThunkAction } from '@reduxjs/toolkit';
+import type { AxiosInstance } from 'axios';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { $api } from '@/shared/api/axiosInstance';
 
 type ActionCreator<Return, Arg, RejectedValue> = (

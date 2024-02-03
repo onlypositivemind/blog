@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { registerUser } from '../api/registerUser';
-import { RegisterSchema } from './types';
+import type { RegisterSchema } from './types';
 
 const initialState: RegisterSchema = {
     isLoading: false,

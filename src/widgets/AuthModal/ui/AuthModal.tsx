@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { LoginForm } from '@/features/UserLogin';
 import { RegisterForm } from '@/features/UserRegister';
 import { Loader, Modal } from '@/shared/ui';
-import { AuthModalView } from '../model/types';
+import type { AuthModalView } from '../model/types';
 
 interface AuthModalProps {
     isOpen: boolean;

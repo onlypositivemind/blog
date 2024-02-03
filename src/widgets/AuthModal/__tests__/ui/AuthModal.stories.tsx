@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator, StoreDecorator } from '@/shared/config/storybook';
 import { AuthModal } from '../../ui/AuthModal';
 

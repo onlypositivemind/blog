@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { mockArticleData } from '@/shared/lib/tests/mock';
 import { GET_ARTICLE_ERROR_MESSAGE } from '../../api/getArticle';
 import {

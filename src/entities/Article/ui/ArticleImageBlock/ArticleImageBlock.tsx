@@ -1,5 +1,5 @@
 import { AppImage, Skeleton, VStack } from '@/shared/ui';
-import { ArticleImageBlock as IArticleImageBlock } from '../../model/types/articleBlock';
+import type { ArticleImageBlock as IArticleImageBlock } from '../../model/types/articleBlock';
 
 interface ArticleTextBlockProps {
     block: IArticleImageBlock;

@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { FC, memo, SVGProps } from 'react';
+import type { FC, SVGProps } from 'react';
+import { memo } from 'react';
 import s from './AppIcon.module.scss';
 
 export type AppIconColor = 'primary' | 'white' | 'blue' | 'green' | 'red';

@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { FullHeightDecorator } from '@/shared/config/storybook';
 import { NotFoundPage } from '../../ui/NotFoundPage';
 

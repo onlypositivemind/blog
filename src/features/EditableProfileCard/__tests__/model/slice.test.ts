@@ -1,4 +1,4 @@
-import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
+import type { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import { mockProfileData } from '@/shared/lib/tests/mock';
 import { getProfile } from '../../api/getProfile';
 import { updateProfile } from '../../api/updateProfile';

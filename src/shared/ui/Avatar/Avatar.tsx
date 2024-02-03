@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { CSSProperties, memo } from 'react';
+import type { CSSProperties} from 'react';
+import { memo } from 'react';
 import { AppImage } from '../AppImage/AppImage';
 import { Skeleton } from '../Skeleton/Skeleton';
 import s from './Avatar.module.scss';

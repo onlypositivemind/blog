@@ -1,8 +1,9 @@
-import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import type { CombinedState, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/axiosInstance';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './stateSchema';
+import type { StateSchema } from './stateSchema';
 
 export const createReduxStore = (
     initialState?: StateSchema,

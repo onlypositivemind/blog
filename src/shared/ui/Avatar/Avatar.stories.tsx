@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook';
 import { Avatar } from './Avatar';
 import mockAvatar from '@/shared/assets/tests/mockAvatar.jpg';

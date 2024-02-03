@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { CSSProperties, ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
+import type { CSSProperties, ForwardedRef, InputHTMLAttributes } from 'react';
+import { forwardRef } from 'react';
 import s from '../Inputs.module.scss';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

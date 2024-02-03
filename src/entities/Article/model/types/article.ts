@@ -1,5 +1,5 @@
-import { ArticleBlock } from './articleBlock';
-import { ArticleCategory } from './articleCategory';
+import type { ArticleBlock } from './articleBlock';
+import type { ArticleCategory } from './articleCategory';
 
 export interface Article {
     id: string;

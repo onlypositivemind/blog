@@ -1,4 +1,4 @@
-import { Profile } from '@/entities/Profile';
+import type { Profile } from '@/entities/Profile';
 import mockAvatar from '../../../assets/tests/mockAvatar.jpg';
 
 export const sbProfileData: Profile = {

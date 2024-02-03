@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { AUTH_ENDPOINT, LocalStorage } from '@/shared/consts';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
 import { userActions } from '../model/slice';
 
 const CHECK_USER_AUTH_ERROR_MESSAGE = 'CheckUserAuthServiceError';

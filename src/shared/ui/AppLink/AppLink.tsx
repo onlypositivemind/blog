@@ -1,6 +1,8 @@
 import cn from 'classnames';
-import { memo, ReactNode } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import type { ReactNode } from 'react';
+import { memo } from 'react';
+import type { LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import s from './AppLink.module.scss';
 
 type AppLinkTheme = 'white' | 'primary';

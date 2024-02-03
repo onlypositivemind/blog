@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
-import { Article } from '../model/types/article';
+import type { Article } from '../model/types/article';
 
 const GET_ARTICLE_ERROR_MESSAGE = 'GetArticleServiceError';
 

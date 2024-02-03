@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import React, { memo } from 'react';
 import { useCopy } from '../../../lib/hooks';
-import { AppIcon, AppIconSize } from '../../AppIcon/AppIcon';
+import type { AppIconSize } from '../../AppIcon/AppIcon';
+import { AppIcon } from '../../AppIcon/AppIcon';
 import { Button } from '../Button';
 import CheckIcon from '@/shared/assets/icons/check.svg';
 import CopyIcon from '@/shared/assets/icons/copy.svg';

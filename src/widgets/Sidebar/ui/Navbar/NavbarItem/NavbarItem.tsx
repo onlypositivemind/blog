@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import { NavbarItemType } from '@/widgets/Sidebar/model/types';
+import type { NavbarItemType } from '@/widgets/Sidebar/model/types';
 import { AppIcon, AppLink } from '@/shared/ui';
 import s from './NavbarItem.module.scss';
 

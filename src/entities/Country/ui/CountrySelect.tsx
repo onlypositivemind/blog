@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
-import { Country } from '@/shared/types';
-import { Select, SelectOption } from '@/shared/ui';
+import type { Country } from '@/shared/types';
+import type { SelectOption } from '@/shared/ui';
+import { Select } from '@/shared/ui';
 
 const options: SelectOption<Country>[] = [
     { value: 'Russia', content: 'Russia' },

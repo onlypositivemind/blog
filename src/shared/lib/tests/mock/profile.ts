@@ -1,4 +1,4 @@
-import { Profile } from '@/entities/Profile';
+import type { Profile } from '@/entities/Profile';
 
 export const mockProfileData: Profile = {
     id: '1',

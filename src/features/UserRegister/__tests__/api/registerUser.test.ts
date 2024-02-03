@@ -1,10 +1,11 @@
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
+import type {
+    RegisterUserProps} from '../../api/registerUser';
 import {
     REGISTER_USER_ERROR_MESSAGE,
-    registerUser,
-    RegisterUserProps,
+    registerUser
 } from '../../api/registerUser';
 
 const registerUserResponse: AuthResponse = {

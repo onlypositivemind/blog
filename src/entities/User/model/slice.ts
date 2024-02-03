@@ -1,8 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { LocalStorage } from '@/shared/consts';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
 import { checkUserAuth } from '../api/checkUserAuth';
-import { UserSchema } from './types';
+import type { UserSchema } from './types';
 
 const initialState: UserSchema = {
     _inited: true, // TODO Помнеять на false, когда будет готов сервер

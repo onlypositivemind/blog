@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import { AUTH_ENDPOINT } from '@/shared/consts';
 import { userActions } from '../model/slice';
 

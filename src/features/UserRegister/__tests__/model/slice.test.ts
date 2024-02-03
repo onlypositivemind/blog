@@ -1,6 +1,6 @@
 import { registerUser } from '../../api/registerUser';
 import { registerReducer } from '../../model/slice';
-import { RegisterSchema } from '../../model/types';
+import type { RegisterSchema } from '../../model/types';
 
 const errorMessage = 'errorMessage';
 

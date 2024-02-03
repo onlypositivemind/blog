@@ -1,4 +1,4 @@
-import { ArticleTextBlock as IArticleTextBlock } from '../../model/types/articleBlock';
+import type { ArticleTextBlock as IArticleTextBlock } from '../../model/types/articleBlock';
 import s from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {

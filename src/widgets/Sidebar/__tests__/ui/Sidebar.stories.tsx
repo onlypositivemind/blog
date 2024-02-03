@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook';
 import { Sidebar } from '../../ui/Sidebar/Sidebar';

@@ -1,6 +1,6 @@
 import { loginUser } from '../../api/loginUser';
 import { loginReducer } from '../../model/slice';
-import { LoginSchema } from '../../model/types';
+import type { LoginSchema } from '../../model/types';
 
 const errorMessage = 'errorMessage';
 

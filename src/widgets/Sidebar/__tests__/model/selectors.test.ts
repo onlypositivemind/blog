@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { getRouteProfile } from '@/shared/consts';
 import { navbarItemsList, selectNavbarItems } from '../../model/selectors';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';

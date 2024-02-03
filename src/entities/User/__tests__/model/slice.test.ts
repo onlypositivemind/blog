@@ -1,7 +1,7 @@
 import { mockUserAuthData } from '@/shared/lib/tests/mock';
 import { checkUserAuth } from '../../api/checkUserAuth';
 import { userActions, userReducer } from '../../model/slice';
-import { UserSchema } from '../../model/types';
+import type { UserSchema } from '../../model/types';
 
 describe('userSlice', () => {
     test('userActions.logout', () => {

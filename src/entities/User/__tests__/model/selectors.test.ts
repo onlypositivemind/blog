@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { mockUserAuthData } from '@/shared/lib/tests/mock';
 import { selectUserAuthData, selectUserInited } from '../../model/selectors';
 

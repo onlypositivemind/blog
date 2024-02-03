@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook';
 import { sbProfileData } from '@/shared/lib/tests/storybook';
 import ProfilePage from '../../ui/ProfilePage';

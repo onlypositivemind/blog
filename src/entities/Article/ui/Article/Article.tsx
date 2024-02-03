@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components';
+import type { ReducersList } from '@/shared/lib/components';
+import { DynamicModuleLoader } from '@/shared/lib/components';
 import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
 import { AppIcon, Avatar, HStack, VStack } from '@/shared/ui';
 import { getArticle } from '../../api/getArticle';
@@ -9,7 +10,7 @@ import {
     selectArticleIsLoading,
 } from '../../model/selectors';
 import { articleReducer } from '../../model/slice';
-import { ArticleBlock } from '../../model/types/articleBlock';
+import type { ArticleBlock } from '../../model/types/articleBlock';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';

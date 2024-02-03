@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { CountrySelect } from '@/entities/Country';
 import { CurrencySelect } from '@/entities/Currency';
 import { I18nNamespace } from '@/shared/consts';
-import { Country, Currency } from '@/shared/types';
+import type { Country, Currency } from '@/shared/types';
 import { Input, VStack } from '@/shared/ui';
-import { Profile } from '../model/types';
+import type { Profile } from '../model/types';
 import { ProfileCardSkeleton } from './ProfileCardSkeleton';
 import s from './ProfileCard.module.scss';
 

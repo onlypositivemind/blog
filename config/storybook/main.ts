@@ -1,7 +1,8 @@
 import path from 'path';
-import webpack, { DefinePlugin } from 'webpack';
+import type webpack from 'webpack';
+import { DefinePlugin } from 'webpack';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
-import { BuildPaths } from '../build/types/config';
+import type { BuildPaths } from '../build/types/config';
 
 export default {
     stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],

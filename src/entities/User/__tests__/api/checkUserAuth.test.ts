@@ -1,8 +1,8 @@
-import { Dispatch } from '@reduxjs/toolkit';
+import type { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { mockUserAuthData } from '@/shared/lib/tests/mock';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
 import { checkUserAuth } from '../../api/checkUserAuth';
 import { userActions } from '../../model/slice';
 

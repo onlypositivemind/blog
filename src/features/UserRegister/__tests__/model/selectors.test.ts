@@ -1,4 +1,4 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { selectRegisterFormErrorMessage, selectRegisterFormIsLoading } from '../../model/selectors';
 
 const errorMessage = 'Register failed';

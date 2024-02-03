@@ -4,9 +4,10 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import path from 'path';
-import { Configuration, DefinePlugin, ProgressPlugin } from 'webpack';
+import type { Configuration} from 'webpack';
+import { DefinePlugin, ProgressPlugin } from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import { BuildOptions } from './types/config';
+import type { BuildOptions } from './types/config';
 
 export const buildPlugins = ({
     paths,

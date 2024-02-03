@@ -48,7 +48,6 @@ module.exports = {
     },
     rules: {
         'react-hooks/exhaustive-deps': 'off',
-        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
         semi: ['error', 'always'],
         indent: ['error', 4, { SwitchCase: 1 }],
         'max-len': [
@@ -69,6 +68,8 @@ module.exports = {
         'jsx-quotes': ['error', 'prefer-single'],
         'react-hooks/rules-of-hooks': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
+        '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
         eqeqeq: 'error',
         'simple-import-sort/imports': [
             'error',

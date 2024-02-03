@@ -1,16 +1,16 @@
-import {
+import type {
     AnyAction,
     CombinedState,
     EnhancedStore,
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { AxiosInstance } from 'axios';
-import { ArticleSchema } from '@/entities/Article';
-import { UserSchema } from '@/entities/User';
-import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
-import { LoginSchema } from '@/features/UserLogin';
-import { RegisterSchema } from '@/features/UserRegister';
+import type { AxiosInstance } from 'axios';
+import type { ArticleSchema } from '@/entities/Article';
+import type { UserSchema } from '@/entities/User';
+import type { EditableProfileCardSchema } from '@/features/EditableProfileCard';
+import type { LoginSchema } from '@/features/UserLogin';
+import type { RegisterSchema } from '@/features/UserRegister';
 
 export interface StateSchema {
     user: UserSchema;

@@ -1,5 +1,5 @@
-import { Profile } from '@/entities/Profile';
-import { ProfileValidationError } from './consts';
+import type { Profile } from '@/entities/Profile';
+import type { ProfileValidationError } from './consts';
 
 export interface EditableProfileCardSchema {
     isLoading: boolean;

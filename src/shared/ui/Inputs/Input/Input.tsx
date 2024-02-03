@@ -1,8 +1,9 @@
 import cn from 'classnames';
-import {
+import type {
     ChangeEvent,
     CSSProperties,
-    InputHTMLAttributes,
+    InputHTMLAttributes} from 'react';
+import {
     memo,
     useEffect,
     useMemo,

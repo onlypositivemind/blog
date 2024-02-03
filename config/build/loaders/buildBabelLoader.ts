@@ -1,6 +1,6 @@
-import { RuleSetRule } from 'webpack';
+import type { RuleSetRule } from 'webpack';
 import { babelRemovePropsPlugin } from '../babel/babelRemovePropsPlugin';
-import { BuildOptions } from '../types/config';
+import type { BuildOptions } from '../types/config';
 
 interface BuildBabelLoaderProps extends BuildOptions {
     isTSX?: boolean;

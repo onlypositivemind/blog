@@ -1,7 +1,7 @@
 import { mockArticleData } from '@/shared/lib/tests/mock';
 import { GET_ARTICLE_ERROR_MESSAGE, getArticle } from '../../api/getArticle';
 import { articleReducer } from '../../model/slice';
-import { ArticleSchema } from '../../model/types/articleSchema';
+import type { ArticleSchema } from '../../model/types/articleSchema';
 
 describe('articleSlice', () => {
     test('getArticle.pending', () => {

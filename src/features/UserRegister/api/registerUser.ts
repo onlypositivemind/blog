@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
+import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import { userActions } from '@/entities/User';
 import { AUTH_ENDPOINT } from '@/shared/consts';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
-import { AuthResponse } from '@/shared/types';
+import type { AuthResponse } from '@/shared/types';
 
 interface RegisterUserProps {
     username: string;

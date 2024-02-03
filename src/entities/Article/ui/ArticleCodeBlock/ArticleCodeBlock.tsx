@@ -1,5 +1,5 @@
 import { Code } from '@/shared/ui';
-import { ArticleCodeBlock as IArticleCodeBlock } from '../../model/types/articleBlock';
+import type { ArticleCodeBlock as IArticleCodeBlock } from '../../model/types/articleBlock';
 
 interface ArticleCodeBlockProps {
     block: IArticleCodeBlock;

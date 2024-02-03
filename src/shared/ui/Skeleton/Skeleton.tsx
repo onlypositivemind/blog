@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { CSSProperties, memo } from 'react';
+import type { CSSProperties} from 'react';
+import { memo } from 'react';
 import s from './Skeleton.module.scss';
 
 type SkeletonRadius = 'circle' | 'xs' | 's' | 'm' | 'l';

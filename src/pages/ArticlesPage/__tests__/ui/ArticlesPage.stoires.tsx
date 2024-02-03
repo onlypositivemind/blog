@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticlesPage from '../../ui/ArticlesPage/ArticlesPage';
 
 export default {
