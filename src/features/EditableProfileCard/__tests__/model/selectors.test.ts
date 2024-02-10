@@ -6,6 +6,7 @@ import {
     selectEditableProfileCardErrorMessage,
     selectEditableProfileCardFormData,
     selectEditableProfileCardIsLoading,
+    selectEditableProfileCardIsNonExistentProfile,
     selectEditableProfileCardIsReadonly,
     selectEditableProfileCardValidationErrors,
 } from '../../model/selectors';
@@ -87,5 +88,17 @@ describe('editableProfileCardSelectors', () => {
 
     test('selectEditableProfileCardValidationErrors: should work with empty state', () => {
         expect(selectEditableProfileCardValidationErrors({} as StateSchema)).toBe(undefined);
+    });
+
+    test('selectEditableProfileCardIsNonExistentProfile: should return true', () => {
+        const state: DeepPartial<StateSchema> = {
+            editableProfileCard: { isNonExistentProfile: true },
+        };
+
+        expect(selectEditableProfileCardIsNonExistentProfile(state as StateSchema)).toBe(true);
+    });
+
+    test('selectEditableProfileCardIsNonExistentProfile: should work with empty state', () => {
+        expect(selectEditableProfileCardIsNonExistentProfile({} as StateSchema)).toBe(undefined);
     });
 });

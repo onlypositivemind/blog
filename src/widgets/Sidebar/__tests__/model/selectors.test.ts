@@ -14,12 +14,12 @@ describe('navbarSelectors', () => {
 
     test('selectNavbarItems: should return shared and user pages', () => {
         const state: DeepPartial<StateSchema> = {
-            user: { authData: { id: '1' } },
+            user: { authData: { username: 'admin' } },
         };
 
         expect(selectNavbarItems(state as StateSchema)).toEqual(
             navbarItemsList.concat({
-                path: getRouteProfile('1'),
+                path: getRouteProfile('admin'),
                 title: 'Profile',
                 Icon: ProfileIcon,
                 authOnly: true,

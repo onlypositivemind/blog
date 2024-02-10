@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import type { Country } from '@/entities/Country';
 import type { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
+import { NotFoundProfile } from '@/features/EditableProfileCard/ui/NotFoundProfile/NotFoundProfile';
 import { I18nNamespace } from '@/shared/consts';
 import type { ReducersList } from '@/shared/lib/components';
 import { DynamicModuleLoader } from '@/shared/lib/components';
@@ -17,6 +18,7 @@ import {
     selectEditableProfileCardErrorMessage,
     selectEditableProfileCardFormData,
     selectEditableProfileCardIsLoading,
+    selectEditableProfileCardIsNonExistentProfile,
     selectEditableProfileCardIsReadonly,
     selectEditableProfileCardValidationErrors,
 } from '../../model/selectors';
@@ -28,11 +30,11 @@ import s from './EditableProfileCard.module.scss';
 const reducers: ReducersList = { editableProfileCard: editableProfileCardReducer };
 
 interface EditableProfileCardProps {
-    id?: string;
+    username: string;
     className?: string;
 }
 
-export const EditableProfileCard = ({ id, className }: EditableProfileCardProps) => {
+export const EditableProfileCard = ({ username, className }: EditableProfileCardProps) => {
     const { t } = useTranslation(I18nNamespace.PROFILE);
     const dispatch = useAppDispatch();
     const profileData = useSelector(selectEditableProfileCardData);
@@ -41,6 +43,7 @@ export const EditableProfileCard = ({ id, className }: EditableProfileCardProps)
     const isReadonly = useSelector(selectEditableProfileCardIsReadonly);
     const errorMessage = useSelector(selectEditableProfileCardErrorMessage);
     const validationErrors = useSelector(selectEditableProfileCardValidationErrors);
+    const isNonExistentProfile = useSelector(selectEditableProfileCardIsNonExistentProfile);
 
     const handleChangeEmail = useCallback((email: string) => {
         dispatch(editableProfileCardActions.updateProfile({ email }));
@@ -75,13 +78,21 @@ export const EditableProfileCard = ({ id, className }: EditableProfileCardProps)
     }, []);
 
     useAppEffect(() => {
-        id && dispatch(getProfile(id));
-    }, []);
+        dispatch(getProfile(username));
+    }, [username]);
 
     if (errorMessage && errorMessage !== UPDATE_PROFILE_ERROR_MESSAGE) {
         return (
             <DynamicModuleLoader reducers={reducers}>
                 <p className={s.errText}>{t(errorMessage)}</p>
+            </DynamicModuleLoader>
+        );
+    }
+
+    if (isNonExistentProfile) {
+        return (
+            <DynamicModuleLoader reducers={reducers}>
+                <NotFoundProfile />
             </DynamicModuleLoader>
         );
     }

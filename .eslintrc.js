@@ -126,7 +126,7 @@ module.exports = {
                     'title',
                     'dataTestid',
                 ],
-                words: { include: [], exclude: ['Blog'] },
+                words: { include: [], exclude: ['Blog', '404'] },
             },
         ],
     },

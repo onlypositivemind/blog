@@ -6,6 +6,7 @@ export interface EditableProfileCardSchema {
     isReadonly: boolean;
     data?: Profile;
     form?: Profile;
+    isNonExistentProfile?: boolean;
     errorMessage?: string;
     validationErrors?: ValidateProfileErrors;
 }

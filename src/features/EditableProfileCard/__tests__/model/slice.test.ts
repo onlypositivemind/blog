@@ -52,6 +52,33 @@ describe('editableProfileCardSlice', () => {
         });
     });
 
+    test('any action .fulfilled with a non-existent profile)', () => {
+        const state: DeepPartial<EditableProfileCardSchema> = {
+            isLoading: true,
+            isReadonly: true,
+            data: undefined,
+            form: undefined,
+            isNonExistentProfile: undefined,
+            validationErrors: [],
+            errorMessage,
+        };
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: '/fulfilled',
+                payload: undefined,
+            }),
+        ).toEqual({
+            isLoading: false,
+            isReadonly: true,
+            data: undefined,
+            form: undefined,
+            errorMessage: undefined,
+            validationErrors: undefined,
+            isNonExistentProfile: true,
+        });
+    });
+
     test('getProfile.rejected', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,

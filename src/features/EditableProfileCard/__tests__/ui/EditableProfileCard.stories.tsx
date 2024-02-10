@@ -24,17 +24,11 @@ Default.decorators = [
 ];
 
 export const Loading = Template.bind({});
-Loading.decorators = [
-    StoreDecorator({
-        editableProfileCard: { isLoading: true },
-    }),
-];
+Loading.decorators = [StoreDecorator({ editableProfileCard: { isLoading: true } })];
 
 export const Error = Template.bind({});
 Error.decorators = [
-    StoreDecorator({
-        editableProfileCard: { errorMessage: GET_PROFILE_ERROR_MESSAGE },
-    }),
+    StoreDecorator({ editableProfileCard: { errorMessage: GET_PROFILE_ERROR_MESSAGE } }),
 ];
 
 export const ValidationErrors = Template.bind({});
@@ -47,4 +41,9 @@ ValidationErrors.decorators = [
             validationErrors: [ProfileValidationError.EMAIL, ProfileValidationError.USERNAME],
         },
     }),
+];
+
+export const NotFoundProfile = Template.bind({});
+NotFoundProfile.decorators = [
+    StoreDecorator({ editableProfileCard: { isNonExistentProfile: true } }),
 ];

@@ -22,7 +22,7 @@ export const ArticleComments = ({ articleId }: ArticleCommentsProps) => {
 
     useAppEffect(() => {
         dispatch(getArticleComments(articleId));
-    }, []);
+    }, [articleId]);
 
     return (
         <VStack>

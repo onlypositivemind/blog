@@ -18,7 +18,7 @@ export const selectNavbarItems = createSelector(selectUserAuthData, (userData) =
 
     if (userData) {
         result.push({
-            path: getRouteProfile(String(userData.id)),
+            path: getRouteProfile(userData.username),
             title: 'Profile',
             Icon: ProfileIcon,
             authOnly: true,

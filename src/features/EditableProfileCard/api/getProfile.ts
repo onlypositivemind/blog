@@ -7,11 +7,14 @@ const GET_PROFILE_ERROR_MESSAGE = 'GetProfileServiceError';
 
 const getProfile = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     'EditableProfileCard/getProfile',
-    async (id, { extra, rejectWithValue }) => {
+    async (username, { extra, rejectWithValue }) => {
         try {
-            const { data } = await extra.api.get<Profile>(`/profile/${id}`);
+            // data массив из-за того, что получаю профиль через params - username
+            const { data } = await extra.api.get<Profile>('/profile', {
+                params: { username },
+            });
 
-            return data;
+            return Array.isArray(data) ? data[0] : data;
         } catch (err) {
             return rejectWithValue(getErrorMessageAsyncThunk(err, GET_PROFILE_ERROR_MESSAGE));
         }

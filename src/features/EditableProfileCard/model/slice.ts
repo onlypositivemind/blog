@@ -57,16 +57,23 @@ const editableProfileCardSlice = createSlice({
                     state.isReadonly = true;
                     state.errorMessage = undefined;
                     state.validationErrors = undefined;
+                    state.isNonExistentProfile = undefined;
                 },
             )
             .addMatcher(
                 (action) => action.type.endsWith?.('/fulfilled'),
                 (state, { payload }: PayloadAction<Profile>) => {
                     state.isLoading = false;
-                    state.data = payload;
-                    state.form = payload;
                     state.errorMessage = undefined;
                     state.validationErrors = undefined;
+
+                    if (!payload) {
+                        state.isNonExistentProfile = true;
+                        return;
+                    }
+
+                    state.data = payload;
+                    state.form = payload;
                 },
             );
     },
