@@ -1,8 +1,9 @@
 import cn from 'classnames';
-import type { CSSProperties} from 'react';
+import type { CSSProperties } from 'react';
 import { memo } from 'react';
 import { AppImage } from '../AppImage/AppImage';
 import { Skeleton } from '../Skeleton/Skeleton';
+import defaultAvatarImage from '@/shared/assets/jpg/avatarPlaceholder.jpg';
 import s from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -21,7 +22,7 @@ const AvatarComponent = ({ src, alt, className, size = 50 }: AvatarProps) => {
     return (
         <div className={cn(className, s.avatarWrapper)} style={styles}>
             <AppImage
-                src={src}
+                src={src || defaultAvatarImage}
                 alt={alt}
                 fallback={<Skeleton width={size} height={size} borderRadius='circle' />}
             />

@@ -1,17 +1,13 @@
 import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
 import type { AuthResponse } from '@/shared/types';
-import type {
-    RegisterUserProps} from '../../api/registerUser';
-import {
-    REGISTER_USER_ERROR_MESSAGE,
-    registerUser
-} from '../../api/registerUser';
+import type { RegisterUserProps } from '../../api/registerUser';
+import { REGISTER_USER_ERROR_MESSAGE, registerUser } from '../../api/registerUser';
 
 const registerUserResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
     user: {
-        id: 1,
+        id: '1',
         username: 'admin',
         email: 'admin@gmail.com',
         roles: ['SystemAdmin'],

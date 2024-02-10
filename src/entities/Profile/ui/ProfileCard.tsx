@@ -1,10 +1,11 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { Country} from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
+import type { Currency} from '@/entities/Currency';
 import { CurrencySelect } from '@/entities/Currency';
 import { I18nNamespace } from '@/shared/consts';
-import type { Country, Currency } from '@/shared/types';
 import { Input, VStack } from '@/shared/ui';
 import type { Profile } from '../model/types';
 import { ProfileCardSkeleton } from './ProfileCardSkeleton';

@@ -1,25 +1,27 @@
 {
     "users": [
         {
-            "id": 1,
+            "id": "1",
             "email": "admin@gmail.com",
             "username": "admin",
             "password": "asdasdasd",
-            "roles": ["SystemAdmin"]
+            "roles": ["SystemAdmin"],
+            "avatar": "https://avatars.githubusercontent.com/u/109303573?v=4"
         },
         {
-            "id": 2,
+            "id": "2",
             "email": "user@gmail.com",
             "username": "user",
             "password": "asdasdasd",
             "roles": []
         },
         {
-            "id": 3,
+            "id": "3",
             "email": "moder@gmail.com",
             "username": "moder",
             "password": "asdasdasd",
-            "roles": ["Moderator"]
+            "roles": ["Moderator"],
+            "avatar": "https://avatars.githubusercontent.com/u/100791507?v=4"
         }
     ],
     "profile": [
@@ -44,8 +46,7 @@
             "age": 20,
             "currency": "RUB",
             "country": "Russia",
-            "city": "Moscow",
-            "avatar": "https://avatars.githubusercontent.com/u/91557152?v=4"
+            "city": "Moscow"
         },
         {
             "id": "3",
@@ -886,6 +887,38 @@
                     ]
                 }
             ]
+        }
+    ],
+    "articlesComments": [
+        {
+            "id": "1",
+            "text": "some comment 1",
+            "articleId": "1",
+            "userId": "1"
+        },
+        {
+            "id": "2",
+            "text": "some comment 2",
+            "articleId": "1",
+            "userId": "1"
+        },
+        {
+            "id": "3",
+            "text": "some comment 3",
+            "articleId": "1",
+            "userId": "1"
+        },
+        {
+            "id": "4",
+            "text": "some comment 4",
+            "articleId": "1",
+            "userId": "2"
+        },
+        {
+            "id": "5",
+            "text": "some comment 5",
+            "articleId": "1",
+            "userId": "3"
         }
     ]
 }

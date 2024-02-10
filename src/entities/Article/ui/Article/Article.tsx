@@ -60,7 +60,7 @@ export const Article = ({ id, className }: ArticleProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack className={className}>
+            <VStack as='article' className={className}>
                 <HStack align='center' justify='center' gap={16} className='mb-6'>
                     <Avatar src={article?.image} size={160} />
                     <VStack>

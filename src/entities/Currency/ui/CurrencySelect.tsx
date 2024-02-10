@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import type { Currency } from '@/shared/types';
 import type { SelectOption } from '@/shared/ui';
 import { Select } from '@/shared/ui';
+import type { Currency } from '../model/types';
 
 const options: SelectOption<Currency>[] = [
     { value: 'RUB', content: 'RUB' },

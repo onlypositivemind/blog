@@ -11,10 +11,13 @@ import type { UserSchema } from '@/entities/User';
 import type { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import type { LoginSchema } from '@/features/UserLogin';
 import type { RegisterSchema } from '@/features/UserRegister';
+import type { ArticlePageSchema } from '@/pages/ArticlePage';
 
 export interface StateSchema {
     user: UserSchema;
+
     article?: ArticleSchema;
+    articlePage?: ArticlePageSchema;
     editableProfileCard?: EditableProfileCardSchema;
     loginForm?: LoginSchema;
     registerForm?: RegisterSchema;

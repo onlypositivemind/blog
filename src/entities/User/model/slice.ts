@@ -15,12 +15,7 @@ const userSlice = createSlice({
     reducers: {
         setAuthData: (state, { payload }: PayloadAction<AuthResponse>) => {
             localStorage.setItem(LocalStorage.ACCESS_TOKEN, payload.accessToken);
-
-            // @ts-ignore TODO убрать, когда будет готов сервер
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            const { password, ...authData } = payload.user;
-
-            state.authData = authData;
+            state.authData = payload.user;
         },
         logout: (state) => {
             localStorage.removeItem(LocalStorage.ACCESS_TOKEN);

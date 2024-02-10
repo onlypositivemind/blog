@@ -9,10 +9,12 @@ interface CodeProps {
 }
 
 const CodeComponent = ({ className, code }: CodeProps) => (
-    <pre className={cn(className, s.code)}>
-        <code>{code}</code>
-        <CopyButton text={code} size='xl' className={s.copyBtn} />
-    </pre>
+    <div className={s.codeWrapper}>
+        <pre className={cn(className, s.code)}>
+            <code>{code}</code>
+            <CopyButton text={code} size='xl' className={s.copyBtn} />
+        </pre>
+    </div>
 );
 
 export const Code = memo(CodeComponent);

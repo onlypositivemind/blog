@@ -1,4 +1,5 @@
-import type { Country, Currency } from '@/shared/types';
+import type { Country } from '@/entities/Country';
+import type { Currency } from '@/entities/Currency';
 
 export interface Profile {
     id?: string;

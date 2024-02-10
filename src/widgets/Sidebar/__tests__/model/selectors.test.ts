@@ -14,7 +14,7 @@ describe('navbarSelectors', () => {
 
     test('selectNavbarItems: should return shared and user pages', () => {
         const state: DeepPartial<StateSchema> = {
-            user: { authData: { id: 1 } },
+            user: { authData: { id: '1' } },
         };
 
         expect(selectNavbarItems(state as StateSchema)).toEqual(

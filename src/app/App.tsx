@@ -20,7 +20,7 @@ export const App = () => {
         dispatch(
             userActions.setAuthData({
                 user: {
-                    id: 1,
+                    id: '1',
                     email: 'admin@gmail.com',
                     username: 'admin',
                     roles: ['SystemAdmin'],

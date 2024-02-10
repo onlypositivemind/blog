@@ -7,7 +7,7 @@ import { LOGIN_USER_ERROR_MESSAGE, loginUser } from '../../api/loginUser';
 const loginUserResponse: AuthResponse = {
     accessToken: 'mockedAccessToken',
     user: {
-        id: 1,
+        id: '1',
         username: 'admin',
         email: 'admin@gmail.com',
         roles: ['SystemAdmin'],

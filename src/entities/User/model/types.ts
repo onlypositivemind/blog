@@ -1,10 +1,11 @@
 export type UserRole = 'SystemAdmin' | 'Moderator';
 
 export interface User {
-    id: number;
+    id: string;
     email: string;
     username: string;
     roles: UserRole[];
+    avatar?: string;
 }
 
 export interface UserSchema {

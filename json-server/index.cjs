@@ -28,10 +28,31 @@ server.post('/auth/login', (req, res) => {
         );
 
         if (userFromBd) {
-            return res.json({ user: userFromBd, accessToken: 'accessToken' });
+            const { password, ...user } = userFromBd;
+            
+            return res.json({ user, accessToken: 'accessToken' });
         }
 
         return res.status(403).json({ message: 'The username and/or password you specified are not correct' });
+    } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e);
+        return res.status(500).json({ message: e.message });
+    }
+});
+
+server.get('/articlesComments', (req, res) => {
+    try {
+        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const { articlesComments = [], users = [] } = db;
+
+        const comments = articlesComments.map(({ id, text, userId }) => {
+            const author = users.find((user) => user.id === userId);
+
+            return { id, text, user: { username: author?.username, avatar: author?.avatar } };
+        });
+
+        return res.json(comments);
     } catch (e) {
         // eslint-disable-next-line no-console
         console.log(e);
