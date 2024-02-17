@@ -1,5 +1,7 @@
-import { useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { selectUserAuthData } from '@/entities/User';
 import { I18nNamespace } from '@/shared/consts';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { AppIcon, Avatar, Button, HStack, VStack } from '@/shared/ui';
@@ -14,13 +16,16 @@ interface EditableProfileCardHeaderProps {
     isReadonly?: boolean;
 }
 
-export const EditableProfileCardHeader = ({
+const EditableProfileCardHeaderComponent = ({
     username,
     avatar,
     isReadonly,
 }: EditableProfileCardHeaderProps) => {
     const { t } = useTranslation(I18nNamespace.PROFILE);
     const dispatch = useAppDispatch();
+    const authData = useSelector(selectUserAuthData);
+
+    const hasEdit = useMemo(() => authData && authData.username === username, [authData, username]);
 
     const handleClickEdit = useCallback(() => {
         dispatch(editableProfileCardActions.setReadonly(false));
@@ -43,22 +48,26 @@ export const EditableProfileCardHeader = ({
                     <p>{username}</p>
                 </HStack>
             </VStack>
-            <div className={s.buttons}>
-                {isReadonly ? (
-                    <Button theme='primary' onClick={handleClickEdit}>
-                        {t('Edit')}
-                    </Button>
-                ) : (
-                    <HStack align='center' gap={8}>
-                        <Button theme='blue' onClick={handleClickSave}>
-                            {t('Save')}
+            {hasEdit && (
+                <div className={s.buttons}>
+                    {isReadonly ? (
+                        <Button theme='primary' onClick={handleClickEdit}>
+                            {t('Edit')}
                         </Button>
-                        <Button theme='red' onClick={handleClickCancel}>
-                            {t('Cancel')}
-                        </Button>
-                    </HStack>
-                )}
-            </div>
+                    ) : (
+                        <HStack align='center' gap={8}>
+                            <Button theme='blue' onClick={handleClickSave}>
+                                {t('Save')}
+                            </Button>
+                            <Button theme='red' onClick={handleClickCancel}>
+                                {t('Cancel')}
+                            </Button>
+                        </HStack>
+                    )}
+                </div>
+            )}
         </HStack>
     );
 };
+
+export const EditableProfileCardHeader = memo(EditableProfileCardHeaderComponent);

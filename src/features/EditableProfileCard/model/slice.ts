@@ -1,5 +1,5 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import type { Profile } from '@/entities/Profile';
 import type { EditableProfileCardSchema } from '@/features/EditableProfileCard/model/types';
 import { getProfile } from '../api/getProfile';
@@ -50,18 +50,15 @@ const editableProfileCardSlice = createSlice({
                     state.validationErrors = payload;
                 }
             })
+            .addMatcher(isAnyOf(getProfile.pending, updateProfile.pending), (state) => {
+                state.isLoading = true;
+                state.isReadonly = true;
+                state.errorMessage = undefined;
+                state.validationErrors = undefined;
+                state.isNonExistentProfile = undefined;
+            })
             .addMatcher(
-                (action) => action.type.endsWith?.('/pending'),
-                (state) => {
-                    state.isLoading = true;
-                    state.isReadonly = true;
-                    state.errorMessage = undefined;
-                    state.validationErrors = undefined;
-                    state.isNonExistentProfile = undefined;
-                },
-            )
-            .addMatcher(
-                (action) => action.type.endsWith?.('/fulfilled'),
+                isAnyOf(getProfile.fulfilled, updateProfile.fulfilled),
                 (state, { payload }: PayloadAction<Profile>) => {
                     state.isLoading = false;
                     state.errorMessage = undefined;

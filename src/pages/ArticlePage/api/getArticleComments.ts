@@ -10,7 +10,7 @@ const getArticleComments = createAsyncThunk<Comment[], string, ThunkConfig<strin
     async (articleId, { extra, rejectWithValue }) => {
         try {
             const { data } = await extra.api.get<Comment[]>('/articlesComments', {
-                params: { articleId, _expand: 'user' },
+                params: { articleId },
             });
 
             return data;

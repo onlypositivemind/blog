@@ -4,3 +4,10 @@
     border-radius: var(--radius-xs);
     padding: 16px;
 }
+
+.profileLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}

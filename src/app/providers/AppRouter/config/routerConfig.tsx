@@ -18,6 +18,6 @@ export const routerConfig: AppRoutesProps[] = [
     { path: getRouteAbout(), element: <AboutPage /> },
     { path: getRouteArticles(), element: <ArticlesPage /> },
     { path: getRouteArticle(':id'), element: <ArticlePage /> },
-    { path: getRouteProfile(':username'), element: <ProfilePage />, authOnly: true },
+    { path: getRouteProfile(':username'), element: <ProfilePage /> },
     { path: '*', element: <NotFoundPage /> },
 ];

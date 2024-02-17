@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { Avatar, HStack } from '@/shared/ui';
+import { getRouteProfile } from '@/shared/consts';
+import { AppLink, Avatar } from '@/shared/ui';
 import type { Comment } from '../../model/types';
 import s from './CommentCard.module.scss';
 
@@ -16,10 +17,10 @@ export const CommentCard = ({ text, user, isLoading, className }: CommentCardPro
 
     return (
         <div className={cn(s.card, className)}>
-            <HStack align='center' gap={8} className='mb-3'>
+            <AppLink to={getRouteProfile(user.username)} className={s.profileLink}>
                 <Avatar size={40} src={user.avatar} />
                 <span>{user.username}</span>
-            </HStack>
+            </AppLink>
             <p>{text}</p>
         </div>
     );

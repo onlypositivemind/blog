@@ -7,7 +7,7 @@ describe('getProfile AsyncThunk', () => {
         const thunk = new TestAsyncThunk(getProfile);
         thunk.api.get.mockReturnValue(Promise.resolve({ data: mockProfileData }));
 
-        const result = await thunk.callThunk('1');
+        const result = await thunk.callThunk('admin');
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
@@ -19,7 +19,7 @@ describe('getProfile AsyncThunk', () => {
         const thunk = new TestAsyncThunk(getProfile);
         thunk.api.get.mockReturnValue(Promise.reject());
 
-        const result = await thunk.callThunk('1');
+        const result = await thunk.callThunk('admin');
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();

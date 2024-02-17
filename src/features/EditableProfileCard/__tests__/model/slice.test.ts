@@ -8,7 +8,7 @@ import { editableProfileCardReducer } from '../../model/slice';
 const errorMessage = 'errorMessage';
 
 describe('editableProfileCardSlice', () => {
-    test('any action .pending)', () => {
+    test('isAnyOf(getProfile.pending, updateProfile.pending)', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
             isReadonly: false,
@@ -17,18 +17,24 @@ describe('editableProfileCardSlice', () => {
             validationErrors: [],
         };
 
-        expect(
-            editableProfileCardReducer(state as EditableProfileCardSchema, { type: '/pending' }),
-        ).toEqual({
+        const result: EditableProfileCardSchema = {
             isLoading: true,
             isReadonly: true,
             errorMessage: undefined,
             validationErrors: undefined,
             data: mockProfileData,
-        });
+        };
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, getProfile.pending),
+        ).toEqual(result);
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, updateProfile.pending),
+        ).toEqual(result);
     });
 
-    test('any action .fulfilled)', () => {
+    test('isAnyOf(getProfile.fulfilled, updateProfile.fulfilled)', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: true,
@@ -37,22 +43,31 @@ describe('editableProfileCardSlice', () => {
             errorMessage,
         };
 
-        expect(
-            editableProfileCardReducer(state as EditableProfileCardSchema, {
-                type: '/fulfilled',
-                payload: mockProfileData,
-            }),
-        ).toEqual({
+        const result: EditableProfileCardSchema = {
             isLoading: false,
             isReadonly: true,
             data: mockProfileData,
             form: mockProfileData,
             errorMessage: undefined,
             validationErrors: undefined,
-        });
+        };
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: getProfile.fulfilled.type,
+                payload: mockProfileData,
+            }),
+        ).toEqual(result);
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: updateProfile.fulfilled.type,
+                payload: mockProfileData,
+            }),
+        ).toEqual(result);
     });
 
-    test('any action .fulfilled with a non-existent profile)', () => {
+    test('isAnyOf(getProfile.fulfilled, updateProfile.fulfilled) with a non-existent profile', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: true,
@@ -63,12 +78,7 @@ describe('editableProfileCardSlice', () => {
             errorMessage,
         };
 
-        expect(
-            editableProfileCardReducer(state as EditableProfileCardSchema, {
-                type: '/fulfilled',
-                payload: undefined,
-            }),
-        ).toEqual({
+        const result: EditableProfileCardSchema = {
             isLoading: false,
             isReadonly: true,
             data: undefined,
@@ -76,7 +86,21 @@ describe('editableProfileCardSlice', () => {
             errorMessage: undefined,
             validationErrors: undefined,
             isNonExistentProfile: true,
-        });
+        };
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: getProfile.fulfilled.type,
+                payload: undefined,
+            }),
+        ).toEqual(result);
+
+        expect(
+            editableProfileCardReducer(state as EditableProfileCardSchema, {
+                type: updateProfile.fulfilled.type,
+                payload: undefined,
+            }),
+        ).toEqual(result);
     });
 
     test('getProfile.rejected', () => {
