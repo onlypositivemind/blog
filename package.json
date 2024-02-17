@@ -11,7 +11,7 @@
         "server": "node json-server/index.cjs",
         "dev": "concurrently \"npm run server\" \"npm run start\"",
         "build:dev": "webpack --env mode=development",
-        "build:prod": "webpack --env mode=production",
+        "build:prod": "webpack --env mode=production apiUrl=https://blog-json-server-psi.vercel.app/api",
         "prettier": "npx prettier --write **/*.{ts,tsx,json}",
         "lint:ts": "eslint \"**/*.{ts,tsx}\" --max-warnings 0",
         "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
