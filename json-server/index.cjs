@@ -29,7 +29,7 @@ server.post('/auth/login', (req, res) => {
 
         if (userFromBd) {
             const { password, ...user } = userFromBd;
-            
+
             return res.json({ user, accessToken: 'accessToken' });
         }
 
@@ -46,11 +46,13 @@ server.get('/articlesComments', (req, res) => {
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { articlesComments = [], users = [] } = db;
 
-        const comments = articlesComments.map(({ id, text, userId }) => {
-            const author = users.find((user) => user.id === userId);
+        const comments = articlesComments
+            .filter(({ articleId }) => articleId === req.query.articleId)
+            .map(({ articleId, id, text, userId }) => {
+                const author = users.find((user) => user.id === userId);
 
-            return { id, text, user: { username: author?.username, avatar: author?.avatar } };
-        });
+                return { id, text, user: { username: author?.username, avatar: author?.avatar } };
+            });
 
         return res.json(comments);
     } catch (e) {

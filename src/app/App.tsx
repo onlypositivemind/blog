@@ -24,6 +24,7 @@ export const App = () => {
                     email: 'admin@gmail.com',
                     username: 'admin',
                     roles: ['SystemAdmin'],
+                    avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
                 },
                 accessToken: 'accessToken',
             }),

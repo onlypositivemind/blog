@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import type { Country } from '@/entities/Country';
 import type { Currency } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';
-import { NotFoundProfile } from '@/features/EditableProfileCard/ui/NotFoundProfile/NotFoundProfile';
 import { I18nNamespace } from '@/shared/consts';
 import type { ReducersList } from '@/shared/lib/components';
 import { DynamicModuleLoader } from '@/shared/lib/components';
@@ -25,6 +24,7 @@ import {
 import { editableProfileCardActions, editableProfileCardReducer } from '../../model/slice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { EditableProfileCardHeaderSkeleton } from '../EditableProfileCardHeader/EditableProfileCardHeaderSkeleton';
+import { NotFoundProfile } from '../NotFoundProfile/NotFoundProfile';
 import s from './EditableProfileCard.module.scss';
 
 const reducers: ReducersList = { editableProfileCard: editableProfileCardReducer };

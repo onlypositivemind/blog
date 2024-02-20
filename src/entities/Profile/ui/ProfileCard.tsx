@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Country} from '@/entities/Country';
+import type { Country } from '@/entities/Country';
 import { CountrySelect } from '@/entities/Country';
-import type { Currency} from '@/entities/Currency';
+import type { Currency } from '@/entities/Currency';
 import { CurrencySelect } from '@/entities/Currency';
 import { I18nNamespace } from '@/shared/consts';
 import { Input, VStack } from '@/shared/ui';
@@ -15,14 +15,14 @@ interface ProfileCardProps {
     data?: Profile;
     isLoading?: boolean;
     isReadonly?: boolean;
-    onChangeEmail?: (val: string) => void;
-    onChangeUsername?: (val: string) => void;
-    onChangeAvatar?: (val: string) => void;
-    onChangeFirstname?: (val: string) => void;
-    onChangeLastname?: (val: string) => void;
-    onChangeAge?: (val: string) => void;
-    onChangeCountry?: (val: Country) => void;
-    onChangeCurrency?: (val: Currency) => void;
+    onChangeEmail?: (email: string) => void;
+    onChangeUsername?: (username: string) => void;
+    onChangeAvatar?: (avatar: string) => void;
+    onChangeFirstname?: (firstname: string) => void;
+    onChangeLastname?: (lastname: string) => void;
+    onChangeAge?: (age: string) => void;
+    onChangeCountry?: (country: Country) => void;
+    onChangeCurrency?: (currency: Currency) => void;
     className?: string;
 }
 
