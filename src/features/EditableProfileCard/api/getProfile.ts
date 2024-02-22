@@ -21,4 +21,4 @@ const getProfile = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     },
 );
 
-export { getProfile, GET_PROFILE_ERROR_MESSAGE };
+export { GET_PROFILE_ERROR_MESSAGE, getProfile };

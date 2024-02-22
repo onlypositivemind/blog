@@ -1,7 +1,9 @@
 import type { Profile } from '@/entities/Profile';
 import type { ProfileValidationError } from './consts';
 
-export interface EditableProfileCardSchema {
+type ValidateProfileErrors = ValueOf<typeof ProfileValidationError>[];
+
+interface EditableProfileCardSchema {
     isLoading: boolean;
     isReadonly: boolean;
     data?: Profile;
@@ -11,4 +13,4 @@ export interface EditableProfileCardSchema {
     validationErrors?: ValidateProfileErrors;
 }
 
-export type ValidateProfileErrors = ValueOf<typeof ProfileValidationError>[];
+export type { ValidateProfileErrors, EditableProfileCardSchema };

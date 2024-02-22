@@ -5,7 +5,7 @@ import { $api } from '@/shared/api/axiosInstance';
 import { createReducerManager } from './reducerManager';
 import type { StateSchema } from './stateSchema';
 
-export const createReduxStore = (
+const createReduxStore = (
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
 ) => {
@@ -29,4 +29,7 @@ export const createReduxStore = (
     return store;
 };
 
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
+
+export { createReduxStore };
+export type { AppDispatch };

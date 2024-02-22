@@ -1,13 +1,13 @@
-export type BuildMode = 'development' | 'production';
+type BuildMode = 'development' | 'production';
 
-export interface BuildEnv {
+interface BuildEnv {
     mode: BuildMode;
     port: string;
     apiUrl: string;
     hasBundleAnalyzer: string;
 }
 
-export interface BuildPaths {
+interface BuildPaths {
     entry: string;
     build: string;
     public: string;
@@ -17,7 +17,7 @@ export interface BuildPaths {
     buildLocales: string;
 }
 
-export interface BuildOptions extends Omit<BuildEnv, 'port' | 'hasBundleAnalyzer'> {
+interface BuildOptions extends Omit<BuildEnv, 'port' | 'hasBundleAnalyzer'> {
     paths: BuildPaths;
     port: number;
     isDev: boolean;
@@ -25,3 +25,5 @@ export interface BuildOptions extends Omit<BuildEnv, 'port' | 'hasBundleAnalyzer
     hasBundleAnalyzer: boolean;
     project: 'app' | 'jest' | 'storybook';
 }
+
+export type { BuildMode, BuildEnv, BuildPaths, BuildOptions };

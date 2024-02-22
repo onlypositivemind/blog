@@ -4,19 +4,19 @@ import type { TestsProps } from '@/shared/types';
 import s from './Flex.module.scss';
 
 type Flex = 'flex' | 'inline';
-const flexClasses: Record<Flex, string> = {
+const FlexClasses: Record<Flex, string> = {
     flex: s.flex,
     inline: s.inlineFlex,
 };
 
 type FlexDirection = 'row' | 'column';
-const directionClasses: Record<FlexDirection, string> = {
+const DirectionClasses: Record<FlexDirection, string> = {
     row: s.directionRow,
     column: s.directionColumn,
 };
 
 type FlexAlign = 'stretch' | 'start' | 'center' | 'end';
-const alignClasses: Record<FlexAlign, string> = {
+const AlignClasses: Record<FlexAlign, string> = {
     stretch: s.alignStretch,
     start: s.alignStart,
     end: s.alignEnd,
@@ -24,7 +24,7 @@ const alignClasses: Record<FlexAlign, string> = {
 };
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between';
-const justifyClasses: Record<FlexJustify, string> = {
+const JustifyClasses: Record<FlexJustify, string> = {
     start: s.justifyStart,
     end: s.justifyEnd,
     center: s.justifyCenter,
@@ -32,7 +32,7 @@ const justifyClasses: Record<FlexJustify, string> = {
 };
 
 type FlexGap = 4 | 8 | 12 | 16 | 20 | 24 | 28 | 32;
-const gapClasses: Record<FlexGap, string> = {
+const GapClasses: Record<FlexGap, string> = {
     4: s.gap4,
     8: s.gap8,
     12: s.gap12,
@@ -70,11 +70,11 @@ const Flex = ({
     <Element
         className={cn(
             className,
-            flexClasses[flex],
-            directionClasses[direction],
-            alignClasses[align],
-            justifyClasses[justify],
-            gap && gapClasses[gap],
+            FlexClasses[flex],
+            DirectionClasses[direction],
+            AlignClasses[align],
+            JustifyClasses[justify],
+            gap && GapClasses[gap],
             { [s.max]: max },
         )}
         data-testid={dataTestId}
@@ -83,5 +83,5 @@ const Flex = ({
     </Element>
 );
 
-export type { FlexProps };
 export { Flex };
+export type { FlexProps };

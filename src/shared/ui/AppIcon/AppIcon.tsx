@@ -3,9 +3,9 @@ import type { FC, SVGProps } from 'react';
 import { memo } from 'react';
 import s from './AppIcon.module.scss';
 
-export type AppIconColor = 'primary' | 'white' | 'blue' | 'green' | 'red';
+type AppIconColor = 'primary' | 'white' | 'blue' | 'green' | 'red';
 
-export type AppIconSize = 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl';
+type AppIconSize = 'xs' | 's' | 'm' | 'l' | 'xl' | '2xl' | '3xl';
 
 interface AppIconProps extends SVGProps<SVGSVGElement> {
     Icon: FC<SVGProps<SVGSVGElement>>;

@@ -12,7 +12,7 @@ const CodeComponent = ({ className, code }: CodeProps) => (
     <div className={s.codeWrapper}>
         <pre className={cn(className, s.code)}>
             <code>{code}</code>
-            <CopyButton text={code} size='xl' className={s.copyBtn} />
+            <CopyButton text={code} className={s.copyBtn} />
         </pre>
     </div>
 );

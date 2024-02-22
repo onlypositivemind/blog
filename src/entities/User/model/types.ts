@@ -1,6 +1,6 @@
-export type UserRole = 'SystemAdmin' | 'Moderator';
+type UserRole = 'SystemAdmin' | 'Moderator';
 
-export interface User {
+interface User {
     id: string;
     email: string;
     username: string;
@@ -8,7 +8,9 @@ export interface User {
     avatar?: string;
 }
 
-export interface UserSchema {
+interface UserSchema {
     _inited: boolean;
     authData?: User;
 }
+
+export type { UserRole, User, UserSchema };

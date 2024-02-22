@@ -37,4 +37,4 @@ const createArticleComment = createAsyncThunk<Comment, string, ThunkConfig<strin
     },
 );
 
-export { createArticleComment, CREATE_ARTICLE_COMMENT_ERROR_MESSAGE };
+export { CREATE_ARTICLE_COMMENT_ERROR_MESSAGE, createArticleComment };

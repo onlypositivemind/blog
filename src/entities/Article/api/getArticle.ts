@@ -18,4 +18,4 @@ const getArticle = createAsyncThunk<Article, string, ThunkConfig<string>>(
     },
 );
 
-export { getArticle, GET_ARTICLE_ERROR_MESSAGE };
+export { GET_ARTICLE_ERROR_MESSAGE, getArticle };

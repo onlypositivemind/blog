@@ -1,22 +1,30 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
-export const selectEditableProfileCardIsLoading = (state: StateSchema) =>
+const selectEditableProfileCardIsLoading = (state: StateSchema) =>
     state.editableProfileCard?.isLoading;
 
-export const selectEditableProfileCardErrorMessage = (state: StateSchema) =>
+const selectEditableProfileCardErrorMessage = (state: StateSchema) =>
     state.editableProfileCard?.errorMessage;
 
-export const selectEditableProfileCardIsReadonly = (state: StateSchema) =>
+const selectEditableProfileCardIsReadonly = (state: StateSchema) =>
     state.editableProfileCard?.isReadonly;
 
-export const selectEditableProfileCardData = (state: StateSchema) =>
-    state.editableProfileCard?.data;
+const selectEditableProfileCardData = (state: StateSchema) => state.editableProfileCard?.data;
 
-export const selectEditableProfileCardFormData = (state: StateSchema) =>
-    state.editableProfileCard?.form;
+const selectEditableProfileCardFormData = (state: StateSchema) => state.editableProfileCard?.form;
 
-export const selectEditableProfileCardValidationErrors = (state: StateSchema) =>
+const selectEditableProfileCardValidationErrors = (state: StateSchema) =>
     state.editableProfileCard?.validationErrors;
 
-export const selectEditableProfileCardIsNonExistentProfile = (state: StateSchema) =>
+const selectEditableProfileCardIsNonExistentProfile = (state: StateSchema) =>
     state.editableProfileCard?.isNonExistentProfile;
+
+export {
+    selectEditableProfileCardIsLoading,
+    selectEditableProfileCardErrorMessage,
+    selectEditableProfileCardIsReadonly,
+    selectEditableProfileCardData,
+    selectEditableProfileCardFormData,
+    selectEditableProfileCardValidationErrors,
+    selectEditableProfileCardIsNonExistentProfile,
+};

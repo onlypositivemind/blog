@@ -39,4 +39,4 @@ const updateProfile = createAsyncThunk<Profile, void, ThunkConfig<string | Valid
     },
 );
 
-export { updateProfile, UPDATE_PROFILE_ERROR_MESSAGE };
+export { UPDATE_PROFILE_ERROR_MESSAGE, updateProfile };

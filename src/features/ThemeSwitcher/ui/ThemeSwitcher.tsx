@@ -15,8 +15,13 @@ const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
     const ThemeIcon = theme === 'light' ? MoonIcon : SunIcon;
 
     return (
-        <Button onClick={toggleTheme} className={cn(s.toggleBtn, className)} theme='clear_white'>
-            <AppIcon Icon={ThemeIcon} size='xl' color='white' />
+        <Button
+            size='xl'
+            theme='clear_white'
+            onClick={toggleTheme}
+            className={cn(s.toggleBtn, className)}
+        >
+            <AppIcon Icon={ThemeIcon} color='white' />
         </Button>
     );
 };

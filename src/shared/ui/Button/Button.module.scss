@@ -60,22 +60,47 @@
 
 .size_s {
     font-size: var(--font-size-s);
+
+    svg {
+        width: var(--font-size-s);
+        height: var(--font-size-s);
+    }
 }
 
 .size_m {
     font-size: var(--font-size-m);
+
+    svg {
+        width: var(--font-size-m);
+        height: var(--font-size-m);
+    }
 }
 
 .size_l {
     font-size: var(--font-size-l);
+
+    svg {
+        width: var(--font-size-l);
+        height: var(--font-size-l);
+    }
 }
 
 .size_xl {
     font-size: var(--font-size-xl);
+
+    svg {
+        width: var(--font-size-xl);
+        height: var(--font-size-xl);
+    }
 }
 
 .size_2xl {
     font-size: var(--font-size-2xl);
+
+    svg {
+        width: var(--font-size-2xl);
+        height: var(--font-size-2xl);
+    }
 }
 
 .disabled {

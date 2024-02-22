@@ -29,5 +29,5 @@ const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<str
     },
 );
 
+export { LOGIN_USER_ERROR_MESSAGE, loginUser };
 export type { LoginUserProps };
-export { loginUser, LOGIN_USER_ERROR_MESSAGE };

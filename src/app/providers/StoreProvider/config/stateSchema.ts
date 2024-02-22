@@ -13,9 +13,8 @@ import type { LoginSchema } from '@/features/UserLogin';
 import type { RegisterSchema } from '@/features/UserRegister';
 import type { ArticlePageSchema } from '@/pages/ArticlePage';
 
-export interface StateSchema {
+interface StateSchema {
     user: UserSchema;
-
     article?: ArticleSchema;
     articlePage?: ArticlePageSchema;
     editableProfileCard?: EditableProfileCardSchema;
@@ -23,11 +22,11 @@ export interface StateSchema {
     registerForm?: RegisterSchema;
 }
 
-export type StateSchemaKey = keyof StateSchema;
+type StateSchemaKey = keyof StateSchema;
 
-export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
+type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 
-export interface ReducerManager {
+interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     getMountedReducers: () => MountedReducers;
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
@@ -35,12 +34,21 @@ export interface ReducerManager {
     remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 
-export interface ThunkConfig<T> {
+interface ThunkConfig<T> {
     rejectValue: T;
     extra: { api: AxiosInstance };
     state: StateSchema;
 }
+
+export type {
+    StateSchema,
+    StateSchemaKey,
+    MountedReducers,
+    ReducerManager,
+    ReduxStoreWithManager,
+    ThunkConfig,
+};

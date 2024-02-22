@@ -22,4 +22,4 @@ const getArticleComments = createAsyncThunk<Comment[], string, ThunkConfig<strin
     },
 );
 
-export { getArticleComments, GET_ARTICLE_COMMENTS_ERROR_MESSAGE };
+export { GET_ARTICLE_COMMENTS_ERROR_MESSAGE, getArticleComments };

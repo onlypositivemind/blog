@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import type { ChangeEvent} from 'react';
+import type { ChangeEvent } from 'react';
 import { memo, useMemo } from 'react';
 import s from './Select.module.scss';
 
@@ -46,7 +46,7 @@ const SelectComponent = <T extends string>({
     );
 };
 
-export type { SelectOption };
 export const Select = memo(SelectComponent) as <T extends string>(
     props: SelectProps<T>,
 ) => JSX.Element;
+export type { SelectOption };

@@ -27,4 +27,4 @@ const checkUserAuth = createAsyncThunk<void, undefined>(
     },
 );
 
-export { checkUserAuth, CHECK_USER_AUTH_ERROR_MESSAGE };
+export { CHECK_USER_AUTH_ERROR_MESSAGE, checkUserAuth };

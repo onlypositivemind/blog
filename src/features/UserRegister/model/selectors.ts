@@ -1,5 +1,7 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
 
-export const selectRegisterFormIsLoading = (state: StateSchema) => state.registerForm?.isLoading;
-export const selectRegisterFormErrorMessage = (state: StateSchema) =>
-    state.registerForm?.errorMessage;
+const selectRegisterFormIsLoading = (state: StateSchema) => state.registerForm?.isLoading;
+
+const selectRegisterFormErrorMessage = (state: StateSchema) => state.registerForm?.errorMessage;
+
+export { selectRegisterFormIsLoading, selectRegisterFormErrorMessage };

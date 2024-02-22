@@ -20,7 +20,7 @@ const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
     };
 
     return (
-        <Button onClick={toggle} className={cn(s.toggleBtn, className)} theme='clear'>
+        <Button size='2xl' theme='clear' onClick={toggle} className={cn(s.toggleBtn, className)}>
             <LangIcon />
         </Button>
     );

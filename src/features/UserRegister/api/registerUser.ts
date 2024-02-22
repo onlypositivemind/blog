@@ -30,5 +30,5 @@ const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConf
     },
 );
 
+export { REGISTER_USER_ERROR_MESSAGE, registerUser };
 export type { RegisterUserProps };
-export { registerUser, REGISTER_USER_ERROR_MESSAGE };

@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import { useTranslation } from 'react-i18next';
-import type { NavbarItemType } from '@/widgets/Sidebar/model/types';
 import { AppIcon, AppLink } from '@/shared/ui';
+import type { NavbarItem as INavbarItem } from '../../../model/types';
 import s from './NavbarItem.module.scss';
 
-interface NavbarItemProps extends NavbarItemType {
+interface NavbarItemProps extends INavbarItem {
     collapsed: boolean;
 }
 

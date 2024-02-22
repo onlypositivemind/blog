@@ -40,6 +40,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 <LangSwitcher />
             </HStack>
             <Button
+                size='m'
                 theme='clear'
                 onClick={toggleSidebar}
                 className={s.toggleBtn}

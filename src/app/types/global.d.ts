@@ -26,9 +26,8 @@ type Optional<T> = T | undefined;
 type Nullable<T> = T | null;
 type Nullish<T> = Optional<T> | Nullable<T>;
 
-type ValueOf<T> = T[keyof T];
-type KeyOf<T> = keyof T;
+type ValueOf<T extends object> = T[keyof T];
 
-type OptionalRecord<K extends string | number | symbol, T> = { [P in K]?: T };
+type OptionalRecord<K extends string | number | symbol, T> = { [U in K]?: T };
 
-type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;
+type DeepPartial<T> = T extends object ? { [U in keyof T]?: DeepPartial<T[U]> } : T;

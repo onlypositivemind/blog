@@ -1,6 +1,7 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
 import { getRouteProfile } from '@/shared/consts';
-import { navbarItemsList, selectNavbarItems } from '../../model/selectors';
+import { NavbarItems } from '../../model/consts';
+import { selectNavbarItems } from '../../model/selectors';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 
 describe('navbarSelectors', () => {
@@ -9,7 +10,7 @@ describe('navbarSelectors', () => {
             user: { authData: undefined },
         };
 
-        expect(selectNavbarItems(state as StateSchema)).toEqual(navbarItemsList);
+        expect(selectNavbarItems(state as StateSchema)).toEqual(NavbarItems);
     });
 
     test('selectNavbarItems: should return shared and user pages', () => {
@@ -18,7 +19,7 @@ describe('navbarSelectors', () => {
         };
 
         expect(selectNavbarItems(state as StateSchema)).toEqual(
-            navbarItemsList.concat({
+            NavbarItems.concat({
                 path: getRouteProfile('admin'),
                 title: 'Profile',
                 Icon: ProfileIcon,
