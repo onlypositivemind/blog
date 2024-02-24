@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { I18nNamespace } from '@/shared/consts';
 import type { ReducersList } from '@/shared/lib/components';
 import { DynamicModuleLoader } from '@/shared/lib/components';
 import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
+import { exhaustiveCheck } from '@/shared/lib/utils';
 import { AppIcon, Avatar, HStack, VStack } from '@/shared/ui';
 import { getArticle } from '../../api/getArticle';
 import {
@@ -36,24 +39,27 @@ const renderBlock = (block: ArticleBlock) => {
 
         case 'TEXT':
             return <ArticleTextBlock key={block.id} block={block} />;
+
+        default:
+            exhaustiveCheck(block);
     }
 };
 
 export const Article = ({ id, className }: ArticleProps) => {
+    const { t } = useTranslation(I18nNamespace.ARTICLE);
     const dispatch = useAppDispatch();
     const article = useSelector(selectArticleData);
     const isLoading = useSelector(selectArticleIsLoading);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errorMessage = useSelector(selectArticleErrorMessage);
 
     useAppEffect(() => {
         dispatch(getArticle(id));
     }, [id]);
 
-    if (isLoading) {
+    if (errorMessage) {
         return (
             <DynamicModuleLoader reducers={reducers}>
-                <ArticleSkeleton />
+                <p className={s.errorMessage}>{t(errorMessage)}</p>
             </DynamicModuleLoader>
         );
     }
@@ -61,26 +67,32 @@ export const Article = ({ id, className }: ArticleProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack as='article' className={className}>
-                <HStack align='center' justify='center' gap={16} className='mb-6'>
-                    <Avatar src={article?.image} size={160} />
-                    <VStack>
-                        <HStack align='center' gap={4} className={s.title}>
-                            <h1>{article?.title}</h1>
-                            <span>{article?.subtitle}</span>
+                {isLoading ? (
+                    <ArticleSkeleton />
+                ) : (
+                    <>
+                        <HStack align='center' justify='center' gap={16} className='mb-6'>
+                            <Avatar src={article?.image} size={160} />
+                            <VStack>
+                                <VStack gap={4} className={s.title}>
+                                    <h1>{article?.title}</h1>
+                                    <span>{article?.subtitle}</span>
+                                </VStack>
+                                <HStack align='center' gap={12}>
+                                    <HStack align='center' gap={4}>
+                                        <AppIcon Icon={CalendarIcon} />
+                                        <span>{article?.createdAt}</span>
+                                    </HStack>
+                                    <HStack align='center' gap={4}>
+                                        <AppIcon Icon={EyeIcon} />
+                                        <span>{article?.views}</span>
+                                    </HStack>
+                                </HStack>
+                            </VStack>
                         </HStack>
-                        <HStack align='center' gap={12}>
-                            <HStack align='center' gap={4}>
-                                <AppIcon Icon={CalendarIcon} />
-                                <span>{article?.createdAt}</span>
-                            </HStack>
-                            <HStack align='center' gap={4}>
-                                <AppIcon Icon={EyeIcon} />
-                                <span>{article?.views}</span>
-                            </HStack>
-                        </HStack>
-                    </VStack>
-                </HStack>
-                <VStack gap={32}>{article?.blocks.map(renderBlock)}</VStack>
+                        <VStack gap={32}>{article?.blocks.map(renderBlock)}</VStack>
+                    </>
+                )}
             </VStack>
         </DynamicModuleLoader>
     );

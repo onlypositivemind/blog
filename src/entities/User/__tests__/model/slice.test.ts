@@ -1,11 +1,11 @@
-import { mockUserAuthData } from '@/shared/lib/tests/mock';
+import { userAuthDataMock } from '@/shared/lib/tests/mock';
 import { checkUserAuth } from '../../api/checkUserAuth';
 import { userActions, userReducer } from '../../model/slice';
 import type { UserSchema } from '../../model/types';
 
 describe('userSlice', () => {
     test('userActions.logout', () => {
-        const state: DeepPartial<UserSchema> = { _inited: true, authData: mockUserAuthData };
+        const state: DeepPartial<UserSchema> = { _inited: true, authData: userAuthDataMock };
 
         expect(userReducer(state as UserSchema, userActions.logout)).toEqual({
             _inited: true,
@@ -21,10 +21,10 @@ describe('userSlice', () => {
                 state as UserSchema,
                 userActions.setAuthData({
                     accessToken: 'accessToken',
-                    user: mockUserAuthData,
+                    user: userAuthDataMock,
                 }),
             ),
-        ).toEqual({ _inited: true, authData: mockUserAuthData });
+        ).toEqual({ _inited: true, authData: userAuthDataMock });
     });
 
     test('checkUserAuth.fulfilled', () => {
@@ -38,7 +38,7 @@ describe('userSlice', () => {
     });
 
     test('checkUserAuth.rejected', () => {
-        const state: DeepPartial<UserSchema> = { _inited: false, authData: mockUserAuthData };
+        const state: DeepPartial<UserSchema> = { _inited: false, authData: userAuthDataMock };
 
         expect(userReducer(state as UserSchema, checkUserAuth.rejected)).toEqual({
             _inited: true,

@@ -1,0 +1,11 @@
+{
+    "CommentFormTitle": "Your comment",
+    "CommentFormPlaceholder": "Write a comment...",
+    "Send": "Send",
+    "CommentListTitle": "Comments",
+    "EmptyCommentList": "There are no comments here yet, you can be the first!",
+    "NoAuthUserInfoTitle": "Only full-fledged users can leave comments",
+    "NoDataForCreateComment": "There were difficulties getting the data, please try again later",
+    "GetCommentsServiceError": "Failed to load comments, please try again later",
+    "CreateCommentServiceError": "Failed to create a comment, please try again later"
+}

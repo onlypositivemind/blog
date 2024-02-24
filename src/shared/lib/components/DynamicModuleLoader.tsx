@@ -1,11 +1,15 @@
 import type { Reducer } from '@reduxjs/toolkit';
 import type { ReactNode} from 'react';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { useStore } from 'react-redux';
-import type { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoreProvider';
+import type {
+    ReduxStoreWithManager,
+    StateSchema,
+    StateSchemaKey,
+} from '@/app/providers/StoreProvider';
 import { useAppDispatch } from '../hooks/useAppDispatch';
 
-export type ReducersList = {
+type ReducersList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
@@ -15,7 +19,7 @@ interface DynamicModuleLoaderProps {
     isRemovedWhenUnmounting?: boolean;
 }
 
-export const DynamicModuleLoader = ({
+const DynamicModuleLoader = ({
     children,
     reducers,
     isRemovedWhenUnmounting = true,
@@ -23,7 +27,7 @@ export const DynamicModuleLoader = ({
     const dispatch = useAppDispatch();
     const store = useStore() as ReduxStoreWithManager;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const mountedReducers = store.reducerManager.getMountedReducers();
 
         Object.entries(reducers).forEach(([name, reducer]) => {
@@ -47,3 +51,6 @@ export const DynamicModuleLoader = ({
 
     return <>{children}</>;
 };
+
+export { DynamicModuleLoader };
+export type { ReducersList };

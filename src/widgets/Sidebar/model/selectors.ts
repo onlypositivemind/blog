@@ -1,20 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { selectUserAuthData } from '@/entities/User';
-import { getRouteProfile } from '@/shared/consts';
-import { NavbarItems } from './consts';
-import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import { selectUser } from '@/entities/User';
+import { getBasicNavbarItems, getNavbarItemsForAuthUser } from '../lib/getNavbarItems';
 
-export const selectNavbarItems = createSelector(selectUserAuthData, (userData) => {
-    const result = [...NavbarItems];
+export const selectNavbarItems = createSelector(selectUser, (userData) => {
+    const basicNavbarItems = getBasicNavbarItems();
 
-    if (userData) {
-        result.push({
-            path: getRouteProfile(userData.username),
-            title: 'Profile',
-            Icon: ProfileIcon,
-            authOnly: true,
-        });
-    }
-
-    return result;
+    return userData
+        ? basicNavbarItems.concat(getNavbarItemsForAuthUser(userData))
+        : basicNavbarItems;
 });

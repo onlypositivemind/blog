@@ -19,7 +19,7 @@ const ArticlePage = () => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Article id={id} className='mb-10' />
+            <Article id={id} className='mb-11' />
             <ArticleComments articleId={id} />
         </DynamicModuleLoader>
     );

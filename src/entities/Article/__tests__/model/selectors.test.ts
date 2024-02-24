@@ -1,5 +1,5 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
-import { mockArticleData } from '@/shared/lib/tests/mock';
+import { articleMock } from '@/shared/lib/tests/mock';
 import { GET_ARTICLE_ERROR_MESSAGE } from '../../api/getArticle';
 import {
     selectArticleData,
@@ -10,17 +10,17 @@ import {
 describe('articleSelectors', () => {
     test('selectArticleData: should return data', () => {
         const state: DeepPartial<StateSchema> = {
-            article: { data: mockArticleData },
+            article: { data: articleMock },
         };
 
-        expect(selectArticleData(state as StateSchema)).toBe(mockArticleData);
+        expect(selectArticleData(state as StateSchema)).toBe(articleMock);
     });
 
     test('selectArticleData: should work with empty state', () => {
         expect(selectArticleData({} as StateSchema)).toBe(undefined);
     });
 
-    test('selectArticleIsLoading: should return error true', () => {
+    test('selectArticleIsLoading: should return true', () => {
         const state: DeepPartial<StateSchema> = {
             article: { isLoading: true },
         };

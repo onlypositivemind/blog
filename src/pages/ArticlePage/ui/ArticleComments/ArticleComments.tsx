@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import { CommentList } from '@/entities/Comment';
 import { CommentForm } from '@/features/CommentForm';
 import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
-import { VStack } from '@/shared/ui';
 import { createArticleComment } from '../../api/createArticleComment';
 import { getArticleComments } from '../../api/getArticleComments';
 import {
     selectArticlePageComments,
+    selectArticlePageCommentsCreateCommentErrorMessage,
     selectArticlePageCommentsErrorMessage,
-    selectArticlePageCommentsIsLoading,
+    selectArticlePageCommentsIsCommentsLoading,
+    selectArticlePageCommentsIsCreateCommentLoading,
 } from '../../model/selectors';
 
 interface ArticleCommentsProps {
@@ -19,12 +20,15 @@ interface ArticleCommentsProps {
 export const ArticleComments = ({ articleId }: ArticleCommentsProps) => {
     const dispatch = useAppDispatch();
     const comments = useSelector(selectArticlePageComments.selectAll);
-    const isLoading = useSelector(selectArticlePageCommentsIsLoading);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errorMessage = useSelector(selectArticlePageCommentsErrorMessage);
+    const isCommentsLoading = useSelector(selectArticlePageCommentsIsCommentsLoading);
+    const isCreateCommentLoading = useSelector(selectArticlePageCommentsIsCreateCommentLoading);
+    const commentsErrorMessage = useSelector(selectArticlePageCommentsErrorMessage);
+    const createCommentErrorMessage = useSelector(
+        selectArticlePageCommentsCreateCommentErrorMessage,
+    );
 
-    const handleSendComment = useCallback((comment: string) => {
-        dispatch(createArticleComment(comment));
+    const handleSendComment = useCallback((comment: string, resetComment?: () => void) => {
+        dispatch(createArticleComment({ comment, resetComment }));
     }, []);
 
     useAppEffect(() => {
@@ -32,14 +36,20 @@ export const ArticleComments = ({ articleId }: ArticleCommentsProps) => {
     }, [articleId]);
 
     return (
-        <VStack>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <p>Your comment</p>
-            {/* eslint-disable-next-line @typescript-eslint/no-empty-function */}
-            <CommentForm onSendComment={handleSendComment} />
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <p>Comments</p>
-            <CommentList comments={comments} isLoading={isLoading} />
-        </VStack>
+        <div>
+            <CommentForm
+                onSendComment={handleSendComment}
+                isLoading={isCommentsLoading}
+                disabled={isCreateCommentLoading}
+                errorMessage={createCommentErrorMessage}
+                className='mb-6'
+            />
+            <CommentList
+                comments={comments}
+                isLoading={isCommentsLoading}
+                isNewCommentLoading={isCreateCommentLoading}
+                errorMessage={commentsErrorMessage}
+            />
+        </div>
     );
 };

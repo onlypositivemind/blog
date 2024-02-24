@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { getRouteProfile } from '@/shared/consts';
 import { AppLink, Avatar } from '@/shared/ui';
 import type { Comment } from '../../model/types';
+import { CommentCardSkeleton } from './CommentCardSkeleton';
 import s from './CommentCard.module.scss';
 
 interface CommentCardProps extends Pick<Comment, 'text' | 'user'> {
@@ -11,8 +12,7 @@ interface CommentCardProps extends Pick<Comment, 'text' | 'user'> {
 
 export const CommentCard = ({ text, user, isLoading, className }: CommentCardProps) => {
     if (isLoading) {
-        // eslint-disable-next-line i18next/no-literal-string
-        return <p>Comment loading...</p>;
+        return <CommentCardSkeleton />;
     }
 
     return (
@@ -21,7 +21,7 @@ export const CommentCard = ({ text, user, isLoading, className }: CommentCardPro
                 <Avatar size={40} src={user.avatar} />
                 <span>{user.username}</span>
             </AppLink>
-            <p>{text}</p>
+            <p className={s.comment}>{text}</p>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import { mockArticleData } from '@/shared/lib/tests/mock';
+import { articleMock } from '@/shared/lib/tests/mock';
 import { GET_ARTICLE_ERROR_MESSAGE, getArticle } from '../../api/getArticle';
 import { articleReducer } from '../../model/slice';
 import type { ArticleSchema } from '../../model/types/articleSchema';
@@ -24,11 +24,11 @@ describe('articleSlice', () => {
         expect(
             articleReducer(state as ArticleSchema, {
                 type: getArticle.fulfilled,
-                payload: mockArticleData,
+                payload: articleMock,
             }),
         ).toEqual({
             isLoading: false,
-            data: mockArticleData,
+            data: articleMock,
         });
     });
 

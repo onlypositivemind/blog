@@ -1,30 +1,24 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
-import { getRouteProfile } from '@/shared/consts';
-import { NavbarItems } from '../../model/consts';
+import { userAuthDataMock } from '@/shared/lib/tests/mock';
+import { getBasicNavbarItems, getNavbarItemsForAuthUser } from '../../lib/getNavbarItems';
 import { selectNavbarItems } from '../../model/selectors';
-import ProfileIcon from '@/shared/assets/icons/profile.svg';
 
 describe('navbarSelectors', () => {
-    test('selectNavbarItems: should return shared items', () => {
+    test('selectNavbarItems: should return basic nav items', () => {
         const state: DeepPartial<StateSchema> = {
             user: { authData: undefined },
         };
 
-        expect(selectNavbarItems(state as StateSchema)).toEqual(NavbarItems);
+        expect(selectNavbarItems(state as StateSchema)).toEqual(getBasicNavbarItems());
     });
 
-    test('selectNavbarItems: should return shared and user pages', () => {
+    test('selectNavbarItems: should return basic and user nav items', () => {
         const state: DeepPartial<StateSchema> = {
-            user: { authData: { username: 'admin' } },
+            user: { authData: userAuthDataMock },
         };
 
         expect(selectNavbarItems(state as StateSchema)).toEqual(
-            NavbarItems.concat({
-                path: getRouteProfile('admin'),
-                title: 'Profile',
-                Icon: ProfileIcon,
-                authOnly: true,
-            }),
+            getBasicNavbarItems().concat(getNavbarItemsForAuthUser(userAuthDataMock)),
         );
     });
 });

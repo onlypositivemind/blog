@@ -1,5 +1,5 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
-import { mockProfileData } from '@/shared/lib/tests/mock';
+import { profileMock } from '@/shared/lib/tests/mock';
 import { ProfileValidationError } from '../../model/consts';
 import {
     selectEditableProfileCardData,
@@ -52,10 +52,10 @@ describe('editableProfileCardSelectors', () => {
 
     test('selectEditableProfileCardData: should return mockProfileData', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfileCard: { data: mockProfileData },
+            editableProfileCard: { data: profileMock },
         };
 
-        expect(selectEditableProfileCardData(state as StateSchema)).toEqual(mockProfileData);
+        expect(selectEditableProfileCardData(state as StateSchema)).toEqual(profileMock);
     });
 
     test('selectEditableProfileCardData: should work with empty state', () => {
@@ -64,10 +64,10 @@ describe('editableProfileCardSelectors', () => {
 
     test('selectEditableProfileCardFormData: should return profileCardFormData', () => {
         const state: DeepPartial<StateSchema> = {
-            editableProfileCard: { form: mockProfileData },
+            editableProfileCard: { form: profileMock },
         };
 
-        expect(selectEditableProfileCardFormData(state as StateSchema)).toEqual(mockProfileData);
+        expect(selectEditableProfileCardFormData(state as StateSchema)).toEqual(profileMock);
     });
 
     test('selectEditableProfileCardFormData: should work with empty state', () => {

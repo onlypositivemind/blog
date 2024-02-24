@@ -1,0 +1,21 @@
+.title {
+    font-weight: 500;
+}
+
+.commentsQty {
+    font-weight: 500;
+    font-size: var(--font-size-l);
+    color: var(--blue);
+}
+
+.empty {
+    padding: 12px;
+    text-align: center;
+    color: var(--grey);
+}
+
+.errorMessage {
+    font-size: var(--font-size-s);
+    text-align: center;
+    color: var(--red);
+}

@@ -6,7 +6,7 @@ import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 const GET_PROFILE_ERROR_MESSAGE = 'GetProfileServiceError';
 
 const getProfile = createAsyncThunk<Profile, string, ThunkConfig<string>>(
-    'EditableProfileCard/getProfile',
+    'editableProfileCard/getProfile',
     async (username, { extra, rejectWithValue }) => {
         try {
             // data массив из-за того, что получаю профиль через params - username

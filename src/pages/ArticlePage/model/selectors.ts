@@ -5,14 +5,22 @@ const selectArticlePageComments = articlePageCommentsAdapter.getSelectors<StateS
     (state) => state.articlePage?.comments || articlePageCommentsAdapter.getInitialState(),
 );
 
-const selectArticlePageCommentsIsLoading = (state: StateSchema) =>
-    state.articlePage?.comments.isLoading;
+const selectArticlePageCommentsIsCommentsLoading = (state: StateSchema) =>
+    state.articlePage?.comments.isCommentsLoading;
 
 const selectArticlePageCommentsErrorMessage = (state: StateSchema) =>
-    state.articlePage?.comments.errorMessage;
+    state.articlePage?.comments.commentsErrorMessage;
+
+const selectArticlePageCommentsIsCreateCommentLoading = (state: StateSchema) =>
+    state.articlePage?.comments.isCreateCommentLoading;
+
+const selectArticlePageCommentsCreateCommentErrorMessage = (state: StateSchema) =>
+    state.articlePage?.comments.createCommentErrorMessage;
 
 export {
     selectArticlePageComments,
-    selectArticlePageCommentsIsLoading,
+    selectArticlePageCommentsIsCommentsLoading,
     selectArticlePageCommentsErrorMessage,
+    selectArticlePageCommentsIsCreateCommentLoading,
+    selectArticlePageCommentsCreateCommentErrorMessage,
 };

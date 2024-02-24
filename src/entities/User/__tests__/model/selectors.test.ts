@@ -1,6 +1,6 @@
 import type { StateSchema } from '@/app/providers/StoreProvider';
-import { mockUserAuthData } from '@/shared/lib/tests/mock';
-import { selectUserAuthData, selectUserInited } from '../../model/selectors';
+import { userAuthDataMock } from '@/shared/lib/tests/mock';
+import { selectUser, selectUserInited } from '../../model/selectors';
 
 describe('userSelectors', () => {
     test('selectUserInited: should return true', () => {
@@ -17,13 +17,13 @@ describe('userSelectors', () => {
 
     test('selectUserAuthData: should return error message', () => {
         const state: DeepPartial<StateSchema> = {
-            user: { authData: mockUserAuthData },
+            user: { authData: userAuthDataMock },
         };
 
-        expect(selectUserAuthData(state as StateSchema)).toEqual(mockUserAuthData);
+        expect(selectUser(state as StateSchema)).toEqual(userAuthDataMock);
     });
 
     test('selectUserAuthData: should work with empty state', () => {
-        expect(selectUserAuthData({} as StateSchema)).toBe(undefined);
+        expect(selectUser({} as StateSchema)).toBe(undefined);
     });
 });

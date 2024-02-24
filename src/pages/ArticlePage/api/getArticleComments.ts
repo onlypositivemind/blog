@@ -3,7 +3,7 @@ import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import type { Comment } from '@/entities/Comment';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 
-const GET_ARTICLE_COMMENTS_ERROR_MESSAGE = 'GetArticleCommentsServiceError';
+const GET_ARTICLE_COMMENTS_ERROR_MESSAGE = 'GetCommentsServiceError';
 
 const getArticleComments = createAsyncThunk<Comment[], string, ThunkConfig<string>>(
     'articlePage/getArticleComments',

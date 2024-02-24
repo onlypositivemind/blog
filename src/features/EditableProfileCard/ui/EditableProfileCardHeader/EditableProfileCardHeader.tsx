@@ -1,7 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { selectUserAuthData } from '@/entities/User';
+import { selectUser } from '@/entities/User';
 import { I18nNamespace } from '@/shared/consts';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { AppIcon, Avatar, Button, HStack, VStack } from '@/shared/ui';
@@ -23,9 +23,9 @@ const EditableProfileCardHeaderComponent = ({
 }: EditableProfileCardHeaderProps) => {
     const { t } = useTranslation(I18nNamespace.PROFILE);
     const dispatch = useAppDispatch();
-    const authData = useSelector(selectUserAuthData);
+    const user = useSelector(selectUser);
 
-    const hasEdit = useMemo(() => authData && authData.username === username, [authData, username]);
+    const hasEdit = useMemo(() => user && user.username === username, [user, username]);
 
     const handleClickEdit = useCallback(() => {
         dispatch(editableProfileCardActions.setReadonly(false));

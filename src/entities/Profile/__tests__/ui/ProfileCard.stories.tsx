@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CenterElementDecorator } from '@/shared/config/storybook';
-import { sbProfileData } from '@/shared/lib/tests/storybook';
+import { sbProfileMock } from '@/shared/lib/tests/storybook';
 import { ProfileCard } from '../../ui/ProfileCard';
 
 export default {
@@ -13,7 +13,7 @@ export default {
 const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Default = Template.bind({});
-Default.args = { data: sbProfileData };
+Default.args = { data: sbProfileMock };
 
 export const Loading = Template.bind({});
 Loading.args = { isLoading: true };

@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { Article } from '@/entities/Article/model/types/article';
+import type { Article } from '@/entities/Article/model/types/article';
 
-export const mockArticleData: Article = {
+export const articleMock: Article = {
     id: '1',
     title: 'JavaScript новости',
     subtitle: 'Что нового в JS за 2023 год?',

@@ -2,7 +2,7 @@ import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
 import { logoutUser } from '../../api/logoutUser';
 
-describe('logoutUser AsyncThunk', () => {
+describe('user/logoutUser AsyncThunk', () => {
     test('should be fulfilled', async () => {
         const thunk = new TestAsyncThunk(logoutUser);
         thunk.api.post.mockReturnValue(Promise.resolve());

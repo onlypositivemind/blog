@@ -1,5 +1,5 @@
 import type { EditableProfileCardSchema } from '@/features/EditableProfileCard';
-import { mockProfileData } from '@/shared/lib/tests/mock';
+import { profileMock } from '@/shared/lib/tests/mock';
 import { getProfile } from '../../api/getProfile';
 import { updateProfile } from '../../api/updateProfile';
 import { ProfileValidationError } from '../../model/consts';
@@ -12,7 +12,7 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: false,
             isReadonly: false,
-            data: mockProfileData,
+            data: profileMock,
             errorMessage,
             validationErrors: [],
         };
@@ -22,7 +22,7 @@ describe('editableProfileCardSlice', () => {
             isReadonly: true,
             errorMessage: undefined,
             validationErrors: undefined,
-            data: mockProfileData,
+            data: profileMock,
         };
 
         expect(
@@ -46,8 +46,8 @@ describe('editableProfileCardSlice', () => {
         const result: EditableProfileCardSchema = {
             isLoading: false,
             isReadonly: true,
-            data: mockProfileData,
-            form: mockProfileData,
+            data: profileMock,
+            form: profileMock,
             errorMessage: undefined,
             validationErrors: undefined,
         };
@@ -55,14 +55,14 @@ describe('editableProfileCardSlice', () => {
         expect(
             editableProfileCardReducer(state as EditableProfileCardSchema, {
                 type: getProfile.fulfilled.type,
-                payload: mockProfileData,
+                payload: profileMock,
             }),
         ).toEqual(result);
 
         expect(
             editableProfileCardReducer(state as EditableProfileCardSchema, {
                 type: updateProfile.fulfilled.type,
-                payload: mockProfileData,
+                payload: profileMock,
             }),
         ).toEqual(result);
     });
@@ -107,8 +107,8 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: false,
-            data: mockProfileData,
-            form: mockProfileData,
+            data: profileMock,
+            form: profileMock,
             errorMessage: undefined,
         };
 
@@ -130,8 +130,8 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: false,
-            data: mockProfileData,
-            form: mockProfileData,
+            data: profileMock,
+            form: profileMock,
             errorMessage: undefined,
         };
 
@@ -152,8 +152,8 @@ describe('editableProfileCardSlice', () => {
         const state: DeepPartial<EditableProfileCardSchema> = {
             isLoading: true,
             isReadonly: false,
-            data: mockProfileData,
-            form: mockProfileData,
+            data: profileMock,
+            form: profileMock,
             errorMessage: undefined,
             validationErrors: undefined,
         };

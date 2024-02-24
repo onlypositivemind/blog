@@ -21,32 +21,42 @@ const articlePageCommentsSlice = createSlice({
     initialState: articlePageCommentsAdapter.getInitialState<ArticlePageCommentsSchema>({
         ids: [],
         entities: {},
-        isLoading: false,
+        isCommentsLoading: false,
+        isCreateCommentLoading: false,
     }),
     reducers: {},
     extraReducers: (builder) =>
         builder
             .addCase(getArticleComments.pending, (state) => {
-                state.isLoading = true;
-                state.errorMessage = undefined;
+                state.isCommentsLoading = true;
+                state.commentsErrorMessage = undefined;
             })
             .addCase(
                 getArticleComments.fulfilled,
                 (state, { payload }: PayloadAction<Comment[]>) => {
-                    state.isLoading = false;
+                    state.isCommentsLoading = false;
                     articlePageCommentsAdapter.setAll(state, payload);
                 },
             )
             .addCase(getArticleComments.rejected, (state, { payload }) => {
-                state.isLoading = false;
-                state.errorMessage = payload;
+                state.isCommentsLoading = false;
+                state.commentsErrorMessage = payload;
+            })
+            .addCase(createArticleComment.pending, (state) => {
+                state.isCreateCommentLoading = true;
+                state.createCommentErrorMessage = undefined;
             })
             .addCase(
                 createArticleComment.fulfilled,
                 (state, { payload }: PayloadAction<Comment>) => {
+                    state.isCreateCommentLoading = false;
                     articlePageCommentsAdapter.setOne(state, payload);
                 },
-            ),
+            )
+            .addCase(createArticleComment.rejected, (state, { payload }) => {
+                state.isCreateCommentLoading = false;
+                state.createCommentErrorMessage = payload;
+            }),
 });
 
 const articlePageReducer = combineReducers<ArticlePageSchema>({

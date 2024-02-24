@@ -3,5 +3,6 @@
 /.idea
 /storybook-static
 /reports
+/coverage
 
 todo.txt

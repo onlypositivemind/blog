@@ -1,5 +1,11 @@
-export const getRouteHome = () => '/';
-export const getRouteAbout = () => '/about';
-export const getRouteArticles = () => '/articles';
-export const getRouteArticle = (id: string) => `/articles/${id}`;
-export const getRouteProfile = (username: string) => `/profile/${username}`;
+const getRouteHome = () => '/';
+
+const getRouteAbout = () => '/about';
+
+const getRouteArticles = () => '/articles';
+
+const getRouteArticle = (id: string) => `/articles/${id}`;
+
+const getRouteProfile = (username: string) => `/profile/${username}`;
+
+export { getRouteHome, getRouteAbout, getRouteArticles, getRouteArticle, getRouteProfile };

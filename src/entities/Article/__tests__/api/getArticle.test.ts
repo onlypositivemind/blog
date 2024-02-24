@@ -1,18 +1,18 @@
 import { TestAsyncThunk } from '@/shared/lib/tests';
-import { mockArticleData } from '@/shared/lib/tests/mock';
+import { articleMock } from '@/shared/lib/tests/mock';
 import { GET_ARTICLE_ERROR_MESSAGE, getArticle } from '../../api/getArticle';
 
-describe('getArticle AsyncThunk', () => {
+describe('article/getArticle AsyncThunk', () => {
     test('should be fulfilled', async () => {
         const thunk = new TestAsyncThunk(getArticle);
-        thunk.api.get.mockReturnValue(Promise.resolve({ data: mockArticleData }));
+        thunk.api.get.mockReturnValue(Promise.resolve({ data: articleMock }));
 
         const result = await thunk.callThunk('1');
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(result.payload).toEqual(mockArticleData);
+        expect(result.payload).toEqual(articleMock);
     });
 
     test('should be rejected', async () => {

@@ -1,6 +1,34 @@
-.pole {
-    padding: 8px;
+.formTitle,
+.noAuthTitle {
+    font-weight: 500;
+}
+
+.formTitle {
+    margin-bottom: 12px;
+}
+
+.commentField,
+.noAuthTitle {
+    border: 1px solid var(--blue);
+    border-radius: var(--radius-xs);
+    padding: 12px;
+}
+
+.commentField {
+    margin-bottom: 4px;
     width: 100%;
     min-height: 80px;
+    max-height: 400px;
     font-size: var(--font-size-m);
+    resize: vertical;
+}
+
+.noAuthTitle {
+    text-align: center;
+}
+
+.errorMessage {
+    margin-bottom: 4px;
+    font-size: var(--font-size-s);
+    color: var(--red);
 }

@@ -1,6 +1,6 @@
 import type { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook';
-import { sbProfileData } from '@/shared/lib/tests/storybook';
+import { sbProfileMock } from '@/shared/lib/tests/storybook';
 import ProfilePage from '../../ui/ProfilePage';
 
 export default {
@@ -13,6 +13,6 @@ const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 export const Story = Template.bind({});
 Story.decorators = [
     StoreDecorator({
-        editableProfileCard: { data: sbProfileData, form: sbProfileData, isReadonly: true },
+        editableProfileCard: { data: sbProfileMock, form: sbProfileMock, isReadonly: true },
     }),
 ];

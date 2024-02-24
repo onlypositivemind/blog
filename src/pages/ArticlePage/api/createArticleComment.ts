@@ -2,39 +2,52 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { ThunkConfig } from '@/app/providers/StoreProvider';
 import { selectArticleData } from '@/entities/Article';
 import type { Comment } from '@/entities/Comment';
-import { selectUserAuthData } from '@/entities/User';
+import { selectUser } from '@/entities/User';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 
-const CREATE_ARTICLE_COMMENT_ERROR_MESSAGE = 'CreateArticleCommentServiceError';
+interface CreateArticleCommentProps {
+    comment: string;
+    resetComment?: () => void;
+}
 
-const createArticleComment = createAsyncThunk<Comment, string, ThunkConfig<string>>(
-    'articlePage/createArticleComment',
-    async (comment, { extra, rejectWithValue, getState }) => {
-        const userAuthData = selectUserAuthData(getState());
-        const article = selectArticleData(getState());
+const CREATE_ARTICLE_COMMENT_ERROR_MESSAGE = 'CreateCommentServiceError';
+const CREATE_ARTICLE_COMMENT_NO_DATA_ERROR_MESSAGE = 'NoDataForCreateComment';
 
-        if (!userAuthData || !article) {
-            return rejectWithValue('@@articlePage/createArticleComment: No data');
-        }
+const createArticleComment = createAsyncThunk<
+    Comment,
+    CreateArticleCommentProps,
+    ThunkConfig<string>
+>('articlePage/createArticleComment', async (props, { extra, rejectWithValue, getState }) => {
+    const userAuthData = selectUser(getState());
+    const article = selectArticleData(getState());
 
-        try {
-            const { data } = await extra.api.post<Comment>('/articlesComments', {
-                articleId: article.id,
-                userId: userAuthData.id,
-                text: comment,
-            });
+    if (!userAuthData || !article) {
+        return rejectWithValue(CREATE_ARTICLE_COMMENT_NO_DATA_ERROR_MESSAGE);
+    }
 
-            return {
-                id: data.id,
-                text: comment,
-                user: { username: userAuthData.username, avatar: userAuthData.avatar },
-            };
-        } catch (err) {
-            return rejectWithValue(
-                getErrorMessageAsyncThunk(err, CREATE_ARTICLE_COMMENT_ERROR_MESSAGE),
-            );
-        }
-    },
-);
+    try {
+        const { data } = await extra.api.post<Comment>('/articlesComments', {
+            articleId: article.id,
+            userId: userAuthData.id,
+            text: props.comment,
+        });
 
-export { CREATE_ARTICLE_COMMENT_ERROR_MESSAGE, createArticleComment };
+        props.resetComment?.();
+
+        return {
+            id: data.id,
+            text: props.comment,
+            user: { username: userAuthData.username, avatar: userAuthData.avatar },
+        };
+    } catch (err) {
+        return rejectWithValue(
+            getErrorMessageAsyncThunk(err, CREATE_ARTICLE_COMMENT_ERROR_MESSAGE),
+        );
+    }
+});
+
+export {
+    CREATE_ARTICLE_COMMENT_ERROR_MESSAGE,
+    CREATE_ARTICLE_COMMENT_NO_DATA_ERROR_MESSAGE,
+    createArticleComment,
+};

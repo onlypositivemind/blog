@@ -1,7 +1,7 @@
 import type { Profile } from '@/entities/Profile';
 import mockAvatar from '../../../assets/tests/mockAvatar.jpg';
 
-export const sbProfileData: Profile = {
+const sbProfileMock: Profile = {
     id: '1',
     email: 'admin@gmail.com',
     username: 'admin',
@@ -12,3 +12,5 @@ export const sbProfileData: Profile = {
     country: 'Russia',
     avatar: mockAvatar,
 };
+
+export { sbProfileMock };

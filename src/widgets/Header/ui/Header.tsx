@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { logoutUser, selectUserAuthData } from '@/entities/User';
+import { logoutUser, selectUser } from '@/entities/User';
 import type { AuthModalView } from '@/widgets/AuthModal';
 import { AuthModal } from '@/widgets/AuthModal';
 import { useAppDispatch } from '@/shared/lib/hooks';
@@ -11,7 +11,7 @@ import s from './Header.module.scss';
 export const Header = () => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const authData = useSelector(selectUserAuthData);
+    const user = useSelector(selectUser);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [currentModal, setCurrentModal] = useState<AuthModalView>(null);
 
@@ -39,7 +39,7 @@ export const Header = () => {
     return (
         <HStack as='header' align='center' justify='between' className={s.header}>
             <Logo theme='white' />
-            {authData ? (
+            {user ? (
                 <Button onClick={handleClickLogout} theme='clear_white'>
                     {t('SignOut')}
                 </Button>

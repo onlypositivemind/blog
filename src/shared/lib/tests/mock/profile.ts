@@ -1,6 +1,6 @@
 import type { Profile } from '@/entities/Profile';
 
-export const mockProfileData: Profile = {
+const profileMock: Profile = {
     id: '1',
     email: 'admin@gmail.com',
     username: 'admin',
@@ -12,7 +12,7 @@ export const mockProfileData: Profile = {
     avatar: 'https://avatars.githubusercontent.com/u/109303573?v=4',
 };
 
-export const mockInvalidProfileData: Profile = {
+const invalidProfileMock: Profile = {
     email: 'invalid-email',
     username: 'ab',
     avatar: 'invalid-avatar-link',
@@ -20,3 +20,5 @@ export const mockInvalidProfileData: Profile = {
     lastname: '',
     age: 15,
 };
+
+export { profileMock, invalidProfileMock };
