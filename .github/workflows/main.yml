@@ -46,5 +46,5 @@ jobs:
                     token: ${{ secrets.TELEGRAM_TOKEN }}
                     message: |
                         ${{ github.actor }} created commit: ${{ github.event.commits[0].message }}
-                        
+
                         See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
