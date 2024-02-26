@@ -1,5 +1,5 @@
 import type { Reducer } from '@reduxjs/toolkit';
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import { useLayoutEffect } from 'react';
 import { useStore } from 'react-redux';
 import type {

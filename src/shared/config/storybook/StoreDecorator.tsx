@@ -1,5 +1,5 @@
 import type { Story } from '@storybook/react';
-import type { StateSchema} from '@/app/providers/StoreProvider';
+import type { StateSchema } from '@/app/providers/StoreProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { articleReducer } from '@/entities/Article/model/slice';
 import { userReducer } from '@/entities/User';

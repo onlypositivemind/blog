@@ -1,4 +1,4 @@
-import type { ImgHTMLAttributes, ReactElement} from 'react';
+import type { ImgHTMLAttributes, ReactElement } from 'react';
 import { memo, useLayoutEffect, useState } from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {

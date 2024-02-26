@@ -1,14 +1,6 @@
 import cn from 'classnames';
-import type {
-    ChangeEvent,
-    CSSProperties,
-    InputHTMLAttributes} from 'react';
-import {
-    memo,
-    useEffect,
-    useMemo,
-    useRef,
-} from 'react';
+import type { ChangeEvent, CSSProperties, InputHTMLAttributes } from 'react';
+import { memo, useEffect, useMemo, useRef } from 'react';
 import { Button } from '@/shared/ui';
 import ClearIcon from '@/shared/assets/icons/closeCircle.svg';
 import s from '../Inputs.module.scss';

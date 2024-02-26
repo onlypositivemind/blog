@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import type { MouseEvent, ReactNode} from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { AppIcon, Button } from '@/shared/ui';
 import { Portal } from '../Portal/Portal';

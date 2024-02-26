@@ -1,4 +1,4 @@
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { LocalStorage } from '@/shared/consts';
 import { ThemeContext } from '@/shared/lib/context/themeContext';

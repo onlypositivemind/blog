@@ -12,7 +12,7 @@ interface LangSwitcherProps {
 
 const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
     const { activeLanguage, toggleLanguage } = useLanguage();
-    
+
     const LangIcon = activeLanguage === 'ru' ? EnFlagIcon : RuFlagIcon;
 
     return (
