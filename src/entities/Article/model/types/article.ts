@@ -1,3 +1,4 @@
+import type { DateTimeUTC } from '@/shared/types';
 import type { ArticleBlock } from './articleBlock';
 import type { ArticleCategory } from './articleCategory';
 
@@ -7,7 +8,7 @@ export interface Article {
     subtitle: string;
     image: string;
     views: number;
-    createdAt: string;
+    createdAt: DateTimeUTC;
     categories: ArticleCategory[];
     blocks: ArticleBlock[];
 }

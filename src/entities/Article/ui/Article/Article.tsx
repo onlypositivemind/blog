@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { I18nNamespace } from '@/shared/consts';
+import { DateTimeFormatOptions, I18nNamespace } from '@/shared/consts';
 import type { ReducersList } from '@/shared/lib/components';
 import { DynamicModuleLoader } from '@/shared/lib/components';
-import { useAppDispatch, useAppEffect } from '@/shared/lib/hooks';
-import { exhaustiveCheck } from '@/shared/lib/utils';
+import { useAppDispatch, useAppEffect, useLanguage } from '@/shared/lib/hooks';
+import { dateTimeFormat, exhaustiveCheck } from '@/shared/lib/utils';
 import { AppIcon, Avatar, HStack, VStack } from '@/shared/ui';
 import { getArticle } from '../../api/getArticle';
 import {
@@ -47,6 +47,7 @@ const renderBlock = (block: ArticleBlock) => {
 
 export const Article = ({ id, className }: ArticleProps) => {
     const { t } = useTranslation(I18nNamespace.ARTICLE);
+    const { currentLanguage } = useLanguage();
     const dispatch = useAppDispatch();
     const article = useSelector(selectArticleData);
     const isLoading = useSelector(selectArticleIsLoading);
@@ -67,30 +68,36 @@ export const Article = ({ id, className }: ArticleProps) => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <VStack as='article' className={className}>
-                {isLoading ? (
+                {isLoading || !article ? (
                     <ArticleSkeleton />
                 ) : (
                     <>
                         <HStack align='center' justify='center' gap={16} className='mb-6'>
-                            <Avatar src={article?.image} size={160} />
+                            <Avatar src={article.image} size={160} />
                             <VStack>
                                 <VStack gap={4} className={s.title}>
-                                    <h1>{article?.title}</h1>
-                                    <span>{article?.subtitle}</span>
+                                    <h1>{article.title}</h1>
+                                    <span>{article.subtitle}</span>
                                 </VStack>
-                                <HStack align='center' gap={12}>
+                                <VStack gap={4}>
                                     <HStack align='center' gap={4}>
                                         <AppIcon Icon={CalendarIcon} />
-                                        <span>{article?.createdAt}</span>
+                                        <span>
+                                            {dateTimeFormat({
+                                                date: article.createdAt,
+                                                lang: currentLanguage,
+                                                options: DateTimeFormatOptions.FULL_LONG,
+                                            })}
+                                        </span>
                                     </HStack>
                                     <HStack align='center' gap={4}>
                                         <AppIcon Icon={EyeIcon} />
-                                        <span>{article?.views}</span>
+                                        <span>{article.views}</span>
                                     </HStack>
-                                </HStack>
+                                </VStack>
                             </VStack>
                         </HStack>
-                        <VStack gap={32}>{article?.blocks.map(renderBlock)}</VStack>
+                        <VStack gap={32}>{article.blocks.map(renderBlock)}</VStack>
                     </>
                 )}
             </VStack>

@@ -9,7 +9,11 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
+}
+
+.date {
+    font-size: var(--font-size-s);
+    color: var(--grey);
 }
 
 .comment {

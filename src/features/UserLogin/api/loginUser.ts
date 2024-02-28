@@ -5,14 +5,14 @@ import { AUTH_ENDPOINT } from '@/shared/consts';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 import type { AuthResponse } from '@/shared/types';
 
-interface LoginUserProps {
+interface LoginUserParams {
     username: string;
     password: string;
 }
 
 const LOGIN_USER_ERROR_MESSAGE = 'LoginUserServiceError';
 
-const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<string>>(
+const loginUser = createAsyncThunk<AuthResponse, LoginUserParams, ThunkConfig<string>>(
     'login/loginUser',
     async (loginData, { dispatch, extra, rejectWithValue }) => {
         try {
@@ -30,4 +30,4 @@ const loginUser = createAsyncThunk<AuthResponse, LoginUserProps, ThunkConfig<str
 );
 
 export { LOGIN_USER_ERROR_MESSAGE, loginUser };
-export type { LoginUserProps };
+export type { LoginUserParams };

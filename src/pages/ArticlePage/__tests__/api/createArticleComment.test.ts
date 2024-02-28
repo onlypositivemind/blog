@@ -17,6 +17,7 @@ const commentText = 'Some comment';
 
 const commentResponse: Comment = {
     id: 123,
+    createdAt: '2222-02-22T00:00:00.000Z',
     text: commentText,
     user: { username: userAuthDataMock.username, avatar: userAuthDataMock.avatar },
 };

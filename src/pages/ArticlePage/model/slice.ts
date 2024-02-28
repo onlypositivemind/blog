@@ -55,7 +55,7 @@ const articlePageCommentsSlice = createSlice({
             )
             .addCase(createArticleComment.rejected, (state, { payload }) => {
                 state.isCreateCommentLoading = false;
-                state.createCommentErrorMessage = payload;
+                state.createCommentErrorMessage = payload as string;
             }),
 });
 

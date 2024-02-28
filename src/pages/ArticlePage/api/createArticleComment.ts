@@ -30,12 +30,14 @@ const createArticleComment = createAsyncThunk<
             articleId: article.id,
             userId: userAuthData.id,
             text: props.comment,
+            createdAt: new Date(),
         });
 
         props.resetComment?.();
 
         return {
             id: data.id,
+            createdAt: data.createdAt,
             text: props.comment,
             user: { username: userAuthData.username, avatar: userAuthData.avatar },
         };

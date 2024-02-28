@@ -2,7 +2,7 @@ import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
 import { userAuthDataMock } from '@/shared/lib/tests/mock';
 import type { AuthResponse } from '@/shared/types';
-import type { LoginUserProps } from '../../api/loginUser';
+import type { LoginUserParams } from '../../api/loginUser';
 import { LOGIN_USER_ERROR_MESSAGE, loginUser } from '../../api/loginUser';
 
 const loginUserResponse: AuthResponse = {
@@ -10,7 +10,7 @@ const loginUserResponse: AuthResponse = {
     user: userAuthDataMock,
 };
 
-const userLoginData: LoginUserProps = { username: userAuthDataMock.username, password: 'admin' };
+const userLoginData: LoginUserParams = { username: userAuthDataMock.username, password: 'admin' };
 
 describe('login/loginUser AsyncThunk', () => {
     test('should be fulfilled', async () => {

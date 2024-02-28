@@ -11,9 +11,9 @@ interface LangSwitcherProps {
 }
 
 const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
-    const { activeLanguage, toggleLanguage } = useLanguage();
+    const { currentLanguage, toggleLanguage } = useLanguage();
 
-    const LangIcon = activeLanguage === 'ru' ? EnFlagIcon : RuFlagIcon;
+    const LangIcon = currentLanguage === 'ru' ? EnFlagIcon : RuFlagIcon;
 
     return (
         <Button

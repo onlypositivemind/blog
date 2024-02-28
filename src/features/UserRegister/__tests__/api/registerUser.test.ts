@@ -2,7 +2,7 @@ import { userActions } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests';
 import { userAuthDataMock } from '@/shared/lib/tests/mock';
 import type { AuthResponse } from '@/shared/types';
-import type { RegisterUserProps } from '../../api/registerUser';
+import type { RegisterUserParams } from '../../api/registerUser';
 import { REGISTER_USER_ERROR_MESSAGE, registerUser } from '../../api/registerUser';
 
 const registerUserResponse: AuthResponse = {
@@ -10,7 +10,7 @@ const registerUserResponse: AuthResponse = {
     user: userAuthDataMock,
 };
 
-const userRegisterData: RegisterUserProps = {
+const userRegisterData: RegisterUserParams = {
     username: userAuthDataMock.username,
     email: userAuthDataMock.email,
     password: 'admin',

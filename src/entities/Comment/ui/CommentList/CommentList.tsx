@@ -49,8 +49,8 @@ export const CommentList = ({
                 {isLoading ? (
                     <CommentListSkeleton />
                 ) : isCommentsExist ? (
-                    comments.map(({ id, text, user }) => (
-                        <CommentCard key={id} text={text} user={user} />
+                    comments.map(({ id, createdAt, text, user }) => (
+                        <CommentCard key={id} createdAt={createdAt} text={text} user={user} />
                     ))
                 ) : (
                     <p className={s.empty}>{t('EmptyCommentList')}</p>

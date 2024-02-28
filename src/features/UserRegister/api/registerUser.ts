@@ -5,7 +5,7 @@ import { AUTH_ENDPOINT } from '@/shared/consts';
 import { getErrorMessageAsyncThunk } from '@/shared/lib/utils';
 import type { AuthResponse } from '@/shared/types';
 
-interface RegisterUserProps {
+interface RegisterUserParams {
     username: string;
     email: string;
     password: string;
@@ -13,7 +13,7 @@ interface RegisterUserProps {
 
 const REGISTER_USER_ERROR_MESSAGE = 'RegisterUserServiceError';
 
-const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConfig<string>>(
+const registerUser = createAsyncThunk<AuthResponse, RegisterUserParams, ThunkConfig<string>>(
     'register/registerUser',
     async (registerData, { dispatch, extra, rejectWithValue }) => {
         try {
@@ -31,4 +31,4 @@ const registerUser = createAsyncThunk<AuthResponse, RegisterUserProps, ThunkConf
 );
 
 export { REGISTER_USER_ERROR_MESSAGE, registerUser };
-export type { RegisterUserProps };
+export type { RegisterUserParams };
