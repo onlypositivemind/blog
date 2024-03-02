@@ -22,7 +22,7 @@ const registerSlice = createSlice({
             })
             .addCase(registerUser.rejected, (state, { payload }) => {
                 state.isLoading = false;
-                state.errorMessage = payload;
+                state.errorMessage = payload as string;
             });
     },
 });

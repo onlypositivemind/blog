@@ -22,7 +22,7 @@ const loginSlice = createSlice({
             })
             .addCase(loginUser.rejected, (state, { payload }) => {
                 state.isLoading = false;
-                state.errorMessage = payload;
+                state.errorMessage = payload as string;
             });
     },
 });

@@ -70,7 +70,7 @@ export const Modal = ({
                         style={{ maxWidth: width || '50%' }}
                     >
                         {children}
-                        <Button onClick={onClose} className={s.closeBtn}>
+                        <Button onClick={onClose} aria-label='To close' className={s.closeBtn}>
                             <AppIcon Icon={CloseIcon} size='xs' />
                         </Button>
                     </div>

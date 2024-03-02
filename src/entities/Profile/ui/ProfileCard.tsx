@@ -51,61 +51,82 @@ const ProfileCardComponent = ({
     }
 
     return (
-        <VStack align='center' gap={16} className={cn(className, { [s.editing]: !isReadonly })}>
+        <VStack
+            as='dl'
+            align='center'
+            gap={16}
+            className={cn(className, { [s.editing]: !isReadonly })}
+        >
             <div className={s.fieldBlock}>
-                <p>{t('Email')}</p>
-                <Input
-                    type='email'
-                    value={data?.email}
-                    onChange={onChangeEmail}
-                    readOnly={isReadonly}
-                />
+                <dt>{t('Email')}</dt>
+                <dd>
+                    <Input
+                        type='email'
+                        value={data?.email}
+                        onChange={onChangeEmail}
+                        readOnly={isReadonly}
+                    />
+                </dd>
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Username')}</p>
+                <dt>{t('Username')}</dt>
                 <Input value={data?.username} onChange={onChangeUsername} readOnly={isReadonly} />
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Avatar')}</p>
-                <Input
-                    type='url'
-                    value={data?.avatar}
-                    onChange={onChangeAvatar}
-                    readOnly={isReadonly}
-                />
+                <dt>{t('Avatar')}</dt>
+                <dd>
+                    <Input
+                        type='url'
+                        value={data?.avatar}
+                        onChange={onChangeAvatar}
+                        readOnly={isReadonly}
+                    />
+                </dd>
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Firstname')}</p>
-                <Input value={data?.firstname} onChange={onChangeFirstname} readOnly={isReadonly} />
+                <dt>{t('Firstname')}</dt>
+                <dd>
+                    <Input
+                        value={data?.firstname}
+                        onChange={onChangeFirstname}
+                        readOnly={isReadonly}
+                    />
+                </dd>
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Surname')}</p>
+                <dt>{t('Surname')}</dt>
                 <Input value={data?.lastname} onChange={onChangeLastname} readOnly={isReadonly} />
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Age')}</p>
-                <Input
-                    type='number'
-                    value={data?.age}
-                    onChange={onChangeAge}
-                    readOnly={isReadonly}
-                />
+                <dt>{t('Age')}</dt>
+                <dd>
+                    <Input
+                        type='number'
+                        value={data?.age}
+                        onChange={onChangeAge}
+                        readOnly={isReadonly}
+                    />
+                </dd>
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Country')}</p>
-                <CountrySelect
-                    value={data?.country}
-                    onChange={onChangeCountry}
-                    disabled={isReadonly}
-                />
+                <dt>{t('Country')}</dt>
+                <dd>
+                    <CountrySelect
+                        value={data?.country}
+                        onChange={onChangeCountry}
+                        disabled={isReadonly}
+                    />
+                </dd>
             </div>
             <div className={s.fieldBlock}>
-                <p>{t('Currency')}</p>
-                <CurrencySelect
-                    value={data?.currency}
-                    onChange={onChangeCurrency}
-                    disabled={isReadonly}
-                />
+                <dt>{t('Currency')}</dt>
+                <dd>
+                    <CurrencySelect
+                        value={data?.currency}
+                        onChange={onChangeCurrency}
+                        disabled={isReadonly}
+                    />
+                </dd>
             </div>
         </VStack>
     );

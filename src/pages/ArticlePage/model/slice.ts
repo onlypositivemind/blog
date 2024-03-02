@@ -40,7 +40,7 @@ const articlePageCommentsSlice = createSlice({
             )
             .addCase(getArticleComments.rejected, (state, { payload }) => {
                 state.isCommentsLoading = false;
-                state.commentsErrorMessage = payload;
+                state.commentsErrorMessage = payload as string;
             })
             .addCase(createArticleComment.pending, (state) => {
                 state.isCreateCommentLoading = true;

@@ -1,6 +1,8 @@
 import type { User } from '@/entities/User';
 
-export interface AuthResponse {
+interface AuthResponse {
     accessToken: string;
     user: User;
 }
+
+export type { AuthResponse };

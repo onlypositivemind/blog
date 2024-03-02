@@ -18,7 +18,7 @@ const LogoComponent = ({ className, theme = 'primary', isLink = true }: LogoProp
     const classes = [className, s[theme]];
     const content = (
         <>
-            <h2>Blog</h2>
+            <span>Blog</span>
             <AppIcon Icon={LogoIcon} size='2xl' />
         </>
     );

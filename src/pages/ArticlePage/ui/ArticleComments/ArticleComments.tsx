@@ -36,7 +36,7 @@ export const ArticleComments = ({ articleId }: ArticleCommentsProps) => {
     }, [articleId]);
 
     return (
-        <div>
+        <>
             <CommentForm
                 onSendComment={handleSendComment}
                 isLoading={isCommentsLoading}
@@ -50,6 +50,6 @@ export const ArticleComments = ({ articleId }: ArticleCommentsProps) => {
                 isNewCommentLoading={isCreateCommentLoading}
                 errorMessage={commentsErrorMessage}
             />
-        </div>
+        </>
     );
 };

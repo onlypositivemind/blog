@@ -20,23 +20,27 @@ export const CommentCard = ({ createdAt, text, user, isLoading, className }: Com
     }
 
     return (
-        <div className={cn(s.card, className)}>
-            <HStack align='center' gap={4} className='mb-3'>
+        <article className={cn(s.card, className)}>
+            <HStack as='header' align='center' gap={4} className='mb-3'>
                 <AppLink to={getRouteProfile(user.username)} className={s.profileLink}>
-                    <Avatar size={40} src={user.avatar} />
+                    <Avatar
+                        size={40}
+                        src={user.avatar}
+                        alt={`Avatar of the ${user.username} user`}
+                    />
                     <span>{user.username}</span>
                 </AppLink>
                 {createdAt && (
-                    <span className={s.date}>
+                    <time dateTime={createdAt} className={s.date}>
                         {dateTimeFormat({
                             date: createdAt,
                             lang: currentLanguage,
                             options: DateTimeFormatOptions.FULL_LONG,
                         })}
-                    </span>
+                    </time>
                 )}
             </HStack>
             <p className={s.comment}>{text}</p>
-        </div>
+        </article>
     );
 };

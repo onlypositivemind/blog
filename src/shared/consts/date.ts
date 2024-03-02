@@ -1,4 +1,4 @@
-export const DateTimeFormatOptions = {
+const DateTimeFormatOptions = {
     BASE: {
         year: 'numeric',
         month: '2-digit',
@@ -12,3 +12,5 @@ export const DateTimeFormatOptions = {
         minute: '2-digit',
     },
 } as const;
+
+export { DateTimeFormatOptions };

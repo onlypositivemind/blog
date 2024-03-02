@@ -26,7 +26,7 @@ const articleSlice = createSlice({
             .addCase(getArticle.rejected, (state, { payload }) => {
                 state.isLoading = false;
                 state.data = undefined;
-                state.errorMessage = payload;
+                state.errorMessage = payload as string;
             });
     },
 });

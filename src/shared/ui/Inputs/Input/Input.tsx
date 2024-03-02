@@ -60,7 +60,7 @@ const InputComponent = ({
             {hasClearIcon && (
                 <Button
                     theme='clear'
-                    aria-label='cross-for-cleaning'
+                    aria-label='Clear'
                     onClick={handleClear}
                     className={s.clearBtn}
                 >

@@ -1,9 +1,10 @@
-import type { ImgHTMLAttributes, ReactElement } from 'react';
+import type { CSSProperties, ImgHTMLAttributes, ReactElement } from 'react';
 import { memo, useLayoutEffect, useState } from 'react';
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     fallback?: ReactElement;
     errorFallback?: ReactElement;
+    objectFit?: CSSProperties['objectFit'];
     className?: string;
 }
 
@@ -13,6 +14,7 @@ const AppImageComponent = ({
     className,
     src,
     alt,
+    objectFit = 'cover',
     ...restProps
 }: AppImageProps) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -38,7 +40,7 @@ const AppImageComponent = ({
         return errorFallback;
     }
 
-    return <img className={className} src={src} alt={alt} {...restProps} />;
+    return <img className={className} src={src} alt={alt} style={{ objectFit }} {...restProps} />;
 };
 
 export const AppImage = memo(AppImageComponent);

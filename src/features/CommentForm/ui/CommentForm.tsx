@@ -48,8 +48,8 @@ const CommentForm = ({
     }
 
     return (
-        <div className={className}>
-            <p className={s.formTitle}>{t('CommentFormTitle')}</p>
+        <section className={className}>
+            <h2 className={s.formTitle}>{t('CommentFormTitle')}</h2>
             {isLoading ? (
                 <CommentFormSkeleton />
             ) : (
@@ -68,7 +68,7 @@ const CommentForm = ({
                     </Button>
                 </form>
             )}
-        </div>
+        </section>
     );
 };
 

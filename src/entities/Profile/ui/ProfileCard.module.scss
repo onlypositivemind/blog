@@ -4,9 +4,13 @@
     gap: 8px;
     width: 100%;
 
-    p {
+    dt {
         min-width: 85px;
         max-width: 85px;
+    }
+
+    dd {
+        width: 100%;
     }
 }
 

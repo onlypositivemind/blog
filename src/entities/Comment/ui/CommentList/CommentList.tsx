@@ -37,25 +37,27 @@ export const CommentList = ({
     }
 
     return (
-        <div className={className}>
-            <HStack align='center' gap={8} className='mb-3'>
-                <p className={s.title}>{t('CommentListTitle')}</p>
+        <section className={className}>
+            <HStack as='h2' align='center' gap={8} className={s.title}>
+                {t('CommentListTitle')}
                 {isLoading
                     ? null
-                    : isCommentsExist && <p className={s.commentsQty}>{comments.length}</p>}
+                    : isCommentsExist && <span className={s.commentsQty}>{comments.length}</span>}
             </HStack>
-            <VStack gap={24}>
+            <VStack as='ul' gap={24}>
                 {isNewCommentLoading && <CommentCardSkeleton />}
                 {isLoading ? (
                     <CommentListSkeleton />
                 ) : isCommentsExist ? (
                     comments.map(({ id, createdAt, text, user }) => (
-                        <CommentCard key={id} createdAt={createdAt} text={text} user={user} />
+                        <li key={id}>
+                            <CommentCard createdAt={createdAt} text={text} user={user} />
+                        </li>
                     ))
                 ) : (
                     <p className={s.empty}>{t('EmptyCommentList')}</p>
                 )}
             </VStack>
-        </div>
+        </section>
     );
 };

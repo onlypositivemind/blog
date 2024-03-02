@@ -19,6 +19,7 @@ const ThemeSwitcherComponent = ({ className }: ThemeSwitcherProps) => {
             size='xl'
             theme='clear_white'
             onClick={toggleTheme}
+            aria-label='Switch theme'
             className={cn(s.toggleBtn, className)}
         >
             <AppIcon Icon={ThemeIcon} color='white' />

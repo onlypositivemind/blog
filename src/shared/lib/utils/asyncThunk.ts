@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getErrorMessageAsyncThunk = (err: unknown, errMessage: string) => {
+const getErrorMessageAsyncThunk = (err: unknown, errMessage: string) => {
     let resultErrorMessage = errMessage;
 
     if (axios.isAxiosError(err)) {
@@ -9,3 +9,5 @@ export const getErrorMessageAsyncThunk = (err: unknown, errMessage: string) => {
 
     return resultErrorMessage;
 };
+
+export { getErrorMessageAsyncThunk };

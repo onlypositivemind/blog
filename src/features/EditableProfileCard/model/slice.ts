@@ -37,7 +37,7 @@ const editableProfileCardSlice = createSlice({
                 state.isReadonly = true;
                 state.data = undefined;
                 state.form = undefined;
-                state.errorMessage = payload;
+                state.errorMessage = payload as string;
             })
             .addCase(updateProfile.rejected, (state, { payload }) => {
                 state.isLoading = false;

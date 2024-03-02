@@ -20,6 +20,7 @@ const LangSwitcherComponent = ({ className }: LangSwitcherProps) => {
             size='2xl'
             theme='clear'
             onClick={toggleLanguage}
+            aria-label='Switch language'
             className={cn(s.toggleBtn, className)}
         >
             <LangIcon />
