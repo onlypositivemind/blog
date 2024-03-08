@@ -23,7 +23,7 @@ const createReduxStore = (
         middleware: (gDM) => gDM({ thunk: { extraArgument: { api: $api } } }),
     });
 
-    // @ts-ignore TODO
+    // @ts-ignore TODO types
     store.reducerManager = reducerManager;
 
     return store;

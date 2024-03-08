@@ -2,7 +2,7 @@
 /node_modules
 /.idea
 /storybook-static
-/reports
-/coverage
+/.reports
+/.coverage
 
 todo.txt

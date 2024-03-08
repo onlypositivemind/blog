@@ -32,7 +32,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
     return (
         <VStack
             className={cn(s.sidebar, className, { [s.collapsed]: isCollapsed })}
-            dataTestId='sidebar'
+            dataTestId='Sidebar'
         >
             <Navbar collapsed={isCollapsed} />
             <HStack align='center' justify='center' gap={8} className={s.switchers}>
@@ -44,7 +44,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 theme='clear'
                 onClick={toggleSidebar}
                 className={s.toggleBtn}
-                data-testid='toggleBtn'
+                data-testid='ToggleBtn'
             >
                 <AppIcon Icon={ToggleIcon} size='l' color='white' />
             </Button>

@@ -21,7 +21,6 @@ const AppIconComponent = ({
     className,
     ...restProps
 }: AppIconProps) => (
-    // TODO добавить span role='img'
     <Icon className={cn(className, s.appIcon, s[color], s[`size_${size}`])} {...restProps} />
 );
 

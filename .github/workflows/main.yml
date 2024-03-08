@@ -35,8 +35,8 @@ jobs:
                 run: npm run lint:scss
                 if: always()
 
-            -   name: Testing
-                run: npm run test
+            -   name: Unit testing
+                run: npm run test:unit
                 if: always()
 
             -   name: Telegram notification

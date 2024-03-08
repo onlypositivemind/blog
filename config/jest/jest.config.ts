@@ -21,4 +21,17 @@ export default {
         '^@/(.*)$': '<rootDir>/src/$1',
     },
     transformIgnorePatterns: ['node_modules/(?!axios)'],
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/.reports/unit',
+                filename: 'report.html',
+                openReport: false,
+                inlineSource: true,
+            },
+        ],
+    ],
+    coverageDirectory: '.coverage',
 };

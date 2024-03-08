@@ -55,8 +55,8 @@ const CommentForm = ({
             ) : (
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <textarea
-                        disabled={disabled}
                         placeholder={t('CommentFormPlaceholder')}
+                        disabled={disabled}
                         {...register('comment', {
                             required: true,
                         })}

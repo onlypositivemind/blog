@@ -1,4 +1,3 @@
-export type { SelectOption } from './Select/Select';
 export { AppIcon } from '@/shared/ui/AppIcon/AppIcon';
 export { AppImage } from './AppImage/AppImage';
 export { AppLink } from './AppLink/AppLink';
@@ -17,3 +16,5 @@ export { Select } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Spin } from './Spin/Spin';
 export { VStack } from './Stack/VStack/VStack';
+
+export type { SelectOption } from './Select/Select';
