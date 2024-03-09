@@ -69,13 +69,13 @@ const Flex = ({
 }: FlexProps) => (
     <Element
         className={cn(
-            className,
             FlexClasses[flex],
             DirectionClasses[direction],
             AlignClasses[align],
             JustifyClasses[justify],
             gap && GapClasses[gap],
             { [s.max]: max },
+            className,
         )}
         data-testid={dataTestId}
     >

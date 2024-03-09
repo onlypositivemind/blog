@@ -30,7 +30,7 @@ const ButtonComponent = ({
     ...props
 }: ButtonProps) => (
     <button
-        className={cn(className, s.button, s[theme], s[`size_${size}`], { [s.disabled]: disabled })}
+        className={cn(s.button, s[theme], s[`size_${size}`], { [s.disabled]: disabled }, className)}
         disabled={disabled}
         {...props}
     >

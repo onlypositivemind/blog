@@ -18,8 +18,8 @@ const commentText = 'Some comment';
 const commentResponse: Comment = {
     id: 123,
     createdAt: '2222-02-22T00:00:00.000Z',
+    author: { username: userAuthDataMock.username, avatar: userAuthDataMock.avatar },
     text: commentText,
-    user: { username: userAuthDataMock.username, avatar: userAuthDataMock.avatar },
 };
 
 describe('articlePage/createArticleComment AsyncThunk', () => {

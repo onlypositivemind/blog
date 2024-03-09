@@ -24,7 +24,7 @@ const AppLinkComponent = ({
     size = 'xl',
     ...props
 }: AppLinkProps) => (
-    <Link to={to} className={cn(className, s.appLink, s[theme], s[`size_${size}`])} {...props}>
+    <Link to={to} className={cn(s.appLink, s[theme], s[`size_${size}`], className)} {...props}>
         {children}
     </Link>
 );

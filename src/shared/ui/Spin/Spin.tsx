@@ -6,7 +6,7 @@ interface SpinProps {
 }
 
 export const Spin = ({ className }: SpinProps) => (
-    <div className={cn(className, s.spin)}>
+    <div className={cn(s.spin, className)}>
         <div />
         <div />
         <div />

@@ -6,12 +6,12 @@ interface ArticleTextBlockProps {
 }
 
 export const ArticleTextBlock = ({ block }: ArticleTextBlockProps) => (
-    <div>
+    <section>
         {block.title && <h3 className={s.title}>{block.title}</h3>}
         {block.paragraphs.map((par, i) => (
             <p key={i} className={s.paragraph}>
                 {par}
             </p>
         ))}
-    </div>
+    </section>
 );

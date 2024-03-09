@@ -28,13 +28,13 @@ interface ArticleProps {
 
 const renderBlock = (block: ArticleBlock) => {
     switch (block.type) {
-        case 'CODE':
+        case 'code':
             return <ArticleCodeBlock key={block.id} block={block} />;
 
-        case 'IMAGE':
+        case 'image':
             return <ArticleImageBlock key={block.id} block={block} />;
 
-        case 'TEXT':
+        case 'text':
             return <ArticleTextBlock key={block.id} block={block} />;
 
         default:
@@ -73,7 +73,7 @@ const ArticleComponent = ({ id, className }: ArticleProps) => {
                         <VStack>
                             <VStack gap={4} className={s.title}>
                                 <h1>{article.title}</h1>
-                                <span>{article.subtitle}</span>
+                                <p>{article.subtitle}</p>
                             </VStack>
                             <VStack gap={4}>
                                 <HStack align='center' gap={4}>

@@ -16,8 +16,8 @@ const CopyButtonComponent = ({ text, className }: CopyButtonProps) => {
     const { handleCopy, isCopied } = useCopy();
 
     return (
-        <div className={cn(className, { [s.copied]: isCopied })}>
-            <Button onClick={handleCopy(text)} size='xl' aria-label='Copy'>
+        <div className={cn({ [s.copied]: isCopied }, className)}>
+            <Button size='xl' onClick={handleCopy(text)} aria-label='Copy'>
                 <AppIcon Icon={isCopied ? CheckIcon : CopyIcon} className={s.copyIcon} />
             </Button>
         </div>

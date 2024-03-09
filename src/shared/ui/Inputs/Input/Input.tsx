@@ -46,7 +46,7 @@ const InputComponent = ({
     }, []);
 
     return (
-        <div className={cn(className, s.inputWrapper)} style={wrapperStyle}>
+        <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>
             <input
                 ref={inputRef}
                 value={value}

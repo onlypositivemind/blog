@@ -50,7 +50,7 @@ const EditableProfileCardHeaderComponent = ({
                 />
                 <HStack align='center' gap={4}>
                     <AppIcon Icon={UserIcon} size='m' />
-                    <h1>{username}</h1>
+                    <p>{username}</p>
                 </HStack>
             </VStack>
             {hasEdit && (

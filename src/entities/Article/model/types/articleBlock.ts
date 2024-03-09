@@ -1,21 +1,21 @@
 interface ArticleBaseBlock {
     id: string;
-    type: 'CODE' | 'IMAGE' | 'TEXT';
+    type: 'code' | 'image' | 'text';
 }
 
 interface ArticleCodeBlock extends ArticleBaseBlock {
-    type: 'CODE';
+    type: 'code';
     code: string;
 }
 
 interface ArticleImageBlock extends ArticleBaseBlock {
-    type: 'IMAGE';
+    type: 'image';
     src: string;
     title?: string;
 }
 
 interface ArticleTextBlock extends ArticleBaseBlock {
-    type: 'TEXT';
+    type: 'text';
     paragraphs: string[];
     title?: string;
 }

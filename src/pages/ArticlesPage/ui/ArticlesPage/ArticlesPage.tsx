@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom';
-import { getRouteArticle } from '@/shared/consts';
-
 // eslint-disable-next-line i18next/no-literal-string
-const ArticlesPage = () => <Link to={getRouteArticle('1')}>Article 1</Link>;
+import { ArticleList } from '@/entities/Article';
+
+const ArticlesPage = () => {
+    return (
+        <div>
+            <ArticleList articles={[]} appearance='card' isLoading={false} />
+        </div>
+    );
+};
 
 export default ArticlesPage;

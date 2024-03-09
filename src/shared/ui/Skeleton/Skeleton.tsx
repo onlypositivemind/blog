@@ -25,7 +25,7 @@ const SkeletonComponent = ({
 
     return (
         <div
-            className={cn(className, s.skeleton, borderRadius && s[`radius_${borderRadius}`])}
+            className={cn(s.skeleton, borderRadius && s[`radius_${borderRadius}`], className)}
             style={styles}
         />
     );

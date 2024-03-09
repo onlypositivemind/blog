@@ -10,7 +10,7 @@ interface CodeProps {
 
 const CodeComponent = ({ className, code }: CodeProps) => (
     <div className={s.codeWrapper}>
-        <pre className={cn(className, s.code)}>
+        <pre className={cn(s.code, className)}>
             <code>{code}</code>
             <CopyButton text={code} className={s.copyBtn} />
         </pre>

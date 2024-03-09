@@ -26,7 +26,7 @@ const AvatarComponent = ({ src, alt, size = 50, objectFit = 'cover', className }
             src={src || defaultAvatarImage}
             alt={alt}
             fallback={<Skeleton width={size} height={size} borderRadius='circle' />}
-            className={cn(className, s.avatarWrapper)}
+            className={cn(s.avatarWrapper, className)}
             style={styles}
         />
     );

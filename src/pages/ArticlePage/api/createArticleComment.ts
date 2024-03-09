@@ -38,8 +38,8 @@ const createArticleComment = createAsyncThunk<
         return {
             id: data.id,
             createdAt: data.createdAt,
+            author: { username: userAuthData.username, avatar: userAuthData.avatar },
             text: props.comment,
-            user: { username: userAuthData.username, avatar: userAuthData.avatar },
         };
     } catch (err) {
         return rejectWithValue(

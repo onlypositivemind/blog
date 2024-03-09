@@ -6,7 +6,7 @@ interface ArticleTextBlockProps {
 }
 
 export const ArticleImageBlock = ({ block }: ArticleTextBlockProps) => (
-    <VStack align='center' gap={8}>
+    <VStack as='section' align='center' gap={8}>
         <AppImage
             src={block.src}
             fallback={<Skeleton height={200} />}

@@ -5,4 +5,8 @@ interface ArticleCodeBlockProps {
     block: IArticleCodeBlock;
 }
 
-export const ArticleCodeBlock = ({ block }: ArticleCodeBlockProps) => <Code code={block.code} />;
+export const ArticleCodeBlock = ({ block }: ArticleCodeBlockProps) => (
+    <section>
+        <Code code={block.code} />
+    </section>
+);

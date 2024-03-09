@@ -21,7 +21,7 @@ const AppIconComponent = ({
     className,
     ...restProps
 }: AppIconProps) => (
-    <Icon className={cn(className, s.appIcon, s[color], s[`size_${size}`])} {...restProps} />
+    <Icon className={cn(s.appIcon, s[color], s[`size_${size}`], className)} {...restProps} />
 );
 
 export const AppIcon = memo(AppIconComponent);

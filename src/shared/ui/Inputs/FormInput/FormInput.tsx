@@ -14,7 +14,7 @@ export const FormInput = forwardRef((props: InputProps, ref: ForwardedRef<HTMLIn
     const { className, errorMessage, ariaDescribedby, wrapperStyle, ...restProps } = props;
 
     return (
-        <div className={cn(className, s.inputWrapper)} style={wrapperStyle}>
+        <div className={cn(s.inputWrapper, className)} style={wrapperStyle}>
             <input
                 ref={ref}
                 className={cn(s.input, s.formInput, { [s.error]: errorMessage })}

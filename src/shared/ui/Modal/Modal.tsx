@@ -62,7 +62,7 @@ export const Modal = ({
 
     return (
         <Portal>
-            <div className={cn(className, s.modalWrapper, { [s.opened]: isOpen })}>
+            <div className={cn(s.modalWrapper, { [s.opened]: isOpen }, className)}>
                 <div className={s.overlay} onClick={hasCloseClickOutside ? onClose : undefined}>
                     <div
                         className={s.content}

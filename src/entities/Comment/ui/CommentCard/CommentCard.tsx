@@ -12,7 +12,13 @@ interface CommentCardProps extends Omit<Comment, 'id'> {
     className?: string;
 }
 
-export const CommentCard = ({ createdAt, text, user, isLoading, className }: CommentCardProps) => {
+export const CommentCard = ({
+    createdAt,
+    text,
+    author,
+    isLoading,
+    className,
+}: CommentCardProps) => {
     const { currentLanguage } = useLanguage();
 
     if (isLoading) {
@@ -22,13 +28,13 @@ export const CommentCard = ({ createdAt, text, user, isLoading, className }: Com
     return (
         <article className={cn(s.card, className)}>
             <HStack as='header' align='center' gap={4} className='mb-3'>
-                <AppLink to={getRouteProfile(user.username)} className={s.profileLink}>
+                <AppLink to={getRouteProfile(author.username)} className={s.profileLink}>
                     <Avatar
                         size={40}
-                        src={user.avatar}
-                        alt={`Avatar of the ${user.username} user`}
+                        src={author.avatar}
+                        alt={`Avatar of the ${author.username} user`}
                     />
-                    <span>{user.username}</span>
+                    <span>{author.username}</span>
                 </AppLink>
                 {createdAt && (
                     <time dateTime={createdAt} className={s.date}>

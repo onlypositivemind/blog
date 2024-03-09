@@ -51,7 +51,7 @@ server.get('/articlesComments', (req, res) => {
             .map(({ id, createdAt, text, userId }) => {
                 const author = users.find((user) => user.id === userId);
 
-                return { id, createdAt, text, user: { username: author?.username, avatar: author?.avatar } };
+                return { id, createdAt, text, author: { username: author?.username, avatar: author?.avatar } };
             });
 
         return res.json(comments);

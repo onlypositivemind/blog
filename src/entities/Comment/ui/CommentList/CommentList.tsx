@@ -49,9 +49,9 @@ export const CommentList = ({
                 {isLoading ? (
                     <CommentListSkeleton />
                 ) : isCommentsExist ? (
-                    comments.map(({ id, createdAt, text, user }) => (
+                    comments.map(({ id, createdAt, text, author }) => (
                         <li key={id}>
-                            <CommentCard createdAt={createdAt} text={text} user={user} />
+                            <CommentCard createdAt={createdAt} text={text} author={author} />
                         </li>
                     ))
                 ) : (

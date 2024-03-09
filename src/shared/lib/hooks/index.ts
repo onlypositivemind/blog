@@ -4,3 +4,4 @@ export * from './useCopy';
 export * from './useHover';
 export * from './useLanguage';
 export * from './useTheme';
+export * from './useThrottle';

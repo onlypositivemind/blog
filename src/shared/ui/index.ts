@@ -12,6 +12,7 @@ export { Loader } from './Loader/Loader';
 export { Logo } from './Logo/Logo';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
+export { ScrollTopButton } from './Button/ScrollTopButton/ScrollTopButton';
 export { Select } from './Select/Select';
 export { Skeleton } from './Skeleton/Skeleton';
 export { Spin } from './Spin/Spin';
